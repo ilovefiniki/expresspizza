@@ -109,7 +109,7 @@
                         <label for="name" data-inline="true">Имя:</label>
                         <input type="text" value="" name="name" id="name"/>
                     </div> 
-					<div data-role="fieldcontain">
+		<!--			<div data-role="fieldcontain">
 					<label for="tel">Телефон:</label>
                     <select name="kod" id="kod">
                        <option value="velcom">Velcom</option>
@@ -145,7 +145,7 @@
 					<div data-role="fieldcontain">
                         <label for="primechanie">Примечание:</label>
                         <input type="text" value="" name="primechanie" id="primechanie"/>
-                    </div> 
+                    </div>  -->
                     <input type="button" data-theme="b" name="submit" id="submit" value="Отправить">
                 </fieldset>
 			</form>
@@ -284,14 +284,14 @@ $.getJSON("http://express-pizza.by/tovarjson",
 }); 
 //---------------------Форма заказа-------------------------------------------------------------------------------------
 
-$(document).on('pagebeforeshow', '#checkout', function(){ 
+$(document).on('pagebeforeshow', '#checkout', function(){ /*
 var checkout=JSON.parse(sessionStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		}
     $.mobile.loading( "hide" );
-	}
+	} */
 });
 //---------------------Заказ завершен-------------------------------------------------------------------------------------
 
