@@ -146,7 +146,7 @@
                         <label for="primechanie">Примечание:</label>
                         <input type="text" value="" name="primechanie" id="primechanie"/>
                     </div> 
-                    <input type="button" data-theme="b" name="submit" id="submit" value="Отправить">
+                    <input type="button" data-theme="b" name="submit" id="submit" value="Отправить" onsubmit='return false;'>
                 </fieldset>
 			</form>
 			  </div>
@@ -178,6 +178,7 @@ var term = {
 	title : null,
 }
 var cart= [];
+if(!sessionStorage.getItem('cart'))
 sessionStorage.setItem('cart', JSON.stringify(cart));
 var order=[];
 //------------------------Отправка заказа----------------------------------------------------------------------------------
@@ -264,7 +265,7 @@ $(this).parent().remove();
 updateCart();
 });
 
-//---------------------Загрузка товаров с сайта-------------------------------------------------------------------------------------
+//---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
 
 $(document).ready(function(){
 
@@ -274,6 +275,15 @@ $.mobile.loading( "show", {
 	theme: 'a',
 	html: ""
 });
+//----- поля формы ----------
+var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+ 	if(checkout) {
+	    for(key in checkout) {
+		$('form input#'+key).attr('value', checkout[key]);
+		}
+    $.mobile.loading( "hide" );
+	}
+//----- загрузка товаров -----
 $.getJSON("http://express-pizza.by/tovarjson",
     function(data){
 	sessionStorage.setItem('tovars', JSON.stringify(data));
@@ -284,7 +294,6 @@ $.getJSON("http://express-pizza.by/tovarjson",
 //---------------------Форма заказа-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#checkout', function(){ 
-/*
 var checkout=JSON.parse(sessionStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
@@ -292,7 +301,6 @@ var checkout=JSON.parse(sessionStorage.getItem('checkout'));
 		}
     $.mobile.loading( "hide" );
 	}
-	*/
 });
 //---------------------Заказ завершен-------------------------------------------------------------------------------------
 
@@ -307,7 +315,7 @@ $(document).on('pagebeforeshow', '#cart', function(){
     cart = JSON.parse(sessionStorage.getItem('cart'));
           for (key in cart) {
 		    if(cart[key]) {
-              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+cart[key].price+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
+              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+money(cart[key].price)+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
 			}
           }; 
 		  $('#cart-list').listview('refresh'); 
