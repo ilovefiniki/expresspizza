@@ -41,7 +41,6 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
@@ -69,15 +68,27 @@ body {
     }
 }
 
-h1 {
+h1,h2,h3,h4 {
     font-size:24px;
-    font-weight:normal;
+    font-weight: bold;
     margin:0px;
     overflow:visible;
     padding:0px;
     text-align:center;
 }
-
+h2 {
+    font-size:22px;
+    font-weight: normal;
+ 
+}
+h3 {
+    font-size:20px;
+       font-weight: normal;
+}
+h4 {
+    font-size:18px;
+    font-weight: normal;
+}
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -113,8 +124,24 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+.header{
+text-align:center;
+width:100%;
+}
 .header img{
-margin: 0 auto;
-width: 300px;
-display: block;
+width: inherit;
+padding: 10px 0;
+}
+
+#cart-footer{
+text-align:center;
+}
+#cart-footer span, #home-footer span, #tovar-footer span{
+padding:10px;
+display:block;
+text-align:center;
+}
+
+a.ui-shadow-icon.ui-btn.ui-shadow.ui-btn-c, a.ui-link.ui-btn.ui-btn-c{
+font-size:14px;
 }

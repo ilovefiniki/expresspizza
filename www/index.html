@@ -33,7 +33,7 @@
 	<script src="js/jquery.js"></script>
 	<script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
         
-        <title>Hello World</title>
+        <title>Express Pizza</title>
     </head>
     <body>
 
@@ -46,7 +46,7 @@
 			</div>
 			
 			  <div data-role="content">
-							<ul data-role="listview" id="menu-list" >
+							<ul data-role="listview" id="menu-list" data-inset="true" >
 								<li><a href="" term="pizza" data-prefetch><h2>Пицца</h2></a></li>
 								<li><a href="" term="pirogi"><h2>Пироги</h2></a></li>
 								<li><a href="" term="togo"><h2>Пицца TOGO</h2></a></li>
@@ -68,8 +68,8 @@
 
 <!--------------------------------------------Tovar template---------------------------->	
      <div data-role="page" id="tovar">
-			<div class="header" data-role="header" data-position="fixed" data-theme="c">
-				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="c" data-inline="true">Bars</a>
+			<div class="header" data-role="header" data-position="fixed" data-theme="d">
+				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="d" data-inline="true">Bars</a>
 				<h1 id="header-title"></h1>
 			</div>
 			  <div data-role="content">
@@ -83,7 +83,7 @@
 
 <!--------------------------------------------Cart template---------------------------->	
      <div data-role="page" id="cart">
-			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+			<div class="header" data-role="header" data-position="fixed" data-theme="d">
 				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
 				<h1 id="header-title">Корзина</h1>
 			</div>
@@ -98,7 +98,7 @@
 		
 <!--------------------------------------------Checkout template---------------------------->	
      <div data-role="page" id="checkout">
-			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+			<div class="header" data-role="header" data-position="fixed" data-theme="d">
 				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
 				<h1 id="header-title">Оформление заказа</h1>
 			</div>
@@ -108,7 +108,7 @@
                     <div data-role="fieldcontain">
                         <label for="name" data-inline="true">Имя:</label>
                         <input type="text" value="" name="name" id="name"/>
-                    </div>  <!--
+                    </div> 
 					<div data-role="fieldcontain">
 					<label for="tel">Телефон:</label>
                     <select name="kod" id="kod">
@@ -145,7 +145,7 @@
 					<div data-role="fieldcontain">
                         <label for="primechanie">Примечание:</label>
                         <input type="text" value="" name="primechanie" id="primechanie"/>
-                    </div> -->
+                    </div> 
                     <input type="button" data-theme="b" name="submit" id="submit" value="Отправить">
                 </fieldset>
 			</form>
@@ -306,7 +306,7 @@ $(document).on('pagebeforeshow', '#cart', function(){
     cart = JSON.parse(sessionStorage.getItem('cart'));
           for (key in cart) {
 		    if(cart[key]) {
-              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+cart[key].price+'р</h4></a><a href="" type="remove-from-cart" nid='+cart[key].nid+'>Remove</a></li>');
+              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+cart[key].price+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
 			}
           }; 
 		  $('#cart-list').listview('refresh'); 
@@ -322,7 +322,7 @@ $(document).on('pagebeforeshow', '#tovar', function(){
 		    if(item.node.term.toLowerCase().indexOf(term.name) >= 0) {
 			  if(!item.node.text)
 			  item.node.text='';
-              $('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" nid='+item.node.nid+'>Buy</a></li>');
+              $('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" data-theme="e" nid='+item.node.nid+'>Buy</a></li>');
 			}
           }); 
 		  $('#tovar-list').listview('refresh'); 
@@ -341,12 +341,14 @@ for (key in cart) {
   total+=cart[key].price*cart[key]['qty'];
   }
 };
-	
-$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><a href="#cart" data-icon="arrow-r" data-theme="c" data-inline="true">'+qty+' товаров на '+money(total)+' р</a></li></ul></div>');
+if(qty>0 && total>0)	
+$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="left"><ul><li><a href="#cart" data-icon="shop" data-theme="c" data-inline="true" class="ui-shadow-icon ui-btn ui-shadow ui-btn-icon-left">'+qty+' товаров на '+money(total)+' р</a></li></ul></div>');
+else 
+$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><span>Ваша корзина пуста</span></li></ul></div>');
 if(qty>0 && total>0)
-$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li>'+qty+' товаров на '+money(total)+' р<a href="#checkout" data-icon="arrow-r" data-theme="c" data-inline="true">Оформить заказ</a></li></ul></div>');
+$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><span>'+qty+' товаров на '+money(total)+' р</span><a href="#checkout" data-icon="check" data-theme="c" data-inline="true">Оформить заказ</a></li></ul></div>');
 else
-$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li>'+qty+' товаров на '+money(total)+' р</li></ul></div>');
+$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><span>Ваша корзина пуста</span></li></ul></div>');
 
 $('[data-role="footer"]').trigger('create');
 }
