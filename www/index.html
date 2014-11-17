@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" href="css/themes/pizza.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.css" />
+	<script src="js/jquery.js"></script>
+	<script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
+        
+        <title>Hello World</title>
+    </head>
+    <body>
+
+	
+<!----------------------------------------Home page----------------------------->	
+    <div data-role="page" id="home">
+	
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<img src="img/logo.png"/>
+			</div>
+			
+			  <div data-role="content">
+							<ul data-role="listview" id="menu-list" >
+								<li><a href="" term="pizza" data-prefetch><h2>Пицца</h2></a></li>
+								<li><a href="" term="pirogi"><h2>Пироги</h2></a></li>
+								<li><a href="" term="togo"><h2>Пицца TOGO</h2></a></li>
+								<li><a href="" term="salati"><h2>Салаты</h2></a></li>
+								<li><a href="" term="sous"><h2>Соусы</h2></a></li>
+								<li><a href="" term="napitki"><h2>Напитки</h2></a></li>
+								<li><a href="" term="soki"><h2>Соки</h2></a></li>
+							</ul>
+
+						
+	
+			  </div>
+			
+			<div data-role="footer" data-position="fixed" id="home-footer">
+			</div>
+	
+    </div>
+<!---------------------------------------------Home page------------------------>	
+
+<!--------------------------------------------Tovar template---------------------------->	
+     <div data-role="page" id="tovar">
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="c" data-inline="true">Bars</a>
+				<h1 id="header-title"></h1>
+			</div>
+			  <div data-role="content">
+				<ul data-role="listview" id="tovar-list" data-split-icon="plus" >
+				</ul>
+			  </div>
+			<div data-role="footer" data-position="fixed" id="tovar-footer">
+			</div>
+    </div>
+<!--------------------------------------------Tovar template---------------------------->
+
+<!--------------------------------------------Cart template---------------------------->	
+     <div data-role="page" id="cart">
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
+				<h1 id="header-title">Корзина</h1>
+			</div>
+			  <div data-role="content">
+				<ul data-role="listview" id="cart-list" data-split-icon="delete" >
+				</ul>
+			  </div>
+			<div data-role="footer" data-position="fixed" id="cart-footer">
+			</div>
+    </div>
+<!--------------------------------------------Cart template---------------------------->
+		
+<!--------------------------------------------Checkout template---------------------------->	
+     <div data-role="page" id="checkout">
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
+				<h1 id="header-title">Оформление заказа</h1>
+			</div>
+			  <div data-role="content">
+			<form id="form-checkout" data-ajax="false">
+				<fieldset>
+                    <div data-role="fieldcontain">
+                        <label for="name" data-inline="true">Имя:</label>
+                        <input type="text" value="" name="name" id="name"/>
+                    </div> 
+					<div data-role="fieldcontain">
+					<label for="tel">Телефон:</label>
+                    <select name="kod" id="kod">
+                       <option value="velcom">Velcom</option>
+                       <option value="mts">МТС</option>
+                       <option value="life">Life:)</option>
+                       <option value="gorod">Городской</option>
+					</select>
+					</div>
+					<div data-role="fieldcontain">
+                        <input type="text" value="" name="tel" id="tel" data-mini="true"/>
+                    </div>
+<fieldset data-role="controlgroup">
+    <legend class="ui-hidden-accessible">Доставка:</legend>
+    <label for="dostavka">Доставка</label>
+    <input name="dostavka" id="dostavka" type="checkbox" checked="checked" data-theme="a">
+</fieldset>
+					<div data-role="fieldcontain">                                     
+                        <label for="adres">Улица:</label>
+                        <input type="text" value="" name="adres" id="adres" data-mini="true"/>
+                    </div>
+					<div data-role="fieldcontain">
+    					<label for="house_num">Дом:</label>
+                        <input type="text" value="" name="house_num" id="house_num" data-mini="true"/>
+					</div>
+					<div data-role="fieldcontain">
+					    <label for="korpus">Корпус:</label>
+                        <input type="text" value="" name="korpus" id="korpus" data-mini="true"/>
+					</div>
+					<div data-role="fieldcontain">
+  					    <label for="kvartira">Квартира:</label>
+                        <input type="text" value="" name="kvartira" id="kvartira" data-mini="true"/>
+                    </div>
+					<div data-role="fieldcontain">
+                        <label for="primechanie">Примечание:</label>
+                        <input type="text" value="" name="primechanie" id="primechanie"/>
+                    </div> 
+                    <input type="button" data-theme="b" name="submit" id="submit" value="Отправить">
+                </fieldset>
+			</form>
+			  </div>
+			<div data-role="footer" data-position="fixed" id="checkout-footer">
+			</div>
+    </div>
+<!--------------------------------------------Checkout template---------------------------->		
+
+<!--------------------------------------------Checkout template---------------------------->	
+     <div data-role="page" id="complete">
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
+				<h1 id="header-title">Заказ отправлен</h1>
+			</div>
+			  <div data-role="content">
+               
+			  </div>
+			<div data-role="footer" data-position="fixed" id="complete-footer">
+			</div>
+    </div>
+<!--------------------------------------------Checkout template---------------------------->	
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+<script>
+
+
+var term = {
+    name : null,
+	title : null,
+}
+var cart= [];
+sessionStorage.setItem('cart', JSON.stringify(cart));
+var order=[];
+//------------------------Отправка заказа----------------------------------------------------------------------------------
+$(document).on('click', '#submit', function() { // catch the form's submit event
+            if($('#name').val().length > 0 && $('#tel').val().length > 0){
+                // Send data to server through the ajax call
+                // action is functionality we want to call and outputJSON is our data
+                    $.ajax({url: 'http://express-pizza.by/checkout.php',
+                        data: {action : 'checkout', formData : $('#form-checkout').serialize()+'&cart='+sessionStorage.getItem('cart')},
+                        type: 'post',                  
+                        async: 'true',
+                        dataType: 'json',
+                        beforeSend: function() {
+                            // This callback function will trigger before data is sent
+                            	$.mobile.loading( "show" ); // This will show ajax spinner
+								var checkout = {};
+								$('form input').each(function(){
+								if($(this).attr('id'))
+								checkout[$(this).attr('id')]=$(this).val();
+								});
+								sessionStorage.setItem('checkout', JSON.stringify(checkout));
+
+                        },
+                        complete: function() {
+                            // This callback function will trigger on data sent/received complete
+                            	$.mobile.loading( "hide" ); // This will hide ajax spinner
+                        },
+                        success: function (result) {
+                            if(result.status) {
+							    order=result;
+                                clearCart();
+                                $.mobile.changePage("#complete");                        
+                            } else {
+                                alert('Упс. Ошибка отправки заказа:( Попробуйте еще раз.');
+                            }
+                        },
+                        error: function (request,error) {
+                            // This callback function will trigger on unsuccessful action               
+                            alert('Упс. Ошибка отправки заказа:( Возможно отсутствует подключение к интернету.');
+                        }
+                    });                  
+            } else {
+                alert('Заполните все поля.');
+            }          
+            return false; // cancel original event to prevent form submitting
+        });
+//------------------------Выбор категории товара----------------------------------------------------------------------------------
+
+$(document).on('vclick', '#menu-list li a', function(){  
+    term.name = $(this).attr('term');
+	term.title = $(this).children().html();
+	$.mobile.loading( "show" );
+    $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
+});
+//--------------------------Добавление товара--------------------------------------------------------------------------------
+$(document).on('vclick', '#tovar-list li a[type="add-to-cart"]', function(){  
+var nid = $(this).attr('nid');
+cart = JSON.parse(sessionStorage.getItem('cart'));
+        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+		    if(item.node.nid==nid) {
+			  if(cart.length>0) {
+			    if(cart[nid])
+			    cart[nid].qty+=1;
+			    else{
+			         cart[nid]=item.node;
+			         cart[nid]['qty']=1;
+			         } 
+			  }else {
+			         cart[nid]=item.node;
+			         cart[nid]['qty']=1;
+			         }
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            }
+          }); 
+  updateCart();
+});
+//--------------------------Удаление товара--------------------------------------------------------------------------------
+$(document).on('vclick', '#cart-list li a[type="remove-from-cart"]', function(){  
+var nid = $(this).attr('nid');
+cart = JSON.parse(sessionStorage.getItem('cart'));
+delete cart[nid];
+sessionStorage.setItem('cart', JSON.stringify(cart));
+$(this).parent().remove();
+updateCart();
+});
+
+//---------------------Загрузка товаров с сайта-------------------------------------------------------------------------------------
+
+$(document).ready(function(){
+
+$.mobile.loading( "show", {
+	text: 'Загрузка меню...',
+	textVisible: true,
+	theme: 'a',
+	html: ""
+});
+$.getJSON("http://express-pizza.by/tovarjson",
+    function(data){
+	sessionStorage.setItem('tovars', JSON.stringify(data));
+	$.mobile.loading( "hide" );
+	});
+ updateCart();
+}); 
+//---------------------Форма заказа-------------------------------------------------------------------------------------
+
+$(document).on('pagebeforeshow', '#checkout', function(){ 
+var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+ 	if(checkout) {
+	    for(key in checkout) {
+		$('form input#'+key).attr('value', checkout[key]);
+		}
+    $.mobile.loading( "hide" );
+	}
+});
+//---------------------Заказ завершен-------------------------------------------------------------------------------------
+
+$(document).on('pagebeforeshow', '#complete', function(){ 
+$('#complete [data-role="content"]').html(order.msg);
+$.mobile.loading( "hide" );
+});
+//---------------------Корзина-------------------------------------------------------------------------------------
+
+$(document).on('pagebeforeshow', '#cart', function(){ 
+ 	$('#cart-list').empty();
+    cart = JSON.parse(sessionStorage.getItem('cart'));
+          for (key in cart) {
+		    if(cart[key]) {
+              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+cart[key].price+'р</h4></a><a href="" type="remove-from-cart" nid='+cart[key].nid+'>Remove</a></li>');
+			}
+          }; 
+		  $('#cart-list').listview('refresh'); 
+		  $.mobile.loading( "hide" );
+});
+//---------------------Товары-------------------------------------------------------------------------------------
+
+$(document).on('pagebeforeshow', '#tovar', function(){   
+ 	$('#tovar-list').empty();
+	$('#tovar h1#header-title').html(term.title);
+	
+        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+		    if(item.node.term.toLowerCase().indexOf(term.name) >= 0) {
+			  if(!item.node.text)
+			  item.node.text='';
+              $('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" nid='+item.node.nid+'>Buy</a></li>');
+			}
+          }); 
+		  $('#tovar-list').listview('refresh'); 
+		  $.mobile.loading( "hide" );
+		
+	});	
+//---------------------Обновление корзины-------------------------------------------------------------------------------------
+
+function updateCart() {
+cart = JSON.parse(sessionStorage.getItem('cart'));
+var qty = 0;
+var total = 0;
+for (key in cart) {
+  if(cart[key]) {
+  qty+=cart[key]['qty'];
+  total+=cart[key].price*cart[key]['qty'];
+  }
+};
+	
+$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><a href="#cart" data-icon="arrow-r" data-theme="c" data-inline="true">'+qty+' товаров на '+money(total)+' р</a></li></ul></div>');
+if(qty>0 && total>0)
+$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li>'+qty+' товаров на '+money(total)+' р<a href="#checkout" data-icon="arrow-r" data-theme="c" data-inline="true">Оформить заказ</a></li></ul></div>');
+else
+$('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li>'+qty+' товаров на '+money(total)+' р</li></ul></div>');
+
+$('[data-role="footer"]').trigger('create');
+}
+
+//-----------------------Очистка корзины-----------------------------------------------------------------------------------
+function clearCart() {
+cart = JSON.parse(sessionStorage.getItem('cart'));
+for(key in cart)
+delete cart[key];
+sessionStorage.setItem('cart', JSON.stringify(cart));
+updateCart();
+}
+
+//-----------------------Денежный формат-----------------------------------------------------------------------------------
+function money(n) {
+	    n += "";
+	    n = new Array(4 - n.length % 3).join("U") + n;
+	    return n.replace(/([0-9U]{3})/g, "$1 ").replace(/U/g, "");
+}
+</script>
+    </body>
+</html>
