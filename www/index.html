@@ -277,12 +277,12 @@ $.mobile.loading( "show", {
 });
 //----- поля формы ----------
 var checkout=JSON.parse(sessionStorage.getItem('checkout'));
- 	if(checkout) {
+ /*	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		}
     $.mobile.loading( "hide" );
-	}
+	} */
 //----- загрузка товаров -----
 $.getJSON("http://express-pizza.by/tovarjson",
     function(data){
