@@ -46,19 +46,23 @@
 			</div>
 			
 			  <div data-role="content">
-							<ul data-role="listview" id="menu-list" data-inset="true" >
-								<li><a href="" term="pizza" data-prefetch><h2>Пицца</h2></a></li>
-								<li><a href="" term="pirogi"><h2>Пироги</h2></a></li>
-								<li><a href="" term="togo"><h2>Пицца TOGO</h2></a></li>
-								<li><a href="" term="salati"><h2>Салаты</h2></a></li>
-								<li><a href="" term="sous"><h2>Соусы</h2></a></li>
-								<li><a href="" term="napitki"><h2>Напитки</h2></a></li>
-								<li><a href="" term="soki"><h2>Соки</h2></a></li>
+							<ul data-role="listview" id="menu-list" data-inset="true" data-shadow="false" >
+								<li data-role="collapsible" data-iconpos="right" data-inset="false" data-theme="a">
+									<h2><img src="img/pizzs2.png"><p>Пиццы</p></h2>
+									<ul data-role="listview">
+									<li data-theme="f"><a class="term" href="" term="pizza23" data-prefetch><img src="img/pizz23.png"><h2>Пицца 23</h2></a></li>
+									<li data-theme="f"><a class="term" href="" term="pizza30" data-prefetch><img src="img/pizz30.png"><h2>Пицца 30</h2></a></li>
+									<li data-theme="f"><a class="term" href="" term="pizza36" data-prefetch><img src="img/pizz36.png"><h2>Пицца 36</h2></a></li>
+									</ul>
+								</li>
+								<li data-theme="a"><a class="term" href="" term="pirogi"><img src="img/pie.png"><h2>Пироги</h2></a></li>
+								<li data-theme="a"><a class="term" href="" term="togo"><img src="img/togo.png"><h2>Пицца TOGO</h2></a></li>
+								<li data-theme="a"><a class="term" href="" term="salati"><img src="img/salat.png"><h2>Салаты</h2></a></li>
+								<li data-theme="a"><a class="term" href="" term="sous"><img src="img/sousi.png"><h2>Соусы</h2></a></li>
+								<li data-theme="a"><a class="term" href="" term="napitki"><img src="img/fanta.png"><h2>Напитки</h2></a></li>
+								<li data-theme="a"><a class="term" href="" term="soki"><img src="img/sok2.png"><h2>Соки</h2></a></li>
 							</ul>
-
-						
-	
-			  </div>
+			</div>
 			
 			<div data-role="footer" data-position="fixed" id="home-footer">
 			</div>
@@ -67,14 +71,14 @@
 <!---------------------------------------------Home page------------------------>	
 
 <!--------------------------------------------Tovar template---------------------------->	
-     <div data-role="page" id="tovar">
-			<div class="header" data-role="header" data-position="fixed" data-theme="d">
-				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="d" data-inline="true">Bars</a>
+     <div data-role="page" id="tovar" data-cache="false">
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="c" data-inline="true">Bars</a>
 				<h1 id="header-title"></h1>
 			</div>
 			  <div data-role="content">
-				<ul data-role="listview" id="tovar-list" data-split-icon="plus" >
-				</ul>
+				<div id="tovar-list">
+				</div>
 			  </div>
 			<div data-role="footer" data-position="fixed" id="tovar-footer">
 			</div>
@@ -83,13 +87,15 @@
 
 <!--------------------------------------------Cart template---------------------------->	
      <div data-role="page" id="cart">
-			<div class="header" data-role="header" data-position="fixed" data-theme="d">
-				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l"  data-theme="c">Back</a>
 				<h1 id="header-title">Корзина</h1>
 			</div>
 			  <div data-role="content">
-				<ul data-role="listview" id="cart-list" data-split-icon="delete" >
-				</ul>
+				<!-- <ul data-role="listview" id="cart-list" data-split-icon="delete" >
+				</ul> -->
+				<div id="tovar-list">
+				</div>				
 			  </div>
 			<div data-role="footer" data-position="fixed" id="cart-footer">
 			</div>
@@ -98,8 +104,8 @@
 		
 <!--------------------------------------------Checkout template---------------------------->	
      <div data-role="page" id="checkout">
-			<div class="header" data-role="header" data-position="fixed" data-theme="d">
-				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
+			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l"  data-theme="c">Back</a>
 				<h1 id="header-title">Оформление заказа</h1>
 			</div>
 			  <div data-role="content">
@@ -116,6 +122,7 @@
                        <option value="mts">МТС</option>
                        <option value="life">Life:)</option>
                        <option value="gorod">Городской</option>
+					   <option value="drugoe">Другой</option>
 					</select>
 					</div>
 					<div data-role="fieldcontain">
@@ -155,19 +162,26 @@
     </div>
 <!--------------------------------------------Checkout template---------------------------->		
 
-<!--------------------------------------------Checkout template---------------------------->	
+<!--------------------------------------------Complete template---------------------------->	
      <div data-role="page" id="complete">
 			<div class="header" data-role="header" data-position="fixed" data-theme="c">
-				<a href="#" data-role="button" data-rel="back" data-iconpos="notext" data-icon="arrow-l">Back</a>
-				<h1 id="header-title">Заказ отправлен</h1>
+			<a href="#home" data-role="button" data-iconpos="notext" data-icon="bars"  data-theme="c">Back</a>
+				<h1 id="header-title">Готово!</h1>
+				
 			</div>
+			
 			  <div data-role="content">
-               
+				  <h3 class="ui-bar ui-bar-a ui-corner-all">Заказ отправлен</h3>
+				  <div id="complete-content" class="ui-body ui-body-a ui-corner-all">
+				   
+				  </div>
+				  <a href="#home" data-role="button" data-icon="home" data-theme="c" data-iconpos="left" data-inline="true">В начало</a>
 			  </div>
-			<div data-role="footer" data-position="fixed" id="complete-footer">
+			<div data-role="footer" data-position="fixed" id="complete-footer" data-theme="c"> 
+			<img src="img/logo.png"/>
 			</div>
     </div>
-<!--------------------------------------------Checkout template---------------------------->	
+<!--------------------------------------------Complete template---------------------------->	
 
 
 <script>
@@ -180,14 +194,28 @@ var term = {
 var cart= [];
 if(!sessionStorage.getItem('cart'))
 sessionStorage.setItem('cart', JSON.stringify(cart));
+
 var order=[];
 //------------------------Отправка заказа----------------------------------------------------------------------------------
 $(document).on('click', '#submit', function() { // catch the form's submit event
-            if($('#name').val().length > 0 && $('#tel').val().length > 0){
+            
+            if($('#name').val().length > 0 && $('#tel').val().length > 0){	
+            
+			// ---- чистим от пустых ячеек ----			
+			var cart = JSON.parse(sessionStorage.getItem('cart'));
+			var str = '';
+			var i=0;
+			for(key in cart) {
+			   if(cart[key]!=null) {
+			   i++;
+			   str+='&product'+i+'='+cart[key].nid+'&qty'+i+'='+cart[key].qty;
+			   }
+			}
+			//-----------------
                 // Send data to server through the ajax call
                 // action is functionality we want to call and outputJSON is our data
                     $.ajax({url: 'http://express-pizza.by/checkout.php',
-                        data: {action : 'checkout', formData : $('#form-checkout').serialize()+'&cart='+sessionStorage.getItem('cart')},
+                        data: {action : 'checkout', formData : $('#form-checkout').serialize()+str},
                         type: 'post',                  
                         async: 'true',
                         dataType: 'json',
@@ -227,41 +255,57 @@ $(document).on('click', '#submit', function() { // catch the form's submit event
         });
 //------------------------Выбор категории товара----------------------------------------------------------------------------------
 
-$(document).on('vclick', '#menu-list li a', function(){  
+$(document).on('vclick', '#menu-list li a.term', function(){  
     term.name = $(this).attr('term');
-	term.title = $(this).children().html();
+	term.title = $(this).text();
 	$.mobile.loading( "show" );
     $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
 });
 //--------------------------Добавление товара--------------------------------------------------------------------------------
-$(document).on('vclick', '#tovar-list li a[type="add-to-cart"]', function(){  
+$(document).on('vclick', '#tovar-list a[type="add-to-cart"]', function(){  
 var nid = $(this).attr('nid');
+var tovar_obj = $(this).parent().parent().parent();
 cart = JSON.parse(sessionStorage.getItem('cart'));
         $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
 		    if(item.node.nid==nid) {
 			  if(cart.length>0) {
-			    if(cart[nid])
+			    if(cart[nid]) {
 			    cart[nid].qty+=1;
+				}
 			    else{
 			         cart[nid]=item.node;
 			         cart[nid]['qty']=1;
+					 tovar_obj.addClass("active");
 			         } 
 			  }else {
 			         cart[nid]=item.node;
 			         cart[nid]['qty']=1;
+					 tovar_obj.addClass("active");
 			         }
             sessionStorage.setItem('cart', JSON.stringify(cart));
             }
-          }); 
+          });
+  $(this).parent().children('.qty').html(cart[nid]['qty']);		  
   updateCart();
 });
 //--------------------------Удаление товара--------------------------------------------------------------------------------
-$(document).on('vclick', '#cart-list li a[type="remove-from-cart"]', function(){  
+$(document).on('vclick', '#tovar-list a[type="remove-from-cart"]', function(){  
 var nid = $(this).attr('nid');
+var tovar_obj = $(this).parent();
 cart = JSON.parse(sessionStorage.getItem('cart'));
-delete cart[nid];
+        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+		    if(item.node.nid==nid) {
+            cart[nid].qty-=1;
+			tovar_obj.children('.qty').html(cart[nid].qty);	
+			    if(cart[nid].qty==0) {
+			    delete cart[nid];
+				tovar_obj.parent().parent().removeClass("active");
+				  if(tovar_obj.children('.cart-remove').html())
+                  tovar_obj.parent().parent().remove();
+				}
+            }
+          }); 
 sessionStorage.setItem('cart', JSON.stringify(cart));
-$(this).parent().remove();
 updateCart();
 });
 
@@ -276,15 +320,13 @@ $.mobile.loading( "show", {
 	html: ""
 });
 //----- поля формы ----------
-/*
-if(sessionStorage.getItem('checkout'))
 var checkout=JSON.parse(sessionStorage.getItem('checkout'));
-	if(checkout) {
+ 	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		}
     $.mobile.loading( "hide" );
-	} */
+	}
 //----- загрузка товаров -----
 $.getJSON("http://express-pizza.by/tovarjson",
     function(data){
@@ -307,39 +349,77 @@ var checkout=JSON.parse(sessionStorage.getItem('checkout'));
 //---------------------Заказ завершен-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#complete', function(){ 
-$('#complete [data-role="content"]').html(order.msg);
+$('#complete #complete-content').html(order.msg);
 $.mobile.loading( "hide" );
 });
 //---------------------Корзина-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#cart', function(){ 
- 	$('#cart-list').empty();
+ 	$('#cart #tovar-list').empty();
     cart = JSON.parse(sessionStorage.getItem('cart'));
-          for (key in cart) {
+          var i=0;
+		  for (key in cart) {
 		    if(cart[key]) {
-              $('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+money(cart[key].price)+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
+		    i++;
+			if(!cart[key].text)
+			cart[key].text='';		
+              //$('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+money(cart[key].price)+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
+              $('#cart #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' active" style="width:100%;"></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-a" style="width:80px;" ><div class="ui-body ui-body-d" style="height:115px"><img src="'+cart[key].image+'"></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-b"  style="min-width:180px;max-width:400px;"><div class="ui-body ui-body-d" style="height:115px"><h2>'+cart[key].title+'</h2><p>'+cart[key].text+'</p><h4>'+money(cart[key].price)+' р</h4></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-c"  style="width: 30px;position: absolute;right: 10px;"><div class="ui-body ui-body-d" style="height:115px"></div></div>');
+	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+cart[key].nid+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="e" class="ui-nodisc-icon ui-btn-icon-right">Buy</a>');
+	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<span class="qty">'+cart[key].qty+'</span>');
+	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+cart[key].nid+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" data-theme="c" class="cart-remove ui-nodisc-icon ui-btn-icon-right">Remove</a>');
+
 			}
           }; 
-		  $('#cart-list').listview('refresh'); 
+		  //$('#cart-list').listview('refresh');
+		  $("#cart #tovar-list").trigger("create");		  
 		  $.mobile.loading( "hide" );
 });
 //---------------------Товары-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#tovar', function(){   
- 	$('#tovar-list').empty();
+ 	$('#tovar #tovar-list').empty();
 	$('#tovar h1#header-title').html(term.title);
-	
+	cart = JSON.parse(sessionStorage.getItem('cart'));
+	var i=0;
         $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
 		    if(item.node.term.toLowerCase().indexOf(term.name) >= 0) {
+			var qty = 0;
 			  if(!item.node.text)
 			  item.node.text='';
-              $('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" data-theme="e" nid='+item.node.nid+'>Buy</a></li>');
-			}
+			  
+			  if(cart[item.node.nid]!=null)
+			  qty=cart[item.node.nid].qty;
+			  
+			  i++;
+			  
+			  var active='';
+			  if(qty>0)
+			  active='active';
+			  
+              //$('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" data-theme="e" nid='+item.node.nid+'>Buy</a></li>');
+              $('#tovar #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' '+active+'"></div>').trigger("create");
+              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+item.node.image+'"></div></div>').trigger("create");
+              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></div></div>').trigger("create");
+              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>').trigger("create");
+	          $('#tovar #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+item.node.nid+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="e" class="ui-nodisc-icon ui-btn-icon-right">Buy</a>');
+	          $('#tovar #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<span class="qty">'+qty+'</span>');
+	          $('#tovar #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+item.node.nid+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" data-theme="c" class="ui-nodisc-icon ui-btn-icon-right">Remove</a>');
+
+			  }
           }); 
-		  $('#tovar-list').listview('refresh'); 
+		  //$('#tovar-list').listview('refresh'); 
+		  $("#tovar-list").trigger("create");
 		  $.mobile.loading( "hide" );
 		
 	});	
+	
+
+
+						
 //---------------------Обновление корзины-------------------------------------------------------------------------------------
 
 function updateCart() {
@@ -367,8 +447,11 @@ $('[data-role="footer"]').trigger('create');
 //-----------------------Очистка корзины-----------------------------------------------------------------------------------
 function clearCart() {
 cart = JSON.parse(sessionStorage.getItem('cart'));
-for(key in cart)
-delete cart[key];
+//for(key in cart)
+//cart.splice(key,1);
+//delete cart;
+cart = [];
+
 sessionStorage.setItem('cart', JSON.stringify(cart));
 updateCart();
 }

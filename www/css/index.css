@@ -79,15 +79,17 @@ h1,h2,h3,h4 {
 h2 {
     font-size:22px;
     font-weight: normal;
- 
+    text-align:left;
 }
 h3 {
     font-size:20px;
-       font-weight: normal;
+    font-weight: normal; 
+	text-align:left;
 }
 h4 {
     font-size:18px;
     font-weight: normal;
+	text-align:left;
 }
 .event {
     border-radius:4px;
@@ -124,11 +126,11 @@ h4 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-.header{
+.header, #complete-footer{
 text-align:center;
 width:100%;
 }
-.header img{
+.header img, #complete-footer img{
 width: inherit;
 padding: 10px 0;
 }
@@ -141,7 +143,152 @@ padding:10px;
 display:block;
 text-align:center;
 }
-
-a.ui-shadow-icon.ui-btn.ui-shadow.ui-btn-c, a.ui-link.ui-btn.ui-btn-c{
-font-size:14px;
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+margin: 0;
 }
+.ui-li-static.ui-collapsible {
+padding: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > .ui-btn {
+border-top-width: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+border-bottom-width: 0;
+}
+a.ui-shadow-icon.ui-btn.ui-shadow.ui-btn-c, a.ui-link.ui-btn.ui-btn-c{
+font-size:16px;
+}
+.ui-listview > .ui-li-static {
+padding: 0 !important;
+}
+
+
+#menu-list.ui-listview > .ui-li-has-thumb > .ui-btn, 
+#menu-list.ui-listview > .ui-li-static.ui-li-has-thumb,
+#menu-list.ui-listview .ui-listview > .ui-li-has-thumb > .ui-btn, 
+#menu-list.ui-listview .ui-listview > .ui-li-static.ui-li-has-thumb {
+min-height: 1.625em;
+padding-left: 6.25em;
+}
+
+ul#menu-list  li.ui-collapsible img {
+max-width: 3.8em;
+max-height: 3.8em;
+padding: 0;
+margin-right: 1em;
+position: absolute;
+top: 0;
+left: 1em;
+}
+#menu-list.ui-listview .ui-li-has-thumb > img:first-child, 
+#menu-list.ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, 
+#menu-list.ui-listview .ui-li-has-thumb .ui-li-thumb {
+position: absolute;
+left: 1em;
+top: 0;
+max-height: 4em;
+max-width: 4em;
+}
+ul#menu-list  li.ui-collapsible p{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+margin-left: 5.2em;
+}
+ul#menu-list  li ul li h2{
+/*font-size: 0.8em;*/
+}
+
+h3.ui-bar.ui-bar-a.ui-corner-all {
+margin-top: 1em;
+margin-bottom: 1em;
+}
+
+/*плитка товара*/
+
+.tovari.ui-grid-b {
+margin: 0;
+width: auto;
+border-bottom: 1px solid #eee;
+padding:0 10px;
+}
+.tovari .ui-body.ui-body-d {
+min-height: 115px;
+border: medium none;
+
+padding: 0;
+}
+#tovar-list .tovari .ui-block-b {
+min-width: 180px;
+position: absolute;
+left: 90px;
+width: 57%;
+}
+#tovar-list .tovari .ui-block-a{
+width: 80px;
+}
+#tovar-list .tovari .ui-block-c{
+width: 30px;
+position: absolute;
+right: 10px;
+}
+#tovar-list .tovari .ui-block-a .ui-body-d,
+#tovar-list .tovari .ui-block-b .ui-body-d,
+#tovar-list .tovari .ui-block-c  .ui-body-d{
+height: 115px;
+}
+/*Картинка*/
+.tovari .ui-block-a .ui-body-d{
+padding:0;
+
+}
+.tovari .ui-block-a .ui-body-d img{
+width: 80px;
+height: auto;
+margin-top: 1em;
+}
+/*описание и цена*/
+.tovari .ui-block-b .ui-body-d h2{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+margin-left: 20px;
+}
+
+
+
+.tovari .ui-block-b .ui-body-d p{
+font-size: .75em;
+font-weight: normal;
+display: block;
+margin: .6em 0;
+margin-left: 20px;
+}
+.tovari .ui-block-b .ui-body-d h4{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+margin-left: 20px;
+}
+/*кнопки*/
+.tovari .ui-block-c .ui-body.ui-body-d{
+width:30px;
+text-align:center;
+}
+#tovar .ui-content{
+padding:1em 0;
+}
+/*плитка товара конец*/
