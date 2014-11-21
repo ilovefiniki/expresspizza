@@ -25,16 +25,6 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -224,10 +214,17 @@ border: medium none;
 padding: 0;
 }
 #tovar-list .tovari .ui-block-b {
-min-width: 180px;
+/*min-width: 180px;
 position: absolute;
 left: 90px;
-width: 57%;
+width: 57%;*/
+min-width: 45%;
+position: relative;
+left: 0;
+/* width: 50%; */
+/* overflow: hidden; */
+max-width: 48%;
+width: auto;
 }
 #tovar-list .tovari .ui-block-a{
 width: 80px;
@@ -240,7 +237,7 @@ right: 10px;
 #tovar-list .tovari .ui-block-a .ui-body-d,
 #tovar-list .tovari .ui-block-b .ui-body-d,
 #tovar-list .tovari .ui-block-c .ui-body-d{
-height: 130px;
+/*height: 130px;*/
 }
 /*Картинка*/
 .tovari .ui-block-a .ui-body-d{
@@ -258,8 +255,8 @@ font-size: 1em;
 font-weight: bold;
 display: block;
 margin: .45em 0;
-text-overflow: ellipsis;
-overflow: hidden;
+/*text-overflow: ellipsis;
+overflow: hidden;*/
 white-space: nowrap;
 margin-left: 20px;
 }
@@ -278,8 +275,8 @@ font-size: 1em;
 font-weight: bold;
 display: block;
 margin: .45em 0;
-text-overflow: ellipsis;
-overflow: hidden;
+/*text-overflow: ellipsis;
+overflow: hidden;*/
 white-space: nowrap;
 margin-left: 20px;
 }

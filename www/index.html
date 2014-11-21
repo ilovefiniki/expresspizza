@@ -364,10 +364,10 @@ $(document).on('pagebeforeshow', '#cart', function(){
 			if(!cart[key].text)
 			cart[key].text='';		
               //$('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+money(cart[key].price)+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
-              $('#cart #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' active" style="width:100%;"></div>');
-              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-a" style="width:80px;" ><div class="ui-body ui-body-d" style="height:115px"><img src="'+cart[key].image+'"></div></div>');
-              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-b"  style="min-width:180px;max-width:400px;"><div class="ui-body ui-body-d" style="height:115px"><h2>'+cart[key].title+'</h2><p>'+cart[key].text+'</p><h4>'+money(cart[key].price)+' р</h4></div></div>');
-              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-c"  style="width: 30px;position: absolute;right: 10px;"><div class="ui-body ui-body-d" style="height:115px"></div></div>');
+              $('#cart #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' active"></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+cart[key].image+'"></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><h2>'+cart[key].title+'</h2><p>'+cart[key].text+'</p><h4>'+money(cart[key].price)+' р</h4></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>');
 	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+cart[key].nid+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="e" class="ui-nodisc-icon ui-btn-icon-right">Buy</a>');
 	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<span class="qty">'+cart[key].qty+'</span>');
 	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+cart[key].nid+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" data-theme="c" class="cart-remove ui-nodisc-icon ui-btn-icon-right">Remove</a>');
