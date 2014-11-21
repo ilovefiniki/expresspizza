@@ -239,8 +239,8 @@ right: 10px;
 }
 #tovar-list .tovari .ui-block-a .ui-body-d,
 #tovar-list .tovari .ui-block-b .ui-body-d,
-#tovar-list .tovari .ui-block-c  .ui-body-d{
-height: 115px;
+#tovar-list .tovari .ui-block-c .ui-body-d{
+height: 130px;
 }
 /*Картинка*/
 .tovari .ui-block-a .ui-body-d{
@@ -288,7 +288,14 @@ margin-left: 20px;
 width:30px;
 text-align:center;
 }
-#tovar .ui-content{
-padding:1em 0;
+#tovar .ui-content,
+#cart .ui-content{
+padding:0;
+}
+#tovar-list .tovari.ui-grid-b.active .ui-block-a .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active .ui-block-b .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active .ui-block-c .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active {
+background:#f7f7ef;
 }
 /*плитка товара конец*/
