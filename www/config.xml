@@ -14,7 +14,7 @@
     <preference name="phonegap-version" value="3.5.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
     <preference name="stay-in-webview" value="false" />
     <preference name="ios-statusbarstyle" value="black-opaque" />
@@ -63,7 +63,10 @@
 <icon src="icon-40.png" gap:platform="ios" width="40" height="40" />
 <icon src="icon-40@2x.png" gap:platform="ios" width="80" height="80" />
 
+ 
 
+    <icon gap:platform="winphone" src="icon-48.png" />
+    <icon gap:platform="winphone" gap:role="background" src="icon-62-tile.png" />
 	
 	 <icon src="icon.png"  />
 	 
@@ -83,10 +86,7 @@
 
   
  
- 
-    <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
-    <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173-tile.png" />
- <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-62-tile.png" />
+
 
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />

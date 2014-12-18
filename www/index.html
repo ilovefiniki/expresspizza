@@ -32,10 +32,10 @@
     <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.4.5.css" />
 	<script src="js/jquery.js"></script>
 	<script src="jquerymobile/jquery.mobile-1.4.5.min.js"></script>
-        
+    <script src="js/jquery.validate.js"></script>    
         <title>Express Pizza</title>
     </head>
-    <body>
+    <body  onload="onLoad()">
 
 	
 <!----------------------------------------Home page----------------------------->	
@@ -71,7 +71,7 @@
 <!---------------------------------------------Home page------------------------>	
 
 <!--------------------------------------------Tovar template---------------------------->	
-     <div data-role="page" id="tovar" data-cache="false">
+     <div data-role="page" id="tovar">
 			<div class="header" data-role="header" data-position="fixed" data-theme="c">
 				<a href="#home" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="c" data-inline="true">Bars</a>
 				<h1 id="header-title"></h1>
@@ -113,7 +113,7 @@
 				<fieldset>
                     <div data-role="fieldcontain">
                         <label for="name" data-inline="true">Имя:</label>
-                        <input type="text" value="" name="name" id="name"/>
+                        <input type="text" value="" name="imya" id="imya" class="required"/>
                     </div> 
 					<div data-role="fieldcontain">
 					<label for="tel">Телефон:</label>
@@ -126,7 +126,7 @@
 					</select>
 					</div>
 					<div data-role="fieldcontain">
-                        <input type="text" value="" name="tel" id="tel" data-mini="true"/>
+                        <input type="text" value="" name="tel" id="tel" data-mini="true" class="required"/>
                     </div>
 <fieldset data-role="controlgroup">
     <legend class="ui-hidden-accessible">Доставка:</legend>
@@ -153,10 +153,13 @@
                         <label for="primechanie">Примечание:</label>
                         <input type="text" value="" name="primechanie" id="primechanie"/>
                     </div> 
-                    <input type="button" data-theme="b" name="submit" id="submit" value="Отправить" onsubmit='return false;'>
+                    <input type="button" data-theme="b" name="submit" id="submit" value="Отправить" onsubmit='return false;' >
                 </fieldset>
 			</form>
 			  </div>
+<script>
+
+</script>
 			<div data-role="footer" data-position="fixed" id="checkout-footer">
 			</div>
     </div>
@@ -191,18 +194,171 @@ var term = {
     name : null,
 	title : null,
 }
+
 var cart= [];
 if(!sessionStorage.getItem('cart'))
 sessionStorage.setItem('cart', JSON.stringify(cart));
+else
+cart = JSON.parse(sessionStorage.getItem('cart'));
 
+var tovars= [];
+if(!sessionStorage.getItem('tovars'))
+sessionStorage.setItem('tovars', JSON.stringify(tovars));
+else
+tovars = JSON.parse(sessionStorage.getItem('tovars'));
 var order=[];
+
+    // Wait for device API libraries to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);	
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        document.addEventListener("pause", onPause, false);
+		document.addEventListener("resume", onResume, false);
+    }
+
+    // Handle the pause event
+    //
+    function onPause() {
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+	sessionStorage.setItem('tovars', JSON.stringify(tovars));
+    }
+
+    // Handle the resume event
+    //
+    function onResume() {
+    cart = JSON.parse(sessionStorage.getItem('cart'));
+	tovars = JSON.parse(sessionStorage.getItem('tovars'));
+    }
+
+//---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
+
+$(document).ready(function(){
+
+$.mobile.loading( "show", {
+	text: 'Загрузка меню...',
+	textVisible: true,
+	theme: 'a',
+	html: ""
+});
+//----- поля формы ----------
+var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+ 	if(checkout) {
+	    for(key in checkout) {
+		$('form input#'+key).attr('value', checkout[key]);
+		}
+    $.mobile.loading( "hide" );
+	}
+//----- загрузка товаров -----
+$.getJSON("http://express-pizza.by/tovarjson",
+    function(data){
+	tovars = data;
+	sessionStorage.setItem('tovars', JSON.stringify(data));
+	$.mobile.loading( "hide" );
+	});
+	
+	
+ updateCart();
+}); 
+//------------------------Выбор категории товара----------------------------------------------------------------------------------
+
+$(document).on('vclick', '#menu-list li a.term', function(){  
+    term.name = $(this).attr('term');
+	term.title = $(this).text();
+	$.mobile.loading( "show" );
+    $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
+});
+//--------------------------Добавление товара--------------------------------------------------------------------------------
+$(document).on('vclick', '#tovar-list a[type="add-to-cart"]', function(){  
+var nid = $(this).attr('nid');
+var tovar_obj = $(this).parent().parent().parent();
+//cart = JSON.parse(sessionStorage.getItem('cart'));
+//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+          $.each(tovars.Items, function(i,item){
+		    if(item.node.nid==nid) {
+			  if(cart.length>0) {
+			    if(cart[nid]) {
+			    cart[nid].qty+=1;
+				}
+			    else{
+			         cart[nid]=item.node;
+			         cart[nid]['qty']=1;
+					 tovar_obj.addClass("active");
+			         } 
+			  }else {
+			         cart[nid]=item.node;
+			         cart[nid]['qty']=1;
+					 tovar_obj.addClass("active");
+			         }
+            //sessionStorage.setItem('cart', JSON.stringify(cart));
+            }
+          }); 
+  $(this).parent().children('.qty').html(cart[nid]['qty']);		  
+ //$(this).parent().children('.qty').html(parseInt($(this).parent().children('.qty').text())+1);		  
+  updateCart();
+});
+//--------------------------Удаление товара--------------------------------------------------------------------------------
+$(document).on('vclick', '#tovar-list a[type="remove-from-cart"]', function(){  
+var nid = $(this).attr('nid');
+var tovar_obj = $(this).parent();
+//cart = JSON.parse(sessionStorage.getItem('cart'));
+//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+          $.each(tovars.Items, function(i,item){
+		    if(item.node.nid==nid) {
+            cart[nid].qty-=1;
+			tovar_obj.children('.qty').html(cart[nid].qty);	
+			    if(cart[nid].qty==0) {
+			    delete cart[nid];
+				tovar_obj.parent().parent().removeClass("active");
+				  if(tovar_obj.children('.cart-remove').html())
+                  tovar_obj.parent().parent().remove();
+				}
+            }
+          }); 
+//sessionStorage.setItem('cart', JSON.stringify(cart));
+updateCart();
+});
+
+//---------------------Форма заказа-------------------------------------------------------------------------------------
+
+$(document).on('pagebeforeshow', '#checkout', function(){ 
+var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+ 	if(checkout) {
+	    for(key in checkout) {
+		$('form input#'+key).attr('value', checkout[key]);
+		}
+    $.mobile.loading( "hide" );
+	}
+});
+
+
 //------------------------Отправка заказа----------------------------------------------------------------------------------
 $(document).on('click', '#submit', function() { // catch the form's submit event
-            
+/*
+var validator = $( "#form-checkout" ).validate({
+	errorPlacement: function(error, element) {
+if (element.attr("name") === "favcolor") {
+error.insertAfter($(element).parent());
+} else {
+error.insertAfter(element);
+}
+} 
+});
+validator.showErrors({
+"imya": "Заполните имя",
+"tel": "Заполните телефон"
+});
+*/
+//validator.element( "#name" );
+
             if($('#name').val().length > 0 && $('#tel').val().length > 0){	
             
 			// ---- чистим от пустых ячеек ----			
-			var cart = JSON.parse(sessionStorage.getItem('cart'));
+			//var cart = JSON.parse(sessionStorage.getItem('cart'));
 			var str = '';
 			var i=0;
 			for(key in cart) {
@@ -253,99 +409,7 @@ $(document).on('click', '#submit', function() { // catch the form's submit event
             }          
             return false; // cancel original event to prevent form submitting
         });
-//------------------------Выбор категории товара----------------------------------------------------------------------------------
 
-$(document).on('vclick', '#menu-list li a.term', function(){  
-    term.name = $(this).attr('term');
-	term.title = $(this).text();
-	$.mobile.loading( "show" );
-    $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
-});
-//--------------------------Добавление товара--------------------------------------------------------------------------------
-$(document).on('vclick', '#tovar-list a[type="add-to-cart"]', function(){  
-var nid = $(this).attr('nid');
-var tovar_obj = $(this).parent().parent().parent();
-cart = JSON.parse(sessionStorage.getItem('cart'));
-        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
-		    if(item.node.nid==nid) {
-			  if(cart.length>0) {
-			    if(cart[nid]) {
-			    cart[nid].qty+=1;
-				}
-			    else{
-			         cart[nid]=item.node;
-			         cart[nid]['qty']=1;
-					 tovar_obj.addClass("active");
-			         } 
-			  }else {
-			         cart[nid]=item.node;
-			         cart[nid]['qty']=1;
-					 tovar_obj.addClass("active");
-			         }
-            sessionStorage.setItem('cart', JSON.stringify(cart));
-            }
-          });
-  $(this).parent().children('.qty').html(cart[nid]['qty']);		  
-  updateCart();
-});
-//--------------------------Удаление товара--------------------------------------------------------------------------------
-$(document).on('vclick', '#tovar-list a[type="remove-from-cart"]', function(){  
-var nid = $(this).attr('nid');
-var tovar_obj = $(this).parent();
-cart = JSON.parse(sessionStorage.getItem('cart'));
-        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
-		    if(item.node.nid==nid) {
-            cart[nid].qty-=1;
-			tovar_obj.children('.qty').html(cart[nid].qty);	
-			    if(cart[nid].qty==0) {
-			    delete cart[nid];
-				tovar_obj.parent().parent().removeClass("active");
-				  if(tovar_obj.children('.cart-remove').html())
-                  tovar_obj.parent().parent().remove();
-				}
-            }
-          }); 
-sessionStorage.setItem('cart', JSON.stringify(cart));
-updateCart();
-});
-
-//---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
-
-$(document).ready(function(){
-
-$.mobile.loading( "show", {
-	text: 'Загрузка меню...',
-	textVisible: true,
-	theme: 'a',
-	html: ""
-});
-//----- поля формы ----------
-var checkout=JSON.parse(sessionStorage.getItem('checkout'));
- 	if(checkout) {
-	    for(key in checkout) {
-		$('form input#'+key).attr('value', checkout[key]);
-		}
-    $.mobile.loading( "hide" );
-	}
-//----- загрузка товаров -----
-$.getJSON("http://express-pizza.by/tovarjson",
-    function(data){
-	sessionStorage.setItem('tovars', JSON.stringify(data));
-	$.mobile.loading( "hide" );
-	});
- updateCart();
-}); 
-//---------------------Форма заказа-------------------------------------------------------------------------------------
-
-$(document).on('pagebeforeshow', '#checkout', function(){ 
-var checkout=JSON.parse(sessionStorage.getItem('checkout'));
- 	if(checkout) {
-	    for(key in checkout) {
-		$('form input#'+key).attr('value', checkout[key]);
-		}
-    $.mobile.loading( "hide" );
-	}
-});
 //---------------------Заказ завершен-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#complete', function(){ 
@@ -356,7 +420,7 @@ $.mobile.loading( "hide" );
 
 $(document).on('pagebeforeshow', '#cart', function(){ 
  	$('#cart #tovar-list').empty();
-    cart = JSON.parse(sessionStorage.getItem('cart'));
+    //cart = JSON.parse(sessionStorage.getItem('cart'));
           var i=0;
 		  for (key in cart) {
 		    if(cart[key]) {
@@ -379,13 +443,18 @@ $(document).on('pagebeforeshow', '#cart', function(){
 		  $.mobile.loading( "hide" );
 });
 //---------------------Товары-------------------------------------------------------------------------------------
+$(document).on('pagebeforeshow', '#tovar', function(){ 
+$('#tovar #tovar-list').empty();
+$.mobile.loading( "show" );
+});
 
-$(document).on('pagebeforeshow', '#tovar', function(){   
- 	$('#tovar #tovar-list').empty();
+$(document).on('pageshow', '#tovar', function(){   
+ 	//$('#tovar #tovar-list').empty();
 	$('#tovar h1#header-title').html(term.title);
-	cart = JSON.parse(sessionStorage.getItem('cart'));
+	//cart = JSON.parse(sessionStorage.getItem('cart'));
 	var i=0;
-        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+          $.each(tovars.Items, function(i,item){
 		    if(item.node.term.toLowerCase().indexOf(term.name) >= 0) {
 			var qty = 0;
 			  if(!item.node.text)
@@ -423,7 +492,7 @@ $(document).on('pagebeforeshow', '#tovar', function(){
 //---------------------Обновление корзины-------------------------------------------------------------------------------------
 
 function updateCart() {
-cart = JSON.parse(sessionStorage.getItem('cart'));
+//cart = JSON.parse(sessionStorage.getItem('cart'));
 var qty = 0;
 var total = 0;
 for (key in cart) {
@@ -446,7 +515,7 @@ $('[data-role="footer"]').trigger('create');
 
 //-----------------------Очистка корзины-----------------------------------------------------------------------------------
 function clearCart() {
-cart = JSON.parse(sessionStorage.getItem('cart'));
+//cart = JSON.parse(sessionStorage.getItem('cart'));
 //for(key in cart)
 //cart.splice(key,1);
 //delete cart;

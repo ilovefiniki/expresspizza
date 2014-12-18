@@ -296,3 +296,12 @@ padding:0;
 background:#f7f7ef;
 }
 /*плитка товара конец*/
+
+label.error {
+
+color: red;
+padding-top: .9em;
+vertical-align: top;
+font-weight:bold
+} 
+
