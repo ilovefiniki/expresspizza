@@ -135,6 +135,7 @@
     <label for="dostavka">Доставка</label>
     <input name="dostavka" id="dostavka" type="checkbox" checked="checked" data-theme="a">
 </fieldset>
+<div id="adres-fields">  
 					<div data-role="fieldcontain">                                     
                         <label for="adres">Улица:</label>
                         <input type="text" value="" name="adres" id="adres" data-mini="true"/>
@@ -151,6 +152,7 @@
   					    <label for="kvartira">Квартира:</label>
                         <input type="text" value="" name="kvartira" id="kvartira" data-mini="true"/>
                     </div>
+</div>					
 					<div data-role="fieldcontain">
                         <label for="primechanie">Примечание:</label>
                         <input type="text" value="" name="primechanie" id="primechanie"/>
@@ -269,23 +271,12 @@ $.getJSON("http://express-pizza.by/tovarjson",
 
 
 //------------------------Поля доставки----------------------------------------------------------------------------------
-           $('#form-checkout #adres').parent().hide();
-	       $('#form-checkout #house_num').parent().hide();
-	       $('#form-checkout #korpus').parent().hide();
-	       $('#form-checkout #kvartira').parent().hide();
-
-$('#form-checkout #dostavka').on('change', function() { 
-
-    if (!this.checked) {
-    $('#form-checkout #adres').parent().show();
-	$('#form-checkout #house_num').parent().show();
-	$('#form-checkout #korpus').parent().show();
-	$('#form-checkout #kvartira').parent().show();
+          
+$('#form-checkout #dostavka').click(function() { 
+    if ($(this).is(":checked")) {
+	$('#adres-fields').show();
     } else {
-           $('#form-checkout #adres').parent().hide();
-	       $('#form-checkout #house_num').parent().hide();
-	       $('#form-checkout #korpus').parent().hide();
-	       $('#form-checkout #kvartira').parent().hide();	   
+           $('#adres-fields').hide();
 	       }
 	      
 });
