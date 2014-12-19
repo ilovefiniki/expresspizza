@@ -269,6 +269,11 @@ $.getJSON("http://express-pizza.by/tovarjson",
 
 
 //------------------------Поля доставки----------------------------------------------------------------------------------
+           $('#form-checkout #adres').parent().hide();
+	       $('#form-checkout #house_num').parent().hide();
+	       $('#form-checkout #korpus').parent().hide();
+	       $('#form-checkout #kvartira').parent().hide();
+
 $('#form-checkout #dostavka').on('change', function() { 
 
     if (!this.checked) {
