@@ -200,16 +200,16 @@ var term = {
 }
 
 var cart= [];
-if(!sessionStorage.getItem('cart'))
-sessionStorage.setItem('cart', JSON.stringify(cart));
+if(!window.localStorage.getItem('cart'))
+window.localStorage.setItem('cart', JSON.stringify(cart));
 else
-cart = JSON.parse(sessionStorage.getItem('cart'));
+cart = JSON.parse(window.localStorage.getItem('cart'));
 
 var tovars= [];
-if(!sessionStorage.getItem('tovars'))
-sessionStorage.setItem('tovars', JSON.stringify(tovars));
+if(!window.localStorage.getItem('tovars'))
+window.localStorage.setItem('tovars', JSON.stringify(tovars));
 else
-tovars = JSON.parse(sessionStorage.getItem('tovars'));
+tovars = JSON.parse(window.localStorage.getItem('tovars'));
 var order=[];
 
     // Wait for device API libraries to load
@@ -232,15 +232,15 @@ var order=[];
     // Handle the pause event
     //
     function onPause() {
-    sessionStorage.setItem('cart', JSON.stringify(cart));
-	sessionStorage.setItem('tovars', JSON.stringify(tovars));
+    window.localStorage.setItem('cart', JSON.stringify(cart));
+	window.localStorage.setItem('tovars', JSON.stringify(tovars));
     }
 
     // Handle the resume event
     //
     function onResume() {
-    cart = JSON.parse(sessionStorage.getItem('cart'));
-	tovars = JSON.parse(sessionStorage.getItem('tovars'));
+    cart = JSON.parse(window.localStorage.getItem('cart'));
+	tovars = JSON.parse(window.localStorage.getItem('tovars'));
     }
 
 //---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
@@ -254,7 +254,7 @@ $.mobile.loading( "show", {
 	html: ""
 });
 //----- поля формы ----------
-var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+var checkout=JSON.parse(window.localStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
@@ -265,7 +265,7 @@ var checkout=JSON.parse(sessionStorage.getItem('checkout'));
 $.getJSON("http://express-pizza.by/tovarjson",
     function(data){
 	tovars = data;
-	sessionStorage.setItem('tovars', JSON.stringify(data));
+	window.localStorage.setItem('tovars', JSON.stringify(data));
 	$.mobile.loading( "hide" );
 	});
 	
@@ -297,8 +297,8 @@ $(document).on('vclick', '#menu-list li a.term', function(){
 $(document).on('vclick', '#tovar-list a[type="add-to-cart"]', function(){  
 var nid = $(this).attr('nid');
 var tovar_obj = $(this).parent().parent().parent();
-//cart = JSON.parse(sessionStorage.getItem('cart'));
-//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+//cart = JSON.parse(window.localStorage.getItem('cart'));
+//        $.each(JSON.parse(window.localStorage.getItem('tovars')).Items, function(i,item){
           $.each(tovars.Items, function(i,item){
 		    if(item.node.nid==nid) {
 			  if(cart.length>0) {
@@ -315,7 +315,7 @@ var tovar_obj = $(this).parent().parent().parent();
 			         cart[nid]['qty']=1;
 					 tovar_obj.addClass("active");
 			         }
-            //sessionStorage.setItem('cart', JSON.stringify(cart));
+            //window.localStorage.setItem('cart', JSON.stringify(cart));
             }
           }); 
   $(this).parent().children('.qty').html(cart[nid]['qty']);		  
@@ -326,8 +326,8 @@ var tovar_obj = $(this).parent().parent().parent();
 $(document).on('vclick', '#tovar-list a[type="remove-from-cart"]', function(){  
 var nid = $(this).attr('nid');
 var tovar_obj = $(this).parent();
-//cart = JSON.parse(sessionStorage.getItem('cart'));
-//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+//cart = JSON.parse(window.localStorage.getItem('cart'));
+//        $.each(JSON.parse(window.localStorage.getItem('tovars')).Items, function(i,item){
           $.each(tovars.Items, function(i,item){
 		    if(item.node.nid==nid) {
             cart[nid].qty-=1;
@@ -340,14 +340,14 @@ var tovar_obj = $(this).parent();
 				}
             }
           }); 
-//sessionStorage.setItem('cart', JSON.stringify(cart));
+//window.localStorage.setItem('cart', JSON.stringify(cart));
 updateCart();
 });
 
 //---------------------Форма заказа-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#checkout', function(){ 
-var checkout=JSON.parse(sessionStorage.getItem('checkout'));
+var checkout=JSON.parse(window.localStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
@@ -379,7 +379,7 @@ validator.showErrors({
             if($('#name').val().length > 0 && $('#tel').val().length > 0){	
             
 			// ---- чистим от пустых ячеек ----			
-			//var cart = JSON.parse(sessionStorage.getItem('cart'));
+			//var cart = JSON.parse(window.localStorage.getItem('cart'));
 			var str = '';
 			var i=0;
 			for(key in cart) {
@@ -404,7 +404,7 @@ validator.showErrors({
 								if($(this).attr('id'))
 								checkout[$(this).attr('id')]=$(this).val();
 								});
-								sessionStorage.setItem('checkout', JSON.stringify(checkout));
+								window.localStorage.setItem('checkout', JSON.stringify(checkout));
 
                         },
                         complete: function() {
@@ -426,7 +426,7 @@ validator.showErrors({
                         }
                     });                  
             } else {
-                alert('Заполните все поля.');
+                alert('Заполните все поля "Имя" и "Телефон"');
             }          
             return false; // cancel original event to prevent form submitting
         });
@@ -441,7 +441,7 @@ $.mobile.loading( "hide" );
 
 $(document).on('pagebeforeshow', '#cart', function(){ 
  	$('#cart #tovar-list').empty();
-    //cart = JSON.parse(sessionStorage.getItem('cart'));
+    //cart = JSON.parse(window.localStorage.getItem('cart'));
           var i=0;
 		  for (key in cart) {
 		    if(cart[key]) {
@@ -472,9 +472,9 @@ $.mobile.loading( "show" );
 $(document).on('pageshow', '#tovar', function(){   
  	//$('#tovar #tovar-list').empty();
 	$('#tovar h1#header-title').html(term.title);
-	//cart = JSON.parse(sessionStorage.getItem('cart'));
+	//cart = JSON.parse(window.localStorage.getItem('cart'));
 	var i=0;
-//        $.each(JSON.parse(sessionStorage.getItem('tovars')).Items, function(i,item){
+//        $.each(JSON.parse(window.localStorage.getItem('tovars')).Items, function(i,item){
           $.each(tovars.Items, function(i,item){
 		    if(item.node.term.toLowerCase().indexOf(term.name) >= 0) {
 			var qty = 0;
@@ -513,7 +513,7 @@ $(document).on('pageshow', '#tovar', function(){
 //---------------------Обновление корзины-------------------------------------------------------------------------------------
 
 function updateCart() {
-//cart = JSON.parse(sessionStorage.getItem('cart'));
+//cart = JSON.parse(window.localStorage.getItem('cart'));
 var qty = 0;
 var total = 0;
 for (key in cart) {
@@ -536,13 +536,13 @@ $('[data-role="footer"]').trigger('create');
 
 //-----------------------Очистка корзины-----------------------------------------------------------------------------------
 function clearCart() {
-//cart = JSON.parse(sessionStorage.getItem('cart'));
+//cart = JSON.parse(window.localStorage.getItem('cart'));
 //for(key in cart)
 //cart.splice(key,1);
 //delete cart;
 cart = [];
 
-sessionStorage.setItem('cart', JSON.stringify(cart));
+window.localStorage.setItem('cart', JSON.stringify(cart));
 updateCart();
 }
 
