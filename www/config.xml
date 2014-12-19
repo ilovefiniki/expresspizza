@@ -26,9 +26,9 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
 	<preference name="BackgroundColor" value="0xffffffff"/>
-<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
-    <false/>
-</gap:config-file>
+    <preference name="StatusBarOverlaysWebView" value="false" />
+
+
     <gap:plugin name="org.apache.cordova.media-capture" />
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.contacts" />
@@ -43,7 +43,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	<gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
 	
 
 
