@@ -223,7 +223,10 @@ var order=[];
     function onDeviceReady() {
         document.addEventListener("pause", onPause, false);
 		document.addEventListener("resume", onResume, false);
-		StatusBar.hide();
+		
+		if (parseFloat(window.device.version) === 7.0) {
+          document.body.style.marginTop = "20px";
+        }
     }
 
     // Handle the pause event
