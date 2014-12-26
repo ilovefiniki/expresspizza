@@ -439,8 +439,8 @@ $(document).on('pagebeforeshow', '#cart', function(){
 			cart[key].text='';		
               //$('#cart-list').append('<li><a href=""><img src="'+cart[key].image+'"><h2>'+cart[key].title+'</h2><h4>'+money(cart[key].price)+'р</h4></a><a href="" type="remove-from-cart" data-theme="c" nid='+cart[key].nid+'>Remove</a></li>');
               $('#cart #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' active"></div>');
-              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+cart[key].image+'"></div></div>');
-              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><h2>'+cart[key].title+'</h2><p>'+cart[key].text+'</p><h4>'+money(cart[key].price)+' р</h4></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<h2>'+cart[key].title+'</h2><div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+cart[key].image+'"></div></div>');
+              $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><p>'+cart[key].text+'</p><h4>'+money(cart[key].price)+' р</h4></div></div>');
               $('#cart #tovar-list .tovari'+i).append('<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>');
 	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+cart[key].nid+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="e" class="ui-nodisc-icon ui-btn-icon-right">Buy</a>');
 	          $('#cart #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<span class="qty">'+cart[key].qty+'</span>');
@@ -481,8 +481,9 @@ $(document).on('pageshow', '#tovar', function(){
 			  
               //$('#tovar-list').append('<li><a href=""><img src="'+item.node.image+'"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></a><a href="" type="add-to-cart" data-theme="e" nid='+item.node.nid+'>Buy</a></li>');
               $('#tovar #tovar-list').append('<div class="ui-grid-b tovari tovari'+i+' '+active+'"></div>').trigger("create");
-              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+item.node.image+'"></div></div>').trigger("create");
-              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><h2>'+item.node.title+'</h2><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></div></div>').trigger("create");
+			  
+              $('#tovar #tovar-list .tovari'+i).append('<h2>'+item.node.title+'</h2><div class="ui-block-a"><div class="ui-body ui-body-d"><img src="'+item.node.image+'"></div></div>').trigger("create");
+              $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-b"><div class="ui-body ui-body-d"><p>'+item.node.text+'</p><h4>'+money(item.node.price)+' р</h4></div></div>').trigger("create");
               $('#tovar #tovar-list .tovari'+i).append('<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>').trigger("create");
 	          $('#tovar #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<a nid='+item.node.nid+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" data-theme="e" class="ui-nodisc-icon ui-btn-icon-right">Buy</a>');
 	          $('#tovar #tovar-list .tovari'+i+' .ui-block-c .ui-body').append('<span class="qty">'+qty+'</span>');

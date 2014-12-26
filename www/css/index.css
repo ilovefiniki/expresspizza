@@ -205,7 +205,8 @@ margin-bottom: 1em;
 margin: 0;
 width: auto;
 border-bottom: 1px solid #eee;
-padding:0 10px;
+padding: 0 10px;
+position: relative;
 }
 .tovari .ui-body.ui-body-d {
 min-height: 115px;
@@ -223,7 +224,7 @@ position: relative;
 left: 0;
 /* width: 50%; */
 /* overflow: hidden; */
-max-width: 60%;
+max-width: 50%;
 width: auto;
 }
 #tovar-list .tovari .ui-block-a{
@@ -233,6 +234,7 @@ width: 80px;
 width: 30px;
 position: absolute;
 right: 10px;
+top: 1em;
 }
 #tovar-list .tovari .ui-block-a .ui-body-d,
 #tovar-list .tovari .ui-block-b .ui-body-d,
@@ -247,10 +249,10 @@ padding:0;
 .tovari .ui-block-a .ui-body-d img{
 width: 80px;
 height: auto;
-margin-top: 1em;
+margin-top: 0;
 }
 /*описание и цена*/
-.tovari .ui-block-b .ui-body-d h2{
+.tovari .ui-block-b .ui-body-d h2, .tovari h2{
 font-size: 1em;
 font-weight: bold;
 display: block;
@@ -258,7 +260,7 @@ margin: .45em 0;
 /*text-overflow: ellipsis;
 overflow: hidden;*/
 white-space: nowrap;
-margin-left: 20px;
+margin-left: 10px;
 }
 
 
@@ -268,7 +270,7 @@ font-size: .75em;
 font-weight: normal;
 display: block;
 margin: .6em 0;
-margin-left: 20px;
+margin-left: 10px;
 }
 .tovari .ui-block-b .ui-body-d h4{
 font-size: 1em;
@@ -278,7 +280,7 @@ margin: .45em 0;
 /*text-overflow: ellipsis;
 overflow: hidden;*/
 white-space: nowrap;
-margin-left: 20px;
+margin-left: 10px;
 }
 /*кнопки*/
 .tovari .ui-block-c .ui-body.ui-body-d{
