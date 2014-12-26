@@ -97,16 +97,20 @@
  
 
 
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
- <gap:splash gap:platform="android" gap:qualifier="land-ldpi" src="res/screen/android/screen-ldpi-landscape.png" />
-    <gap:splash gap:platform="android" gap:qualifier="land-mdpi" src="res/screen/android/screen-mdpi-landscape.png" />
-    <gap:splash gap:platform="android" gap:qualifier="land-hdpi" src="res/screen/android/screen-hdpi-landscape.png" />
-    <gap:splash gap:platform="android" gap:qualifier="land-xhdpi" src="res/screen/android/screen-xhdpi-landscape.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="screen-ldpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="screen-mdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="screen-hdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="screen-xhdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="land-ldpi" src="screen-ldpi-landscape.png" />
+    <gap:splash gap:platform="android" gap:qualifier="land-mdpi" src="screen-mdpi-landscape.png" />
+    <gap:splash gap:platform="android" gap:qualifier="land-hdpi" src="screen-hdpi-landscape.png" />
+    <gap:splash gap:platform="android" gap:qualifier="land-xhdpi" src="screen-xhdpi-landscape.png" />
  
  
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
+
+    <gap:splash src="splash.png" />
+
+
     <access origin="*" />
 </widget>
