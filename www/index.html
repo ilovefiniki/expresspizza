@@ -258,6 +258,8 @@ var checkout=JSON.parse(window.localStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
+		  if($('form input#'+key).is("select"))
+		  $('form input#'+key+' option[value="'+checkout[key]+'"]').attr('checked', 'checked');
 		}
     $.mobile.loading( "hide" );
 	}
