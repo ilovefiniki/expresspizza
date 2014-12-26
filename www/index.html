@@ -41,7 +41,7 @@
 <!----------------------------------------Home page----------------------------->	
     <div data-role="page" id="home">
 	
-			<div class="header" data-role="header" data-position="fixed" data-theme="c">
+			<div class="header" data-role="header" data-fullscreen="false" data-position="fixed" data-theme="c">
 				<img src="img/logo.png"/>
 			</div>
 			
@@ -118,12 +118,12 @@
 					<div data-role="fieldcontain">
 					<label for="tel">Телефон:</label>
                     <select name="kod" id="kod">
-                       <option value="+37529">Velcom +375 29</option>
-					   <option value="+37544">Velcom +375 44</option>
-                       <option value="+37529">МТС +375 29</option>
-					   <option value="+37533">МТС +375 33</option>
-                       <option value="+37525">Life:) +375 25</option>
-                       <option value="+37517">Городской +375 17</option>
+                       <option value="Velcom +37529">Velcom +375 29</option>
+					   <option value="Velcom +37544">Velcom +375 44</option>
+                       <option value="MTC +37529">МТС +375 29</option>
+					   <option value="MTC +37533">МТС +375 33</option>
+                       <option value="Life +37525">Life:) +375 25</option>
+                       <option value="Gorod +37517">Городской +375 17</option>
 					   <option value="drugoe">Другой</option>
 					</select>
 					</div>
@@ -254,15 +254,8 @@ $.mobile.loading( "show", {
 	html: ""
 });
 //----- поля формы ----------
-var checkout=JSON.parse(window.localStorage.getItem('checkout'));
- 	if(checkout) {
-	    for(key in checkout) {
-		$('form input#'+key).attr('value', checkout[key]);
-		  if($('form input#'+key).is("select"))
-		  $('form input#'+key+' option[value="'+checkout[key]+'"]').attr('checked', 'checked');
-		}
-    $.mobile.loading( "hide" );
-	}
+//formValRead();
+
 //----- загрузка товаров -----
 $.getJSON("http://express-pizza.by/tovarjson",
     function(data){
@@ -349,13 +342,7 @@ updateCart();
 //---------------------Форма заказа-------------------------------------------------------------------------------------
 
 $(document).on('pagebeforeshow', '#checkout', function(){ 
-var checkout=JSON.parse(window.localStorage.getItem('checkout'));
- 	if(checkout) {
-	    for(key in checkout) {
-		$('form input#'+key).attr('value', checkout[key]);
-		}
-    $.mobile.loading( "hide" );
-	}
+formValRead();
 });
 
 
@@ -402,7 +389,7 @@ validator.showErrors({
                             // This callback function will trigger before data is sent
                             	$.mobile.loading( "show" ); // This will show ajax spinner
 								var checkout = {};
-								$('form input').each(function(){
+								$('form input, form select').each(function(){
 								if($(this).attr('id'))
 								checkout[$(this).attr('id')]=$(this).val();
 								});
@@ -536,6 +523,22 @@ $('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><sp
 $('[data-role="footer"]').trigger('create');
 }
 
+//-----------------------Загрузка значей в поля формы -----------------------------------------------------------------------------------
+function formValRead() {
+var checkout=JSON.parse(window.localStorage.getItem('checkout'));
+ 	if(checkout) {
+	    for(key in checkout) {
+		$('form input#'+key).attr('value', checkout[key]);
+		  if($('form #'+key).is('select')) {
+		  $('form select#'+key+' option').each(function() { $(this).removeAttr( "selected" ); });
+		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
+		  $('form select#'+key).attr('value', checkout[key]);
+		  $('form select#'+key).selectmenu('refresh', true);
+		  }
+		}
+    $.mobile.loading( "hide" );
+	}
+}
 //-----------------------Очистка корзины-----------------------------------------------------------------------------------
 function clearCart() {
 //cart = JSON.parse(window.localStorage.getItem('cart'));
