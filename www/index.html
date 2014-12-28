@@ -524,13 +524,14 @@ $('#cart-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><sp
 $('[data-role="footer"]').trigger('create');
 }
 
-//-----------------------Загрузка значей в поля формы -----------------------------------------------------------------------------------
+//-----------------------Загрузка значений в поля формы -----------------------------------------------------------------------------------
 function formValRead() {
 var checkout=JSON.parse(window.localStorage.getItem('checkout'));
  	if(checkout) {
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		  if($('form #'+key).is('select')) {
+		  $('form select#'+key).attr('value', '');
 		  $('form select#'+key+' option').each(function() { $(this).removeAttr( "selected" ); });
 		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
 		  $('form select#'+key).attr('value', checkout[key]);
