@@ -331,14 +331,16 @@ $('[data-role="footer"]').trigger('create');
 
 //-----------------------Загрузка значений в поля формы -----------------------------------------------------------------------------------
 function formValRead() {
+$('#form-checkout').append(' func ');
 var checkout=JSON.parse(window.localStorage.getItem('checkout'));
  	if(checkout) {
+	$('#form-checkout').append(' is checkout ');
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		  if($('form #'+key).is('select')) {
 		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
 		    $('form select#'+key+' option[selected="selected"]').each(function() { 
-			alert('!!! '.checkout[key]);
+			$('#form-checkout').append(' !!! '.checkout[key]);
 		      if($(this).val()!=checkout[key])
 			  $(this).removeAttr( "selected" ); 
 		    });
