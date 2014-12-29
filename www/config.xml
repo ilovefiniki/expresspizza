@@ -27,7 +27,7 @@
     <preference name="android-installLocation" value="auto" />
 	<preference name="BackgroundColor" value="0xffffffff"/>
     <preference name="StatusBarOverlaysWebView" value="false" />
-
+    <preference name="EnableViewportScale" value="true" />
 
     <gap:plugin name="org.apache.cordova.media-capture" />
     <gap:plugin name="org.apache.cordova.console" />
