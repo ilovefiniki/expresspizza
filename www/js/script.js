@@ -337,12 +337,13 @@ var checkout=JSON.parse(window.localStorage.getItem('checkout'));
 		$('form input#'+key).attr('value', checkout[key]);
 		  if($('form #'+key).is('select')) {
 		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
-		    $('form select#'+key+' option:selected').each(function() { 
-			alert('2 '+checkout[key]+' this: '+$(this).val());
-		        if($(this).val()!=checkout[key]) {
-				alert('1 '+checkout[key]);
-			    $(this).removeAttr( "selected" ); 
-			    }
+		  $('form select#'+key).val(checkout[key]);
+		       $('form select#'+key+' option:selected').each(function() { 
+
+		             if($(this).val()!=checkout[key]) {
+
+			         $(this).removeAttr( "selected" ); 
+			         }
 		    });
 		  $('form select#'+key).attr('value', checkout[key]);
 		  $('form select#'+key).selectmenu('refresh', true);
