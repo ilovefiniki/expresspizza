@@ -338,7 +338,7 @@ var checkout=JSON.parse(window.localStorage.getItem('checkout'));
 		  if($('form #'+key).is('select')) {
 		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
 		    $('form select#'+key+' option:selected').each(function() { 
-			alert('2 '+checkout[key]);
+			alert('2 '+checkout[key]+' this: '+$(this).val());
 		        if($(this).val()!=checkout[key]) {
 				alert('1 '+checkout[key]);
 			    $(this).removeAttr( "selected" ); 
