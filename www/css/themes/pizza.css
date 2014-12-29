@@ -24,7 +24,7 @@ button,
 .ui-btn {
 	font-size: 1em;
 	line-height: 1.3;
-	  font-family: arial /*{global-font-family}*/;
+	 font-family: arial /*{global-font-family}*/;
 }
 legend,
 .ui-input-text input,
@@ -645,8 +645,8 @@ html .ui-bar-c .ui-btn:active,
 html .ui-body-c .ui-btn:active,
 html body .ui-group-theme-c .ui-btn:active,
 html head + body .ui-btn.ui-btn-c:active {
-	background-color: #ff4d54 /*{c-bdown-background-color}*/;
-	border-color: #910d13 /*{c-bdown-border}*/;
+	background-color: #a2cf1d /*{c-bdown-background-color}*/;
+	border-color: #80a512 /*{c-bdown-border}*/;
 	color: #ffffff /*{c-bdown-color}*/;
 	text-shadow: 0 /*{c-bdown-shadow-x}*/ 1px /*{c-bdown-shadow-y}*/ 0 /*{c-bdown-shadow-radius}*/ #000000 /*{c-bdown-shadow-color}*/;
 }
