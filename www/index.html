@@ -531,9 +531,12 @@ var checkout=JSON.parse(window.localStorage.getItem('checkout'));
 	    for(key in checkout) {
 		$('form input#'+key).attr('value', checkout[key]);
 		  if($('form #'+key).is('select')) {
-		  $('form select#'+key).attr('value', '');
-		  $('form select#'+key+' option:selected').each(function() { $(this).removeAttr( "selected" ); });
 		  $('form select#'+key+' option[value="'+checkout[key]+'"]').attr('selected', 'selected');
+		    $('form select#'+key+' option:selected').each(function() { 
+		      if($(this).attr('id')!=checkout[key])
+			  $(this).removeAttr( "selected" ); 
+		    });
+		  
 		  $('form select#'+key).attr('value', checkout[key]);
 		  $('form select#'+key).selectmenu('refresh', true);
 		  }
