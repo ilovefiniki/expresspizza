@@ -318,7 +318,7 @@ for (key in cart) {
   }
 };
 if(qty>0 && total>0)	
-$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="left"><ul><li><a href="#cart" data-icon="shop" data-theme="c" data-inline="true" class="ui-shadow-icon ui-btn ui-shadow ui-btn-icon-left">'+qty+' товаров на '+money(total)+' р</a></li></ul></div>');
+$('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><a href="#cart" data-icon="arrow-r" data-theme="c" data-inline="true" class="ui-shadow-icon ui-btn ui-shadow ui-btn-icon-right">'+qty+' товаров на '+money(total)+' р</a></li></ul></div>');
 else 
 $('#home-footer, #tovar-footer').html('<div data-role="navbar" data-iconpos="right"><ul><li><span>Ваша корзина пуста</span></li></ul></div>');
 if(qty>0 && total>0)
