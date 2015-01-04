@@ -46,12 +46,21 @@ var order=[];
     function onResume() {
     cart = JSON.parse(window.localStorage.getItem('cart'));
 	tovars = JSON.parse(window.localStorage.getItem('tovars'));
+	updateTovars();
     }
 
 //---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
 
 $(document).ready(function(){
 
+updateTovars();
+updateCart();
+ 
+}); 
+
+//---------------------Обновление базы товаров------------------------------------------------------------------------------------------
+
+function updateTovars() {
 $.mobile.loading( "show", {
 	text: 'Загрузка меню...',
 	textVisible: true,
@@ -68,10 +77,7 @@ $.getJSON("http://express-pizza.by/tovarjson",
 	window.localStorage.setItem('tovars', JSON.stringify(data));
 	$.mobile.loading( "hide" );
 	});
-	
-	
- updateCart();
-}); 
+}
 
 
 //------------------------Поля доставки----------------------------------------------------------------------------------
@@ -187,7 +193,7 @@ validator.showErrors({
                 // action is functionality we want to call and outputJSON is our data
                     $.ajax({url: 'http://express-pizza.by/checkout.php',
                         data: {action : 'checkout', formData : $('#form-checkout').serialize()+str},
-                        type: 'post',                  
+                        type: 'post',
                         async: 'true',
                         dataType: 'json',
                         beforeSend: function() {
@@ -211,12 +217,12 @@ validator.showErrors({
                                 clearCart();
                                 $.mobile.changePage("#complete");                        
                             } else {
-                                alert('Упс. Ошибка отправки заказа:( Попробуйте еще раз.');
+                                alert('Ошибка отправки заказа:( Попробуйте еще раз.');
                             }
                         },
                         error: function (request,error) {
                             // This callback function will trigger on unsuccessful action               
-                            alert('Упс. Ошибка отправки заказа:( Возможно отсутствует подключение к интернету.');
+                            alert('Ошибка отправки заказа:( Возможно отсутствует подключение к интернету.');
                         }
                     });                  
             } else {
