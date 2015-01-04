@@ -307,3 +307,6 @@ vertical-align: top;
 font-weight:bold
 } 
 
+.ui-fixed-hidden {
+position: fixed !important;
+}
