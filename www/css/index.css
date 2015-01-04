@@ -327,3 +327,9 @@ position: fixed !important;
 	animation-timing-function: ease-in;
 	animation-duration: 0ms !important;
 }
+.ui-footer-fixed.ui-fixed-hidden {
+display: block !important;
+}
+.ui-header-fixed.ui-fixed-hidden {
+display: block !important;
+}
