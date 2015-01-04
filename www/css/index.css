@@ -304,9 +304,26 @@ label.error {
 color: red;
 padding-top: .9em;
 vertical-align: top;
-font-weight:bold
+font-weight:bold;
 } 
 
 .ui-fixed-hidden {
 position: fixed !important;
+}
+
+.ui-footer.in, .ui-header.in {
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 0ms !important;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-duration: 0ms !important;
+	animation-timing-function: ease-out;
+	animation-duration: 0ms !important;
+}
+.ui-footer.out, .ui-header.out {
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-duration: 0ms !important;
+	-moz-animation-timing-function: ease-in;
+	-moz-animation-duration: 0ms !important;
+	animation-timing-function: ease-in;
+	animation-duration: 0ms !important;
 }
