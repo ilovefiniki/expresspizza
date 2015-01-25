@@ -236,6 +236,7 @@ validator.showErrors({
 $(document).on('pagebeforeshow', '#complete', function(){ 
 $('#complete #complete-content').html(order.msg);
 $.mobile.loading( "hide" );
+updateTovars();
 });
 //---------------------Корзина-------------------------------------------------------------------------------------
 
