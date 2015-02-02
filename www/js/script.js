@@ -28,6 +28,8 @@ var order=[];
     function onDeviceReady() {
         document.addEventListener("pause", onPause, false);
 		document.addEventListener("resume", onResume, false);
+		document.addEventListener("backbutton", onBackKeyDown, false);
+
 		
 		if (parseFloat(window.device.version) === 7.0) {
           document.body.style.marginTop = "20px";
@@ -48,6 +50,19 @@ var order=[];
 	tovars = JSON.parse(window.localStorage.getItem('tovars'));
 	updateTovars();
     }
+	
+	// Handle the back button
+    //
+    function onBackKeyDown() {
+	if(document.getElementById('#home')){
+           e.preventDefault();
+           navigator.app.exitApp();
+       }
+       else {
+           navigator.app.backHistory()
+       }
+    }
+
 
 //---------------------Перед загрузкой программы-------------------------------------------------------------------------------------
 
