@@ -121,7 +121,7 @@ $(document).on('vclick', '#menu-list li a.term', function(){
 	
 	//-- обновляем базу, если устарела ----
 	if(window.sessionStorage.getItem('updateTime')) {
-    var updateTime = window.sessionStorage.getItem('updateTime'));
+    var updateTime = window.sessionStorage.getItem('updateTime');
         if(Math.round($.now()/1000)-updateTime>600)
 		updateTovars();
 	}
