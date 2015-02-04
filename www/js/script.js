@@ -59,7 +59,7 @@ var order=[];
            navigator.app.exitApp();
        }
        else {
-           navigator.app.backHistory()
+           navigator.app.backHistory();
        }
     }
 
@@ -76,6 +76,8 @@ updateCart();
 //---------------------Обновление базы товаров------------------------------------------------------------------------------------------
 
 function updateTovars() {
+	
+	
 $.mobile.loading( "show", {
 	text: 'Загрузка меню...',
 	textVisible: true,
@@ -91,7 +93,9 @@ $.getJSON("http://express-pizza.by/tovarjson",
 	tovars = data;
 	window.localStorage.setItem('tovars', JSON.stringify(data));
 	$.mobile.loading( "hide" );
+	window.sessionStorage.setItem('updateTime', Math.round($.now()/1000) );
 	});
+	
 }
 
 
@@ -113,6 +117,15 @@ $(document).on('vclick', '#menu-list li a.term', function(){
 	term.title = $(this).text();
 	$.mobile.loading( "show" );
     $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
+	
+	
+	//-- обновляем базу, если устарела ----
+	if(window.sessionStorage.getItem('updateTime')) {
+    var updateTime = window.sessionStorage.getItem('updateTime'));
+        if(Math.round($.now()/1000)-updateTime>600)
+		updateTovars();
+	}
+    
 });
 //--------------------------Добавление товара--------------------------------------------------------------------------------
 $(document).on('vclick', '#tovar-list a[type="add-to-cart"]', function(){  
