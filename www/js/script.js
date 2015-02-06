@@ -110,6 +110,18 @@ $('#form-checkout #dostavka').click(function() {
 	      
 });
 
+//---------------------Главная страница-------------------------------------------------------------------------------------
+$(document).on('pagebeforeshow', '#home', function(){ 
+
+	//-- обновляем базу, если устарела ----
+	if(window.sessionStorage.getItem('updateTime')) {
+    var updateTime = window.sessionStorage.getItem('updateTime');
+        if(Math.round($.now()/1000)-updateTime>600)
+		updateTovars();
+	}
+	
+});
+
 //------------------------Выбор категории товара----------------------------------------------------------------------------------
 
 $(document).on('vclick', '#menu-list li a.term', function(){  
@@ -118,13 +130,6 @@ $(document).on('vclick', '#menu-list li a.term', function(){
 	$.mobile.loading( "show" );
     $.mobile.changePage( "#tovar", { transition: "slide", changeHash: false });
 	
-	
-	//-- обновляем базу, если устарела ----
-	if(window.sessionStorage.getItem('updateTime')) {
-    var updateTime = window.sessionStorage.getItem('updateTime');
-        if(Math.round($.now()/1000)-updateTime>600)
-		updateTovars();
-	}
     
 });
 //--------------------------Добавление товара--------------------------------------------------------------------------------
@@ -292,10 +297,20 @@ $(document).on('pagebeforeshow', '#cart', function(){
 		  $("#cart #tovar-list").trigger("create");		  
 		  $.mobile.loading( "hide" );
 });
+
 //---------------------Товары-------------------------------------------------------------------------------------
 $(document).on('pagebeforeshow', '#tovar', function(){ 
 $('#tovar #tovar-list').empty();
 $.mobile.loading( "show" );
+
+
+	//-- обновляем базу, если устарела ----
+	if(window.sessionStorage.getItem('updateTime')) {
+    var updateTime = window.sessionStorage.getItem('updateTime');
+        if(Math.round($.now()/1000)-updateTime>600)
+		updateTovars();
+	}
+	
 });
 
 $(document).on('pageshow', '#tovar', function(){   
