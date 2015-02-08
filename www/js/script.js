@@ -36,6 +36,12 @@ var order=[];
         }
     }
 
+	
+$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+    $.mobile.phonegapNavigationEnabled = true;
+});	
+	
     // Handle the pause event
     //
     function onPause() {
@@ -54,13 +60,15 @@ var order=[];
 	// Handle the back button
     //
     function onBackKeyDown() {
-	if(document.getElementById('#home')){
-           e.preventDefault();
-           navigator.app.exitApp();
-       }
-       else {
-           navigator.app.backHistory();
-       }
+	//if(document.getElementById('#home')){
+     //      e.preventDefault();
+     //      navigator.app.exitApp();
+     //  }
+     //  else {
+		     history.go(-1);
+    navigator.app.backHistory();
+       
+     //  }
     }
 
 
