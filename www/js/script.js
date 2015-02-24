@@ -309,6 +309,7 @@ $(document).on('pagebeforeshow', '#cart', function(){
 //---------------------Товары-------------------------------------------------------------------------------------
 $(document).on('pagebeforeshow', '#tovar', function(){ 
 $('#tovar #tovar-list').empty();
+$('#tovar h1#header-title').html('загрузка...');
 $.mobile.loading( "show" );
 
 
