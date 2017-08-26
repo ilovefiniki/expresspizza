@@ -96,7 +96,7 @@ $.mobile.loading( "show", {
 //formValRead();
 
 //----- загрузка товаров -----
-$.getJSON("http://express-pizza.by/tovarjson",
+$.getJSON("http://dcop.kivi2.by/tovarjson",
     function(data){
 	tovars = data;
 	window.localStorage.setItem('tovars', JSON.stringify(data));
@@ -232,7 +232,7 @@ validator.showErrors({
 			//-----------------
                 // Send data to server through the ajax call
                 // action is functionality we want to call and outputJSON is our data
-                    $.ajax({url: 'http://express-pizza.by/checkout.php',
+                    $.ajax({url: 'http://dcop.kivi2.by/checkout.php',
                         data: {action : 'checkout', formData : $('#form-checkout').serialize()+str},
                         type: 'post',
                         async: 'true',
