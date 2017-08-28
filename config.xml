@@ -3,8 +3,8 @@
     <name>Express Pizza</name>
     <description>Доставка пиццы на дом и в офис в Минске. Пиццы, пироги, салаты, соки и напитки.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+     <author email="express.pizza.minsk@gmail.com" href="https://express-pizza.by">
+        Express Pizza
     </author>
     <content src="index.html" />
     <access origin="*" />
