@@ -1,0 +1,335 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1,h2,h3,h4 {
+    font-size:24px;
+    font-weight: bold;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+h2 {
+    font-size:22px;
+    font-weight: normal;
+    text-align:left;
+}
+h3 {
+    font-size:20px;
+    font-weight: normal; 
+	text-align:left;
+}
+h4 {
+    font-size:18px;
+    font-weight: normal;
+	text-align:left;
+}
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.header, #complete-footer{
+text-align:center;
+width:100%;
+}
+.header img, #complete-footer img{
+width: inherit;
+padding: 10px 0;
+}
+
+#cart-footer{
+text-align:center;
+}
+#cart-footer span, #home-footer span, #tovar-footer span{
+padding:10px;
+display:block;
+text-align:center;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+margin: 0;
+}
+.ui-li-static.ui-collapsible {
+padding: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > .ui-btn {
+border-top-width: 0;
+}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+border-bottom-width: 0;
+}
+a.ui-shadow-icon.ui-btn.ui-shadow.ui-btn-c, a.ui-link.ui-btn.ui-btn-c{
+font-size:16px;
+}
+.ui-listview > .ui-li-static {
+padding: 0 !important;
+}
+
+
+#menu-list.ui-listview > .ui-li-has-thumb > .ui-btn, 
+#menu-list.ui-listview > .ui-li-static.ui-li-has-thumb,
+#menu-list.ui-listview .ui-listview > .ui-li-has-thumb > .ui-btn, 
+#menu-list.ui-listview .ui-listview > .ui-li-static.ui-li-has-thumb {
+min-height: 1.625em;
+padding-left: 6.25em;
+}
+
+ul#menu-list  li.ui-collapsible img {
+max-width: 3.8em;
+max-height: 3.8em;
+padding: 0;
+margin-right: 1em;
+position: absolute;
+top: 0;
+left: 1em;
+}
+#menu-list.ui-listview .ui-li-has-thumb > img:first-child, 
+#menu-list.ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, 
+#menu-list.ui-listview .ui-li-has-thumb .ui-li-thumb {
+position: absolute;
+left: 1em;
+top: 0;
+max-height: 4em;
+max-width: 4em;
+}
+ul#menu-list  li.ui-collapsible p{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+margin-left: 5.2em;
+}
+ul#menu-list  li ul li h2{
+/*font-size: 0.8em;*/
+}
+
+h3.ui-bar.ui-bar-a.ui-corner-all {
+margin-top: 1em;
+margin-bottom: 1em;
+}
+
+/*плитка товара*/
+
+.tovari.ui-grid-b {
+margin: 0;
+width: auto;
+border-bottom: 1px solid #eee;
+padding: 0 10px;
+position: relative;
+}
+.tovari .ui-body.ui-body-d {
+min-height: 115px;
+border: medium none;
+
+padding: 0;
+}
+#tovar-list .tovari .ui-block-b {
+/*min-width: 180px;
+position: absolute;
+left: 90px;
+width: 57%;*/
+min-width: 45%;
+position: relative;
+left: 0;
+/* width: 50%; */
+/* overflow: hidden; */
+max-width: 50%;
+width: auto;
+}
+#tovar-list .tovari .ui-block-a{
+width: 80px;
+}
+#tovar-list .tovari .ui-block-c{
+width: 30px;
+position: absolute;
+right: 10px;
+top: 1em;
+}
+#tovar-list .tovari .ui-block-a .ui-body-d,
+#tovar-list .tovari .ui-block-b .ui-body-d,
+#tovar-list .tovari .ui-block-c .ui-body-d{
+/*height: 130px;*/
+}
+/*Картинка*/
+.tovari .ui-block-a .ui-body-d{
+padding:0;
+
+}
+.tovari .ui-block-a .ui-body-d img{
+width: 80px;
+height: auto;
+margin-top: 0;
+}
+/*описание и цена*/
+.tovari .ui-block-b .ui-body-d h2, .tovari h2{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+/*text-overflow: ellipsis;
+overflow: hidden;*/
+white-space: nowrap;
+margin-left: 10px;
+}
+
+
+
+.tovari .ui-block-b .ui-body-d p{
+font-size: .75em;
+font-weight: normal;
+display: block;
+margin: .6em 0;
+margin-left: 10px;
+}
+.tovari .ui-block-b .ui-body-d h4{
+font-size: 1em;
+font-weight: bold;
+display: block;
+margin: .45em 0;
+/*text-overflow: ellipsis;
+overflow: hidden;*/
+white-space: nowrap;
+margin-left: 10px;
+}
+/*кнопки*/
+.tovari .ui-block-c .ui-body.ui-body-d{
+width:30px;
+text-align:center;
+}
+#tovar .ui-content,
+#cart .ui-content{
+padding:0;
+}
+#tovar-list .tovari.ui-grid-b.active .ui-block-a .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active .ui-block-b .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active .ui-block-c .ui-body-d,
+#tovar-list .tovari.ui-grid-b.active {
+background:#f7f7ef;
+}
+/*плитка товара конец*/
+
+label.error {
+
+color: red;
+padding-top: .9em;
+vertical-align: top;
+font-weight:bold;
+} 
+
+.ui-fixed-hidden {
+position: fixed !important;
+}
+
+.ui-footer.in, .ui-header.in {
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 0ms !important;
+	-moz-animation-timing-function: ease-out;
+	-moz-animation-duration: 0ms !important;
+	animation-timing-function: ease-out;
+	animation-duration: 0ms !important;
+}
+.ui-footer.out, .ui-header.out {
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-duration: 0ms !important;
+	-moz-animation-timing-function: ease-in;
+	-moz-animation-duration: 0ms !important;
+	animation-timing-function: ease-in;
+	animation-duration: 0ms !important;
+}
+.ui-footer-fixed.ui-fixed-hidden {
+display: block !important;
+}
+.ui-header-fixed.ui-fixed-hidden {
+display: block !important;
+}
