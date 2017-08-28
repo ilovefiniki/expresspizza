@@ -1,390 +1,97 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" href="favicon16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="favicon32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon96.png" sizes="96x96">
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Express Pizza</title>
-    <!-- Path to Framework7 Library CSS-->
-        <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-        <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-    </head>
-    <body>
-    <!-- Status bar overlay for fullscreen mode-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>My App</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
     <div class="statusbar-overlay"></div>
+
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
-<div class="list-block main-list">
-<div class="list-group">
-  <ul>
-    <li>
-      <a href="#index" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-bag"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Меню</div>
+        <div class="content-block">
+            <p>Left panel content goes here</p>
         </div>
-      </a>
-    </li>
-    <li>
-      <a href="#dostavka" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-android-car"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Доставка</div>
-        </div>
-      </a>
-    </li>
-	<li>
-      <a href="#cart" class="item-link cart-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-ios-cart-outline"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Корзина</div>         
-        </div>
-      </a>
-    </li>
-	<li>
-      <a href="#o-nas" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-ios-information-outline"></i></div>
-        <div class="item-inner">
-          <div class="item-title">О нас</div>
-        </div>
-      </a>
-    </li>
-      <li>
-          <a href="#contacts" class="item-link close-panel item-content">
-              <div class="item-media"><i class="icon ion-ios-telephone-outline"></i></div>
-              <div class="item-inner">
-                  <div class="item-title">Контакты</div>
-              </div>
-          </a>
-      </li>
-  </ul>
-</div>
- </div>    
     </div>
-    <!-- Views-->
+
+    <!-- Views -->
     <div class="views">
-      <!-- Your main view, should have "view-main" class-->
-      <div class="view view-main">
-        <!-- Top Navbar-->
-        <div class="navbar">
-          <div class="navbar-inner theme-white">
-		  <div class="left">
-              <a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a>
-            </div>
-            
-            <div class="center sliding"><img class="title-logo" src="img/logo.png"/></div>
-            <div class="right">
-			  <a href="#" class="link refresh-link icon-only"> <i class="icon ion-refresh"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-through toolbar-through">
-<!--------------------------------------------------------------------------------------->	  
-          <div data-page="index" class="page index-page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-                <!-- Slider -->
-                <div class="swiper-container swiper-1">
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><span></span></div>
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center sliding">Awesome App</div>
+                    <div class="right">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                     </div>
                 </div>
-                <!-- Groups -->
-             <div class="list-block media-list">
-              <ul><li class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></li></ul>
-             </div>
-                <!-- ------ -->
             </div>
-          </div> 
-<!--------------------------------------------------------------------------------------->	  
-	  		  
-        </div>
-		
-<!--------------------------------------------------------------------------------------->
-        <!-- Bottom Toolbar-->
-   <div class="toolbar">
-      <div class="toolbar-inner">
-            <a href="#cart" class="link">Ваша корзина пуста</a>
-      </div>
-   </div>
-<!--------------------------------------------------------------------------------------->
-
-      </div>
-    </div>
-<!--************************************************************************************************************************************************************************-->
-<script type="text/template" id="checkout-tpl">	
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
-            <div class="center sliding">Оформление заказа</div>
-          </div>
-        </div>
-        <div class="pages">
-        <!-- Page, data-page contains page name-->
-          <div data-page="checkout" class="page checkout-page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-              <form id="form-checkout" data-ajax="false" class="list-block store-data">
-                 <ul>		 
-				 <fieldset>
-				 <!--------------------------------------------Checkout template---------------------------->	
-				 <li>
-				  <div class="item-content">
-                   <div class="item-inner">     
-                     <p><a href="#" class="button link cart-back-link"><i class="icon ion-chevron-left"></i> Назад в корзину</a></p>  				   
-                     <p class="total"></p>                                   
-                   </div>
-                  </div> 
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Имя</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Имя" name="name" id="name" required>
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-                     <!--		<li>
-                               <div class="item-content">
-                                <div class="item-inner">
-                                <div class="item-title label">Организация</div>
-                                 <div class="item-input">
-                                  <input type="text" placeholder="Название организации" name="company" id="company">
-                                 </div>
-                                </div>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="item-content">
-                                <div class="item-inner">
-                                <div class="item-title label">Время доставки</div>
-                                 <div class="item-input">
-                                  <input type="text" placeholder="Желаемое время доставки" name="time" id="time">
-                                 </div>
-                                </div>
-                               </div>
-                             </li>
-                -->
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Телефон</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="+375 " name="tel" id="tel" required>
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-
-<!--
-    <li>
-      <label class="label-checkbox item-content">
-        <input type="checkbox" name="upakovka" id="upakovka" value="Упаковка" checked="checked">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Упаковка - <span class="upakovka-info"></span></div>
-        </div>
-      </label>
-    </li>
-    <li>
-      <label class="label-checkbox item-content">
-        <input type="checkbox" name="dostavka" id="dostavka" value="Доставка" checked="checked">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Доставка - <span class="dostavka-info"></span></div>
-        </div>
-      </label>
-    </li>	
--->
-<div id="adres-fields">  
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Улица</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Улица" name="adres" id="adres">
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				    <div class="item-title label">Дом</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Дом" name="house_num" id="house_num">
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Корпус</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Корпус" name="korpus" id="korpus">
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				    <div class="item-title label">Квартира/офис</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Квартира/офис" name="kvartira" id="kvartira">
-                    </div>
-                   </div>
-                  </div> 
-				</li>					
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Примечание</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Примечание" name="primechanie" id="primechanie">
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-				<!--
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">День рождения</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="День и месяц" name="birthday" id="birthday">
-                    </div>
-                   </div>
-                  </div> 
-				</li>
-				-->
-</div>					
-                   <!-- <input type="button" name="submit" id="submit" value="Отправить" class="button button-big active color-green">  -->
-<!--------------------------------------------Checkout template---------------------------->
-				 		</fieldset> 
-                 </ul>
-               </form>
-            </div>
-          </div>	
-        </div>
-
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="complete-tpl">	
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
-            <div class="center sliding">Заказ отправлен</div>
-          </div>
-        </div>
-        <div class="pages">
-        <!-- Page, data-page contains page name-->
-          <div data-page="complete" class="page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-               <div class="content-block">
-                 <div class="content-block-inner">
-                 <p> загрузка... </p>
-                 </div>
-               </div>
-            </div>
-          </div>	
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="o-nas-tpl">	
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-            <div class="center sliding">О нас</div>
-
-          </div>
-        </div>
-        <div class="pages">
-          <!-- Page, data-page contains page name-->
-          <div data-page="o-nas" class="page o-nas-page no-toolbar cached">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-               <div class="content-block tablet-inset">
-                <div class="content-block-inner">
-				<p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                </div>
-               </div>
-            </div>
-          </div>
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="dostavka-tpl">	
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-            <div class="center sliding">Доставка</div>
-
-          </div>
-        </div>
-        <div class="pages">
-          <!-- Page, data-page contains page name-->
-          <div data-page="dostavka" class="page dostavka-page no-toolbar cached">
-            <!-- Scrollable page content-->
-            <div class="page-content">		
-               <div class="content-block tablet-inset">
-                <div class="content-block-inner">
-                <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                </div>
-               </div>
-            </div>
-          </div>	
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-    <script type="text/template" id="contacts-tpl">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-                <div class="center sliding">Контакты</div>
-            </div>
-        </div>
-        <div class="pages">
-            <!-- Page, data-page contains page name-->
-            <div data-page="contacts" class="page contacts-page no-toolbar cached">
-                <!-- Scrollable page content-->
-                <div class="page-content">
-                    <div class="content-block tablet-inset">
-                        <div class="content-block-inner">
-                            <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>Page content goes here</p>
+                            <!-- Link to another page -->
+                            <a href="about.html">About app</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href="#" class="link">Link 1</a>
+                    <a href="#" class="link">Link 2</a>
+                </div>
+            </div>
         </div>
-    </script>
-<!--************************************************************************************************************************************************************************-->
+    </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
-    </body>
+</body>
+
 </html>
