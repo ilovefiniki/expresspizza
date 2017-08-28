@@ -119,6 +119,11 @@ var myApp = new Framework7({
 
 var $$ = Dom7;
 
+// Handle Cordova Device Ready Event
+$$(document).on('deviceready', function() {
+    console.log("Device is ready!");
+});
+
 // 1 Slide Per View, 50px Between
 var mySwiper1 = myApp.swiper('.swiper-1', {
     pagination:'.swiper-1 .swiper-pagination',
