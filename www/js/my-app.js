@@ -726,11 +726,13 @@ var tpl='<!-- Top Navbar-->' +
         mainView.router.loadContent(tpl);
     }
 
+if(myApp){
+  var mySwiper1 = myApp.swiper('.swiper-1', {
+      pagination:'.swiper-1 .swiper-pagination',
+      spaceBetween: 50
+  });
+}
 
-    var mySwiper1 = myApp.swiper('.swiper-1', {
-        pagination:'.swiper-1 .swiper-pagination',
-        spaceBetween: 50
-    });
 
       $$('.group-link').each(function(){
 		  if($$(this).hasClass('init')==false) {
