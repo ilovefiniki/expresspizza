@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream; ">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" type="image/png" href="favicon16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="favicon32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicon96.png" sizes="96x96">
-<meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -48,7 +49,7 @@
       <a href="#cart" class="item-link cart-link close-panel item-content">
         <div class="item-media"><i class="icon ion-ios-cart-outline"></i></div>
         <div class="item-inner">
-          <div class="item-title">Корзина</div>         
+          <div class="item-title">Корзина</div>
         </div>
       </a>
     </li>
@@ -70,7 +71,7 @@
       </li>
   </ul>
 </div>
- </div>    
+ </div>
     </div>
     <!-- Views-->
     <div class="views">
@@ -82,7 +83,7 @@
 		  <div class="left">
               <a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a>
             </div>
-            
+
             <div class="center sliding"><img class="title-logo" src="img/logo.png"/></div>
             <div class="right">
 			  <a href="#" class="link refresh-link icon-only"> <i class="icon ion-refresh"></i></a>
@@ -91,7 +92,7 @@
         </div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through toolbar-through">
-<!--------------------------------------------------------------------------------------->	  
+<!--------------------------------------------------------------------------------------->
           <div data-page="index" class="page index-page">
             <!-- Scrollable page content-->
             <div class="page-content">
@@ -108,11 +109,11 @@
              </div>
                 <!-- ------ -->
             </div>
-          </div> 
-<!--------------------------------------------------------------------------------------->	  
-	  		  
+          </div>
+<!--------------------------------------------------------------------------------------->
+
         </div>
-		
+
 <!--------------------------------------------------------------------------------------->
         <!-- Bottom Toolbar-->
    <div class="toolbar">
@@ -125,7 +126,7 @@
       </div>
     </div>
 <!--************************************************************************************************************************************************************************-->
-<script type="text/template" id="checkout-tpl">	
+<script type="text/template" id="checkout-tpl">
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
@@ -138,16 +139,16 @@
             <!-- Scrollable page content-->
             <div class="page-content">
               <form id="form-checkout" data-ajax="false" class="list-block store-data">
-                 <ul>		 
+                 <ul>
 				 <fieldset>
-				 <!--------------------------------------------Checkout template---------------------------->	
+				 <!--------------------------------------------Checkout template---------------------------->
 				 <li>
 				  <div class="item-content">
-                   <div class="item-inner">     
-                     <p><a href="#" class="button link cart-back-link"><i class="icon ion-chevron-left"></i> Назад в корзину</a></p>  				   
-                     <p class="total"></p>                                   
+                   <div class="item-inner">
+                     <p><a href="#" class="button link cart-back-link"><i class="icon ion-chevron-left"></i> Назад в корзину</a></p>
+                     <p class="total"></p>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				<li>
 				  <div class="item-content">
@@ -157,7 +158,7 @@
                      <input type="text" placeholder="Имя" name="name" id="name" required>
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
                      <!--		<li>
                                <div class="item-content">
@@ -188,7 +189,7 @@
                      <input type="text" placeholder="+375 " name="tel" id="tel" required>
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 
 <!--
@@ -213,9 +214,9 @@
           <div class="item-title">Доставка - <span class="dostavka-info"></span></div>
         </div>
       </label>
-    </li>	
+    </li>
 -->
-<div id="adres-fields">  
+<div id="adres-fields">
 				<li>
 				  <div class="item-content">
                    <div class="item-inner">
@@ -224,7 +225,7 @@
                      <input type="text" placeholder="Улица" name="adres" id="adres">
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				<li>
 				  <div class="item-content">
@@ -234,7 +235,7 @@
                      <input type="text" placeholder="Дом" name="house_num" id="house_num">
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				<li>
 				  <div class="item-content">
@@ -244,7 +245,7 @@
                      <input type="text" placeholder="Корпус" name="korpus" id="korpus">
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				<li>
 				  <div class="item-content">
@@ -254,8 +255,8 @@
                      <input type="text" placeholder="Квартира/офис" name="kvartira" id="kvartira">
                     </div>
                    </div>
-                  </div> 
-				</li>					
+                  </div>
+				</li>
 				<li>
 				  <div class="item-content">
                    <div class="item-inner">
@@ -264,7 +265,7 @@
                      <input type="text" placeholder="Примечание" name="primechanie" id="primechanie">
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				<!--
 				<li>
@@ -275,22 +276,22 @@
                      <input type="text" placeholder="День и месяц" name="birthday" id="birthday">
                     </div>
                    </div>
-                  </div> 
+                  </div>
 				</li>
 				-->
-</div>					
+</div>
                    <!-- <input type="button" name="submit" id="submit" value="Отправить" class="button button-big active color-green">  -->
 <!--------------------------------------------Checkout template---------------------------->
-				 		</fieldset> 
+				 		</fieldset>
                  </ul>
                </form>
             </div>
-          </div>	
+          </div>
         </div>
 
 	</script>
 <!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="complete-tpl">	
+	<script type="text/template" id="complete-tpl">
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
@@ -308,11 +309,11 @@
                  </div>
                </div>
             </div>
-          </div>	
+          </div>
         </div>
 	</script>
 <!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="o-nas-tpl">	
+	<script type="text/template" id="o-nas-tpl">
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
@@ -335,7 +336,7 @@
         </div>
 	</script>
 <!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="dostavka-tpl">	
+	<script type="text/template" id="dostavka-tpl">
         <div class="navbar">
           <div class="navbar-inner">
             <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
@@ -347,14 +348,14 @@
           <!-- Page, data-page contains page name-->
           <div data-page="dostavka" class="page dostavka-page no-toolbar cached">
             <!-- Scrollable page content-->
-            <div class="page-content">		
+            <div class="page-content">
                <div class="content-block tablet-inset">
                 <div class="content-block-inner">
                 <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
                 </div>
                </div>
             </div>
-          </div>	
+          </div>
         </div>
 	</script>
 <!--************************************************************************************************************************************************************************-->
@@ -384,6 +385,8 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     </body>
 </html>

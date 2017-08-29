@@ -8,6 +8,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="https://express-pizza.by/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -44,7 +45,7 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
     <plugin name="cordova-splashscreen" spec="~3.1.0" />
-    
+
     <!-- iPhone / iPod Touch  -->
 <icon src="icon-57.png" width="57" height="57" />
 <icon src="icon-57@2x.png" width="114" height="114" />
@@ -64,6 +65,18 @@
 <icon src="icon-40.png"  width="40" height="40" />
 <icon src="icon-40@2x.png"  width="80" height="80" />
 
-
 	 <icon src="icon.png"  />
+
+   <splash  height="480" src="res/screen/ios/screen-iphone-landscape.png" width="320" />
+  <splash  height="320" src="res/screen/ios/screen-iphone-portrait.png" width="480" />
+  <splash  height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+  <splash  height="640" src="res/screen/ios/screen-iphone-landscape-2x.png" width="960" />
+  <splash  height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
+  <splash  height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
+  <splash  height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
+  <splash  height="2008" src="res/screen/ios/screen-ipad-portrait-2x.png" width="1536" />
+  <splash  height="1536" src="res/screen/ios/screen-ipad-landscape-2x.png" width="2008" />
+  <splash  height="2048"  src="res/screen/ios/screen-ipad-portrait-22x.png" width="1536" />
+  <splash  height="1536"  src="res/screen/ios/screen-ipad-landscape-22x.png" width="2048"  />
+
 </widget>

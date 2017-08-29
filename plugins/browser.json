@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "by.expresspizza.expresspizza"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "by.expresspizza.expresspizza"
         }
     },
     "dependent_plugins": {}

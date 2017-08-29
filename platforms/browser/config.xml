@@ -1,19 +1,48 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="by.expresspizza.expresspizza" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ExpressPizza</name>
-    <description>
-        A basic Framework7 template for PhoneGap.
+<widget id="by.expresspizza.expresspizza" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Express Pizza</name>
+    <description>Доставка пиццы на дом и в офис в Минске. Пиццы, пироги, салаты, соки и напитки.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="express.pizza.minsk@gmail.com" href="https://express-pizza.by">
+        Express Pizza
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="https://express-pizza.by/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon height="57" src="icon-57.png" width="57" />
+    <icon height="114" src="icon-57@2x.png" width="114" />
+    <icon height="72" src="icon-72.png" width="72" />
+    <icon height="144" src="icon-72@2x.png" width="144" />
+    <icon height="60" src="icon-60.png" width="60" />
+    <icon height="120" src="icon-60@2x.png" width="120" />
+    <icon height="76" src="icon-76.png" width="76" />
+    <icon height="152" src="icon-76@2x.png" width="152" />
+    <icon height="29" src="icon-small.png" width="29" />
+    <icon height="58" src="icon-small@2x.png" width="58" />
+    <icon height="40" src="icon-40.png" width="40" />
+    <icon height="80" src="icon-40@2x.png" width="80" />
+    <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="BackgroundColor" value="0xffffffff" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="EnableViewportScale" value="true" />
 </widget>

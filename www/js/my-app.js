@@ -62,7 +62,7 @@ var firstStart=1;
     // Wait for device API libraries to load
     //
     function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);	
+        document.addEventListener("deviceready", onDeviceReady, false);
     }
 
     // device APIs are available
@@ -72,7 +72,7 @@ var firstStart=1;
 		document.addEventListener("resume", onResume, false);
 		document.addEventListener("backbutton", onBackKeyDown, false);
 
-		
+
 		if (parseFloat(window.device.version) === 7.0) {
           document.body.style.marginTop = "20px";
         }
@@ -94,7 +94,7 @@ var firstStart=1;
 	updateTovars();
 	//updateGroups();
     }
-	
+
 	// Handle the back button
     //
     function onBackKeyDown() {
@@ -105,7 +105,7 @@ var firstStart=1;
      //  else {
 		     history.go(-1);
     navigator.app.backHistory();
-       
+
      //  }
     }
 
@@ -115,7 +115,7 @@ var firstStart=1;
 
 var myApp = new Framework7({
   init: false //Disable App's automatica initialization
-});          
+});
 
 var $$ = Dom7;
 
@@ -149,8 +149,8 @@ myApp.onPageInit('index', function (page) {
 	$$('.refresh-link').on('click', function () {
         updateGroups(loadGroups);
         updateSlides(loadGroups);
-    });	
-	
+    });
+
 //-- обновляем базу групп, если устарела --------------------------------------------------------------
 	if(window.sessionStorage.getItem('updateGroupTime')) {
     var updateGroupTime = window.sessionStorage.getItem('updateGroupTime');
@@ -173,11 +173,11 @@ myApp.onPageInit('index', function (page) {
 	var now = new Date();
         if(Math.round(now/1000)-updateTime>300)
 		updateTovars();
-	}	
+	}
 else 	updateTovars();
 
 });
- 
+
 //And now we initialize app
 myApp.init();
 
@@ -185,7 +185,7 @@ myApp.init();
 var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
     dynamicNavbar: true,
-	domCache: true, //enable inline pages
+	domCache: false, //enable inline pages
 	swipeBackPage: false,
 	animatePages: false,
 	uniqueHistory: true
@@ -194,12 +194,12 @@ var mainView = myApp.addView('.view-main', {
 
 //Now we add our callback for initial page
 myApp.onPageInit('index', function (page) {
-	
+
 	$$('.refresh-link').on('click', function () {
         updateGroups(loadGroups);
         updateSlides(loadGroups);
-    });	
-	
+    });
+
 });
 
 
@@ -239,7 +239,7 @@ myApp.onPageBeforeAnimation('index', function (page) {
                                 '<div class="center sliding"><img class="title-logo" src="img/logo.png"/></div>'+
                                '<div class="right"><a href="#" class="link refresh-link icon-only"><i class="icon ion-refresh"></i></a></div></div>');
 
-	
+
 //-- обновляем базу групп, если устарела --------------------------------------------------------------
 	if(window.sessionStorage.getItem('updateGroupTime')) {
     var updateGroupTime = window.sessionStorage.getItem('updateGroupTime');
@@ -263,7 +263,17 @@ myApp.onPageBeforeAnimation('index', function (page) {
         if(Math.round(now/1000)-updateTime>300)
 		updateTovars();
 	}
-	
+
+//--- кнопка на главную --------
+  $$('a[href="#index"]').each(function(){
+      if(!$$(this).hasClass('init')) {
+          $$(this).on('click', function(){
+              loadGroups(false);
+          });
+          $$(this).addClass('init');
+      }
+  });
+
 });
 //----------   tovar   ---------------------------------------
 myApp.onPageBeforeAnimation('tovar', function (page) {
@@ -275,13 +285,12 @@ myApp.onPageBeforeAnimation('tovar', function (page) {
         if(Math.round(now/1000)-updateTime>300)
 		updateTovars($$('.tovar-page').attr('group'), $$('.tovar-page').attr('title'), loadTovars);
 	}
-	
 });
 //----------   checkout   -------------------------
 myApp.onPageBeforeAnimation('checkout', function (page) {
-	
+
    $$('.checkout-page .total').html(qty+' товаров <br/>на '+money(total)+' р');
-	
+
    $$('.toolbar').html('<a name="submit" id="send" value="Отправить" class="button button-big active color-green">Отправить <i class="icon align-right ion-chevron-right"></i></a></a>');
    //-- Упаковка ---------------------------------------
 /*   var upak=0;
@@ -299,8 +308,11 @@ myApp.onPageBeforeAnimation('checkout', function (page) {
      }
    }
      if(dost<5000 || isNaN(dost))
-	 dost=5000;  
+	 dost=5000;
    $$('.checkout-page .dostavka-info').html(money(dost)+' р');
+
+$$("#tel").mask("+375(99)999-99-99");
+
 });
 //----------   tovar cart checkout   -------------------------
 myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', function (page) {
@@ -324,11 +336,20 @@ myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', funct
         }
     });
 
+    //--- кнопка на главную --------
+      $$('a[href="#index"]').each(function(){
+          if(!$$(this).hasClass('init')) {
+              $$(this).on('click', function(){
+                  loadGroups(false);
+              });
+              $$(this).addClass('init');
+          }
+      });
 
     $$('#send').on('click', function() {   // событие для отправки формы
-      sendOrder();	
+      sendOrder();
     });
-	
+
     $$('.cart-back-link').on('click', function () { // событие на клик на обратную кнопку с формы
       loadCart();
     });
@@ -336,7 +357,7 @@ myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', funct
         mainView.router.back();
     });
 
-//---- popup images ----------------------------------------	
+//---- popup images ----------------------------------------
 	var i=0;
 	$$('.popup-tovar').on('click', function () {
 		i++;
@@ -349,7 +370,7 @@ myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', funct
                              '</div>';
         myApp.popup(popupHTML);
     });
-	
+
 //---- pull to refresh -------------------------------------
     $$('.tovar-page .pull-to-refresh-content').on('refresh', function (e) {
      updateTovars($$('.tovar-page').attr('group'), $$('.tovar-page').attr('title'), loadTovars);
@@ -364,18 +385,18 @@ myApp.onPageBeforeAnimation('complete', function (page) {
 //----------------  AfterAnimation  --------------------------
 //------------------------------------------------------------
 //----------   index   ---------------------------------------
-myApp.onPageAfterAnimation('index', function (page) {	
+myApp.onPageAfterAnimation('index', function (page) {
 
 });
 //----------   dostavka   ---------------------------------------
-myApp.onPageAfterAnimation('dostavka', function (page) {	
+myApp.onPageAfterAnimation('dostavka', function (page) {
   $$.get('https://express-pizza.by/pages.php', {page:true, nid:5492}, function (data) {
 	var answer=JSON.parse(data);
     $$('.dostavka-page .content-block-inner').html(answer.body);
   });
-}); 
+});
 //----------   o-nas   ---------------------------------------
-myApp.onPageAfterAnimation('o-nas', function (page) {	
+myApp.onPageAfterAnimation('o-nas', function (page) {
   $$.get('https://express-pizza.by/pages.php', {page:true, nid:41394}, function (data) {
 	var answer=JSON.parse(data);
     $$('.o-nas-page .content-block-inner').html(answer.body);
@@ -394,7 +415,7 @@ myApp.onPageAfterAnimation('contacts', function (page) {
 //--------------------------Добавление товара--------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
 function addTovar(obj) {
- 
+
 var nid = obj.attr('nid');
 var tovar_obj = obj.parent().parent().parent().parent().parent();
 //cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -409,7 +430,7 @@ var tovar_obj = obj.parent().parent().parent().parent().parent();
 			         cart[nid]=item.node;
 			         cart[nid]['qty']=1;
 					 tovar_obj.addClass("active");
-			         } 
+			         }
 			  }else {
 			         cart[nid]=item.node;
 			         cart[nid]['qty']=1;
@@ -533,9 +554,9 @@ function FindNidNormal(nid, title) {
 //----------------------------------------------------------------------------------------------------------------------------
 function sendOrder() {
 
-            if($$('#name').val().length > 0 && $$('#tel').val().length > 0){	
-            
-			// ---- чистим от пустых ячеек ----			
+            if($$('#name').val().length > 0 && $$('#tel').val().length > 0){
+
+			// ---- чистим от пустых ячеек ----
 			//var cart = JSON.parse(window.localStorage.getItem('cart'));
 			var str = '';
 			var i=0;
@@ -545,15 +566,15 @@ function sendOrder() {
 			   str+='&product'+i+'='+cart[key].nid+'&qty'+i+'='+cart[key].qty;
 			   }
 			}
-			
+
 			//-----------------
 				var form = myApp.formToJSON('#form-checkout');
 
 				if($$('#dostavka:checked').val())
 				form.dostavka = $$('#dostavka:checked').val();
 			    else
-					form.dostavka = '';				
-				
+					form.dostavka = '';
+
                             	myApp.showPreloader('<i class="icon ion-happy-outline"></i> отправка...');
 								var checkout = {};
 								$$('form input, form select').each(function(){
@@ -561,23 +582,23 @@ function sendOrder() {
 								checkout[$$(this).attr('id')]=$$(this).val();
 								});
 								window.localStorage.setItem('checkout', JSON.stringify(checkout));
-								
+
                 $$.post('https://express-pizza.by/checkout.php',
 				{action : 'checkout', formData : $$.serializeObject(form)+str},
 				function (data, status, xhr) {
 					    myApp.hidePreloader();
 					        if(status) {
 							    order=JSON.parse(data);
-                                clearCart(); 
+                                clearCart();
                                 mainView.router.loadContent($$('#complete-tpl').html());
                             } else {
                                 myApp.alert('Ошибка отправки заказа:( Попробуйте еще раз. Возможно отсутствует подключение к интернету.');
                             }
-                });			
+                });
 
             } else {
                 myApp.alert('Заполните поля "Имя" и "Телефон"', '<i class="icon ion-sad-outline"></i>');
-            }          
+            }
             return false; // cancel original event to prevent form submitting
 }
 //----------------------------------------------------------------------------------------------------------------------------
@@ -596,9 +617,9 @@ for (key in cart) {
 var tpl='';
 
 if(!$$('.toolbar .toolbar-inner').html())
-$$('.toolbar').html('<div class="toolbar-inner"></div>');	
+$$('.toolbar').html('<div class="toolbar-inner"></div>');
 
-if(qty>0 && total>0) {	
+if(qty>0 && total>0) {
 $$('.tovar-bar .toolbar-inner').html('<span><i class="icon ion-ios-cart-outline"></i> '+money(total)+' р </span><a href="#cart" class="link cart-link">Далее&nbsp;&nbsp;&nbsp; <i class="icon align-right ion-chevron-right"></i></a>');
 } else {
 $$('.tovar-bar .toolbar-inner').html('<i class="icon ion-ios-cart-outline"></i> &nbsp;&nbsp;&nbsp;Ваша корзина пуста');
@@ -620,14 +641,15 @@ $$('.cart-bar .toolbar-inner').html('<i class="icon ion-ios-cart-outline"></i> &
 //----------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------Загрузка шаблона формы заказа---------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
-function loadCheckout() {	
+function loadCheckout() {
 mainView.router.loadContent($$('#checkout-tpl').html());
 }
 //----------------------------------------------------------------------------------------------------------------------------
 //-------------Вывод групп и слайдера--------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 function loadGroups(state) {
-state = state || true;
+  if(state==null)
+  state = true;
 myApp.hidePreloader();
 var list='';
 var slideslist='';
@@ -636,7 +658,7 @@ var tpl='<!-- Top Navbar-->' +
         '  <div class="navbar-inner">' +
         '    <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>' +
         '    <div class="center sliding"><img class="title-logo" src="img/logo.png"/></div>' +
-		'     <div class="right"><a href="#" class="link refresh-link icon-only"> <i class="icon ion-refresh"></i></a></div>' +      
+		'     <div class="right"><a href="#" class="link refresh-link icon-only"> <i class="icon ion-refresh"></i></a></div>' +
         '  </div>' +
         '</div>' +
         '<div class="pages navbar-through toolbar-through">' +
@@ -651,15 +673,15 @@ var tpl='<!-- Top Navbar-->' +
         if(item.slide.image)
             slideslist+='<div class="swiper-slide"><img src="'+item.slide.image+'"></div>';
     });
-    if(state)
+    if(!state)
         tpl+=slideslist;
     tpl+='      </div>'+
         '     </div>'+
         '      <div class="list-block media-list inset">' +
         '        <ul>';
          //-- groups ----
-          $$.each(groups.Items, function(i,item){	
-              var image	='';  
+          $$.each(groups.Items, function(i,item){
+              var image	='';
 		      if(item.term.termimage)
 			  image = '<div class="item-media"><img src="'+item.term.termimage+'" width="60"></div>';
               list+='<li>'+
@@ -670,13 +692,13 @@ var tpl='<!-- Top Navbar-->' +
                         '<div class="item-title">'+item.term.name+'</div>'+
                        '</div>'+
                          '<div class="item-subtitle"></div>'+
-					   '</div>'+ 
-                    '</a>'+		
+					   '</div>'+
+                    '</a>'+
                    '</li>';
           });
-		  
-   if(state)
-   tpl+=list;	   
+
+   if(!state)
+   tpl+=list;
    tpl+='        </ul>' +
         '      </div>' +
         '    </div>' +
@@ -699,10 +721,10 @@ var tpl='<!-- Top Navbar-->' +
 
       $$('.group-link').each(function(){
 		  if($$(this).hasClass('init')==false) {
-	         $$(this).on('click', function () {		   	 
+	         $$(this).on('click', function () {
                loadTovars($$(this).attr('group'),$$(this).text());
-             }).addClass('init');		 
-          }			 
+             }).addClass('init');
+          }
 	  });
 
 
@@ -715,8 +737,8 @@ function loadTovars(group, title, state) {
 state = state || true;
 
 if($$('.tovar-page ul').html())
-mainView.router.back();	
-//myApp.showPreloader('Загрузка меню...');	
+mainView.router.back();
+//myApp.showPreloader('Загрузка меню...');
 var i=0;
 var list='';
 var tpl='<!-- Top Navbar-->' +
@@ -814,13 +836,13 @@ var tpl='<!-- Top Navbar-->' +
                              '</div>'+
 						    '</div>'+
 						 '</div>'+
-                    //'</a>'+				
+                    //'</a>'+
                    '</li>';
 			  }
           });
- 
+
         if(state)
-        tpl+=list;	   
+        tpl+=list;
 
         tpl+='        </ul>' +
         '      </div>' +
@@ -830,12 +852,12 @@ var tpl='<!-- Top Navbar-->' +
 
 	if(state)
 	mainView.router.loadContent(tpl);
-    else 
+    else
 	    $$('.tovar-page ul').html(list);
 
-	
+
 		$$('.toolbar').addClass('tovar-bar');
-		$$('.toolbar').removeClass('cart-bar');		
+		$$('.toolbar').removeClass('cart-bar');
 
     updateCart();
 }
@@ -843,8 +865,8 @@ var tpl='<!-- Top Navbar-->' +
 //---------------------Корзина---вывод товаров--------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 function loadCart() {
-	
-//myApp.onPageBeforeAnimation('cart', function (page) { 
+
+//myApp.onPageBeforeAnimation('cart', function (page) {
  	//$('#cart #tovar-list').empty();
     //cart = JSON.parse(window.localStorage.getItem('cart'));
 var tpl='<!-- Top Navbar-->' +
@@ -940,7 +962,7 @@ var tpl='<!-- Top Navbar-->' +
                      //'<div class="swipeout-actions-right"><a href="#" class="action1 bg-red">Удалить</a></div>'+
                    '</li>';
 			}
-          }; 
+          };
 		  if(economy>0){
               tpl+='<li class="economy"><i class="icon ion-ios-star-outline"></i> Экономия '+economy+' рублей!</li>';
           }
@@ -975,7 +997,7 @@ $$.getJSON("https://express-pizza.by/tovarjson?rnd="+Math.random(),
 	var now = new Date();
 	window.sessionStorage.setItem('updateTime', Math.round(now/1000) );
 	});
-	
+
 }
 //----------------------------------------------------------------------------------------------------------------------------
 //--------------------- Обновление базы групп  -------------------------------------------------------------------------------
