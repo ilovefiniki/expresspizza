@@ -639,14 +639,14 @@ if(!$$('.toolbar .toolbar-inner').html())
 $$('.toolbar').html('<div class="toolbar-inner"></div>');
 
 if(qty>0 && total>0) {
-$$('.tovar-bar .toolbar-inner').html('<span><i class="icon ion-ios-cart-outline"></i> '+money(total)+' р </span><a href="#cart" class="link cart-link">Далее&nbsp;&nbsp;&nbsp; <i class="icon align-right ion-chevron-right"></i></a>');
+$$('.tovar-bar .toolbar-inner').html('<span><i class="icon ion-android-cart"></i> '+money(total)+' р </span><a href="#cart" class="link cart-link">Далее&nbsp;&nbsp;&nbsp; <i class="icon align-right ion-chevron-right"></i></a>');
 } else {
-$$('.tovar-bar .toolbar-inner').html('<i class="icon ion-ios-cart-outline"></i> &nbsp;&nbsp;&nbsp;Ваша корзина пуста');
+$$('.tovar-bar .toolbar-inner').html('<i class="icon ion-android-cart"></i> &nbsp;&nbsp;&nbsp;Ваша корзина пуста');
 }
 if(qty>0 && total>0)
-$$('.cart-bar .toolbar-inner').html('<span><i class="icon ion-ios-cart-outline"></i> '+money(total)+' р </span><a href="#checkout" class="link checkout-link">Оформить&nbsp;&nbsp;&nbsp; <i class="icon align-right ion-chevron-right"></i></a>');
+$$('.cart-bar .toolbar-inner').html('<span><i class="icon ion-android-cart"></i> '+money(total)+' р </span><a href="#checkout" class="link checkout-link">Оформить&nbsp;&nbsp;&nbsp; <i class="icon align-right ion-chevron-right"></i></a>');
 else
-$$('.cart-bar .toolbar-inner').html('<i class="icon ion-ios-cart-outline"></i> &nbsp;&nbsp;&nbsp;Ваша корзина пуста');
+$$('.cart-bar .toolbar-inner').html('<i class="icon ion-android-cart"></i> &nbsp;&nbsp;&nbsp;Ваша корзина пуста');
 
     $$('.cart-link').on('click', function () {
         loadCart();
