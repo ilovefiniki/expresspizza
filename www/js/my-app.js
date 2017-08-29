@@ -185,7 +185,7 @@ myApp.init();
 var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
     dynamicNavbar: true,
-	domCache: false, //enable inline pages
+	domCache: true, //enable inline pages
 	swipeBackPage: false,
 	animatePages: false,
 	uniqueHistory: true
@@ -311,12 +311,25 @@ myApp.onPageBeforeAnimation('checkout', function (page) {
 	 dost=5000;
    $$('.checkout-page .dostavka-info').html(money(dost)+' р');
 
-$$("#tel").mask("+375(99)999-99-99");
+jQuery("#tel").mask("+375(99)999-99-99");
+
+});
+//----------   tovar   ---------------------------------------
+myApp.onPageBeforeAnimation('complete', function (page) {
+
+  //--- кнопка на главную --------
+    $$('a[href="#index"]').each(function(){
+        if(!$$(this).hasClass('init')) {
+            $$(this).on('click', function(){
+                loadGroups(false);
+            });
+            $$(this).addClass('init');
+        }
+    });
 
 });
 //----------   tovar cart checkout   -------------------------
 myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', function (page) {
-
 
     $$('.tovari a[type="add-to-cart"]').each(function(){
         if(!$$(this).hasClass('init')) {
