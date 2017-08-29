@@ -124,7 +124,11 @@ $$(document).on('deviceready', function() {
     console.log("Device is ready!");
 });
 
-
+// 1 Slide Per View, 50px Between
+var mySwiper1 = myApp.swiper('.swiper-1', {
+    pagination:'.swiper-1 .swiper-pagination',
+    spaceBetween: 50
+});
 
 //Now we add our callback for initial page
 myApp.onPageInit('index', function (page) {
@@ -395,12 +399,13 @@ myApp.onPageBeforeAnimation('complete', function (page) {
 //------------------------------------------------------------
 //----------   index   ---------------------------------------
 myApp.onPageAfterAnimation('index', function (page) {
-  if(myApp){
-    var mySwiper1 = myApp.swiper('.swiper-1', {
-        pagination:'.swiper-1 .swiper-pagination',
-        spaceBetween: 50
-    });
-  }
+  $$('.group-link').each(function(){
+  if($$(this).hasClass('init')==false) {
+       $$(this).on('click', function () {
+           loadTovars($$(this).attr('group'),$$(this).text());
+         }).addClass('init');
+      }
+  });
 });
 //----------   dostavka   ---------------------------------------
 myApp.onPageAfterAnimation('dostavka', function (page) {
@@ -735,7 +740,7 @@ var tpl='<!-- Top Navbar-->' +
                loadTovars($$(this).attr('group'),$$(this).text());
              }).addClass('init');
           }
-	  });
+	    });
 
 
 }
@@ -974,7 +979,7 @@ var tpl='<!-- Top Navbar-->' +
 			}
           };
 		  if(economy>0){
-              tpl+='<li class="economy"><i class="icon ion-ios-star-outline"></i> Экономия '+economy+' рублей!</li>';
+              tpl+='<li class="economy"><i class="icon ion-ios-star-outline"></i> Экономия '+money(economy)+' рублей!</li>';
           }
 		tpl+='        </ul>' +
         '      </div>' +
