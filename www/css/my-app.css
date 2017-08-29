@@ -20,7 +20,7 @@ font-family: 'Roboto', sans-serif;
     color: #fff;
 }
 .panel {
-    background: #c95210 none repeat scroll 0 0;
+    background: #ff151f none repeat scroll 0 0;
 }
 
 .page {
@@ -139,13 +139,13 @@ font-family: 'Roboto', sans-serif;
 
 }
 .panel .list-block .item-content {
-    background: #984212 none repeat scroll 0 0;
+    background: #714b4c none repeat scroll 0 0;
     border-bottom: 0;
 }
 .panel ul {
     border-bottom: 0px;
     border-top: 0;
-    box-shadow: 1px 1px 14px #9A4719;
+    box-shadow: 1px 1px 14px #9c6e70;
 }
 .panel .list-block i {
   color: #fafafa;
@@ -402,4 +402,10 @@ text-align: right;
 .cart-bar .button.button-big {
     font-weight: bold;
     font-size: 22px;
+}
+.cart-link i.icon, .checkout-link i.icon {
+    font-size: 19px;
+}
+.cart-back-link i.icon {
+    font-size: 11px;
 }
