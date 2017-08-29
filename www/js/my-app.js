@@ -124,11 +124,7 @@ $$(document).on('deviceready', function() {
     console.log("Device is ready!");
 });
 
-// 1 Slide Per View, 50px Between
-var mySwiper1 = myApp.swiper('.swiper-1', {
-    pagination:'.swiper-1 .swiper-pagination',
-    spaceBetween: 50
-});
+
 
 //Now we add our callback for initial page
 myApp.onPageInit('index', function (page) {
@@ -399,7 +395,12 @@ myApp.onPageBeforeAnimation('complete', function (page) {
 //------------------------------------------------------------
 //----------   index   ---------------------------------------
 myApp.onPageAfterAnimation('index', function (page) {
-
+  if(myApp){
+    var mySwiper1 = myApp.swiper('.swiper-1', {
+        pagination:'.swiper-1 .swiper-pagination',
+        spaceBetween: 50
+    });
+  }
 });
 //----------   dostavka   ---------------------------------------
 myApp.onPageAfterAnimation('dostavka', function (page) {
@@ -726,12 +727,6 @@ var tpl='<!-- Top Navbar-->' +
         mainView.router.loadContent(tpl);
     }
 
-if(myApp){
-  var mySwiper1 = myApp.swiper('.swiper-1', {
-      pagination:'.swiper-1 .swiper-pagination',
-      spaceBetween: 50
-  });
-}
 
 
       $$('.group-link').each(function(){
