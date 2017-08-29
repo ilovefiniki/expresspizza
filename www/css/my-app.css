@@ -20,9 +20,8 @@ font-family: 'Roboto', sans-serif;
     color: #fff;
 }
 .panel {
-    background: #ff151f none repeat scroll 0 0;
+    background: rgb(162, 9, 9) none repeat scroll 0 0;
 }
-
 .page {
   /*  background: #efeff4 url("../img/bg.jpg") no-repeat fixed left center; */
 }
@@ -59,7 +58,7 @@ font-family: 'Roboto', sans-serif;
 
 }
 .list-block ul {
-    background: rgba(255, 255, 255, 0.85);
+    background: transparent;
 }
 .content-block-title {
   color: #FFF;
@@ -139,13 +138,13 @@ font-family: 'Roboto', sans-serif;
 
 }
 .panel .list-block .item-content {
-    background: #714b4c none repeat scroll 0 0;
+    background: transparent;
     border-bottom: 0;
 }
 .panel ul {
     border-bottom: 0px;
     border-top: 0;
-    box-shadow: 1px 1px 14px #9c6e70;
+    box-shadow: none;
 }
 .panel .list-block i {
   color: #fafafa;
