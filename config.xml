@@ -24,23 +24,19 @@
         <allow-intent href="itms-apps:*" />
         <preference name="BackupWebStorage" value="none" />
     </platform>
-    <preference name="DisallowOverscroll" value="true" />
-        <preference name="orientation" value="default" />
-    <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="7" />
-    <preference name="android-installLocation" value="auto" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="EnableViewportScale" value="true" />
+
+
+
+
+
+<preference name="StatusBarBackgroundColor" value="#ff151f" />
+<preference name="StatusBarOverlaysWebView" value="true" />
+<preference name="StatusBarStyle" value="blacktranslucent" />
 
  <preference name="SplashScreenDelay" value="0"/>
  <preference name="AutoHideSplashScreen" value="true" />
+
+     <preference name="EnableViewportScale" value="true" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
