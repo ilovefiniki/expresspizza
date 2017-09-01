@@ -109,6 +109,22 @@ var firstStart=1;
      //  }
     }
 
+document.addEventListener("deviceready", appReady, false);
+function appReady(){
+  document.addEventListener("backbutton", function(e){
+    var page=myApp.getCurrentView().activePage;
+    myApp.hidePreloader();
+    if(page.name=="index"){
+      e.preventDefault();
+      if(confirm("Хотите выйти из приложения?")) {
+        navigator.app.clearHistory();
+        navigator.app.exitApp();
+      }
+    } else {
+      navigator.app.backHistory()
+    }
+  }, false);
+}
 //----------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
