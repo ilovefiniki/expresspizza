@@ -1,3 +1,11 @@
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37632211-1', 'auto');
+ga('send', 'pageview');
+
 //----- incognito mode bug ------------------------------------------
 (function(){
     try {
@@ -838,7 +846,7 @@ var tpl='<!-- Top Navbar-->' +
                   var nid50 = FindNidAction50(item.node.nid, item.node.title);
                   plus50='<a nid='+nid50+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" class="button color-green button-round button-big plus50 active">+</a>';
                   minus50='<a nid='+nid50+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" class="button color-red button-round button-big minus50 active">-</a>';
-                  mark50='<div class="mark50">-50%</div>';
+                  mark50='<div class="mark50">Каждая вторая -50%</div>';
               }
                 //-- картинка товара --------------
                 var image = '';
@@ -848,7 +856,7 @@ var tpl='<!-- Top Navbar-->' +
                 list+='<li nid="'+item.node.nid+'" class="tovari tovari'+i+' '+pizza+' '+active+'">'+
                     //'<a href="#" class="item-link item-content">'+
                      image+
-                      mark50+
+
                       '<div class="item-inner">'+
                        '<div class="item-title-row">'+
                         '<div class="item-title">'+item.node.title+'</div>'+
@@ -872,6 +880,8 @@ var tpl='<!-- Top Navbar-->' +
                              '</div>'+
 						    '</div>'+
 						 '</div>'+
+             '</div>'+
+             mark50+
                     //'</a>'+
                    '</li>';
 			  }
