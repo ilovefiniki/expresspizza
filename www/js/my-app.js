@@ -289,7 +289,8 @@ myApp.onPageBeforeAnimation('index', function (page) {
           $$(this).addClass('init');
       }
   });
-
+  ga('set', 'page', '/index.html');
+  ga('send', 'pageview');
 });
 //----------   tovar   ---------------------------------------
 myApp.onPageBeforeAnimation('tovar', function (page) {
@@ -301,6 +302,8 @@ myApp.onPageBeforeAnimation('tovar', function (page) {
         if(Math.round(now/1000)-updateTime>300)
 		updateTovars($$('.tovar-page').attr('group'), $$('.tovar-page').attr('title'), loadTovars);
 	}
+  ga('set', 'page', '/tovar.html');
+  ga('send', 'pageview');
 });
 //----------   checkout   -------------------------
 myApp.onPageBeforeAnimation('checkout', function (page) {
@@ -328,7 +331,8 @@ myApp.onPageBeforeAnimation('checkout', function (page) {
    $$('.checkout-page .dostavka-info').html(money(dost)+' р');
 
 jQuery("#tel").mask("+375(99)999-99-99");
-
+ga('set', 'page', '/checkout.html');
+ga('send', 'pageview');
 });
 //----------   tovar   ---------------------------------------
 myApp.onPageBeforeAnimation('complete', function (page) {
@@ -342,7 +346,8 @@ myApp.onPageBeforeAnimation('complete', function (page) {
             $$(this).addClass('init');
         }
     });
-
+    ga('set', 'page', '/complete.html');
+    ga('send', 'pageview');
 });
 //----------   tovar cart checkout   -------------------------
 myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', function (page) {
