@@ -5,6 +5,11 @@ body{
 font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
+body.with-panel-left-reveal .panel-overlay {
+    margin-left: 260px;
+    opacity: 0.1;
+    background: #212121;
+}
 .navbar, .toolbar {
   background: #ff151f none repeat scroll 0 0;
 }
@@ -407,4 +412,8 @@ text-align: right;
 }
 .cart-back-link i.icon {
     font-size: 11px;
+}
+.item-after.cart-price, .item-after.cart-price50 {
+    font-weight: bold;
+    color: #525252;
 }
