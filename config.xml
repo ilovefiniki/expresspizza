@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="by.express-pizza.express-pizza" version="2.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="by.express_pizza.express_pizza" version="2.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Express Pizza</name>
     <description>Доставка пиццы на дом и в офис в Минске. Пиццы, пироги, салаты, соки и напитки.
     </description>
