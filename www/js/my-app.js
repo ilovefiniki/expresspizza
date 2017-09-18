@@ -846,7 +846,7 @@ var tpl='<!-- Top Navbar-->' +
                   var nid50 = FindNidAction50(item.node.nid, item.node.title);
                   plus50='<a nid='+nid50+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" class="button color-green button-round button-big plus50 active">+</a>';
                   minus50='<a nid='+nid50+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" class="button color-red button-round button-big minus50 active">-</a>';
-                  mark50='<div class="mark50">Каждая вторая -50%</div>';
+                  mark50='<div class="mark50"><div class="item-title">'+item.node.title+' за пол цены (-50%)</div>'+price50+'</div>';
               }
                 //-- картинка товара --------------
                 var image = '';
@@ -863,7 +863,7 @@ var tpl='<!-- Top Navbar-->' +
                        '</div>'+
 			'<div class="item-subtitle">'+item.node.text+'</div>'+
                   '<div class="item-after price">'+money(item.node.price)+' р</div>'+
-                      price50+
+                    //  price50+
                    '<div class="badge">'+item.node.ves+'</div>'+
                          '<div class="item-text controls">'+
 						    '<div>'+
@@ -881,7 +881,7 @@ var tpl='<!-- Top Navbar-->' +
 						    '</div>'+
 						 '</div>'+
              '</div>'+
-             mark50+
+              mark50+
                     //'</a>'+
                    '</li>';
 			  }
@@ -972,7 +972,7 @@ var tpl='<!-- Top Navbar-->' +
                 if(cart[key].term=='pizza23' || cart[key].term=='pizza30' || cart[key].term=='pizza36') {
                     pizza="pizza";
                     if(price2>0 && qty2>0)
-                    price50='<div class="item-after cart-price50">'+money(price2)+'р/'+qty2+'шт (-50%)</div>';
+                    price50='<div class="item-after cart-price50">'+money(price2)+'р/'+qty2+'шт за пол цены (-50%)</div>';
                     var nid50 = FindNidAction50(cart[key].nid, cart[key].title);
                     plus50='<a nid='+nid50+' href="" type="add-to-cart" data-role="button" data-icon="plus" data-iconpos="notext" class="button color-green button-round button-big plus50 active">+</a>';
                     minus50='<a nid='+nid50+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" class="button color-red button-round button-big minus50 active">-</a>';

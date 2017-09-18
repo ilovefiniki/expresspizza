@@ -88,7 +88,7 @@ body.with-panel-left-reveal .panel-overlay {
 .content-block-inner:before {
     background-color: transparent;
 }
-.content-block-inner:after {
+.tovari .content-block-inner:after {
     background-color: transparent;
 }
 .product-title {
@@ -238,6 +238,10 @@ a.cart-link {
 }
 .list-block li.tovari {
     min-height: 120px;
+    border-bottom: 1px solid #ccc;
+}
+.list-block li .item-inner:after {
+    background: transparent;
 }
 .list-block.media-list li.tovari .item-media {
      padding: 10px;
@@ -368,7 +372,7 @@ text-align: right;
 .list-block .price50, .list-block .plus50, .list-block .pizza .minus, .list-block .mark50 {
     display:none;
 }
-.list-block .action50 .price, .list-block .action50.pizza .plus, .list-block .action50.pizza .minus50 {
+ .list-block .action50.pizza .plus, .list-block .action50.pizza .minus50 {
     display:none;
 }
 .list-block .action50 .price50, .list-block .action50 .plus50, .list-block .pizza.action50 .minus, .list-block .action50 .mark50 {
@@ -379,15 +383,47 @@ text-align: right;
 }
 .list-block .mark50 {
     position: relative;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-    text-align: center;
+    margin-right: 60px;
+    min-height: 100px;
+    text-align: left;
     left: 10px;
-    color: #ffffff;
+    color: #000;
     animation-name: action-50;
     animation-duration: 4s;
     animation-iteration-count: 50;
-    text-shadow: 1px 1px 1px #ff0000, 1px -1px 1px #ff0000, -1px 1px 1px #ff0000, -1px -1px 1px #ff0000;
+    /* text-shadow: 1px 1px 1px #ff0000, 1px -1px 1px #ff0000, -1px 1px 1px #ff0000, -1px -1px 1px #ff0000; */
+}
+.mark50 .item-title {
+    margin-left: 110px;
+}
+.tovar-page .action50 .item-title-row {
+    opacity: 0.3;
+}
+.tovar-page .action50 .item-after.price {
+    opacity: 0.3;
+}
+.tovar-page .action50 .item-subtitle {
+    opacity: 0.3;
+}
+.tovar-page .action50 .badge {
+    opacity: 0.3;
+}
+.action50 .item-after.price.price50 {
+    position: relative;
+    left: 113px;
+    margin-left: 0;
+    text-align: left;
+    line-height: 40px;
+    opacity:1;
+}
+.tovar-page .action50 .item-text.controls {
+    top: auto;
+    bottom: -100px;
+}
+.tovar-page .list-block.media-list li.tovari.action50 .item-media {
+    bottom: -100px;
 }
 .tovar-page li.tovari.action50 {
     background: #fff700;
