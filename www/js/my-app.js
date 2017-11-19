@@ -561,13 +561,15 @@ checkAction50(obj);
 //----------------------------------------------------------------------------------------------------------------------------
 //--------------------- Акция 50% -------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
-function checkAction50(obj) {
+function checkAction50(obj) { 
+/*
     var tovar_obj = obj.parents('li');
     var nid = tovar_obj.attr('nid');
     if(cart[nid])
     if(cart[nid].term=='pizza23' || cart[nid].term=='pizza30' || cart[nid].term=='pizza36') {
         tovar_obj.toggleClass("action50");
     }
+    */
 }
 //----------------------------------------------------------------------------------------------------------------------------
 //--------------------- Акция 50% найти nid скидочной пиццы -------------------------------------------------------------------------------------
@@ -830,16 +832,19 @@ var tpl='<!-- Top Navbar-->' +
                 if((qty+qty2)>0) {
                     active='active';
                 }
+                /*
                 if((qty-qty2)==1){
                     active+=" action50";
                 }
-
+                */
               //--- определение параметров акционных пицц 50% -----
+              
                 var plus50='';
                 var minus50='';
                 var price50='';
                 var mark50='';
                 var pizza='';
+                /*  
               if(item.node.term=='pizza23' || item.node.term=='pizza30' || item.node.term=='pizza36') {
                   pizza="pizza";
                   price50='<div class="item-after price price50">'+money(item.node.price/2)+' р</div>';
@@ -848,6 +853,7 @@ var tpl='<!-- Top Navbar-->' +
                   minus50='<a nid='+nid50+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" class="button color-red button-round button-big minus50 active">-</a>';
                   mark50='<div class="mark50"><div class="item-title">'+item.node.title+' за пол цены (-50%)</div>'+price50+'</div>';
               }
+              */
                 //-- картинка товара --------------
                 var image = '';
                 if(item.node.image)
@@ -955,10 +961,11 @@ var tpl='<!-- Top Navbar-->' +
                 if((qty+qty2)>0) {
                     active='active';
                 }
+                /*
                 if((qty-qty2)==1){
                     active+=" action50";
                 }
-
+               */
                 var pizza50='';
                 if(cart[key].title.indexOf("-50%") !=-1){
                     pizza50='pizza50';
@@ -969,6 +976,7 @@ var tpl='<!-- Top Navbar-->' +
                 var price50='';
                 var mark50='';
                 var pizza='';
+                /*
                 if(cart[key].term=='pizza23' || cart[key].term=='pizza30' || cart[key].term=='pizza36') {
                     pizza="pizza";
                     if(price2>0 && qty2>0)
@@ -978,6 +986,7 @@ var tpl='<!-- Top Navbar-->' +
                     minus50='<a nid='+nid50+' href="" type="remove-from-cart" data-role="button" data-icon="minus" data-iconpos="notext" class="button color-red button-round button-big minus50 active">-</a>';
                     //mark50='<div class="mark50">-50%</div>';
                 }
+                */
 			       tpl+='<li nid="'+cart[key].nid+'" class="ui-grid-b swipeout tovari tovari'+i+' '+active+' '+pizza50+' '+pizza+'">'+
                        '<div class="swipeout-content item-content">'+
                       '<div class="item-inner">'+
@@ -1009,9 +1018,11 @@ var tpl='<!-- Top Navbar-->' +
                    '</li>';
 			}
           };
+          /*
 		  if(economy>0){
               tpl+='<li class="economy"><i class="icon ion-ios-star-outline"></i> Экономия '+money(economy)+' рублей!</li>';
           }
+          */
 		tpl+='        </ul>' +
         '      </div>' +
         '    </div>' +
