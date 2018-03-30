@@ -438,21 +438,21 @@ myApp.onPageAfterAnimation('index', function (page) {
 });
 //----------   dostavka   ---------------------------------------
 myApp.onPageAfterAnimation('dostavka', function (page) {
-  $$.get('http://city-food.by/pages.php', {page:true, nid:5492}, function (data) {
+  $$.get('https://express-pizza.by/pages.php', {page:true, nid:5492}, function (data) {
 	var answer=JSON.parse(data);
     $$('.dostavka-page .content-block-inner').html(answer.body);
   });
 });
 //----------   o-nas   ---------------------------------------
 myApp.onPageAfterAnimation('o-nas', function (page) {
-  $$.get('http://city-food.by/pages.php', {page:true, nid:41394}, function (data) {
+  $$.get('https://express-pizza.by/pages.php', {page:true, nid:41394}, function (data) {
 	var answer=JSON.parse(data);
     $$('.o-nas-page .content-block-inner').html(answer.body);
   });
 });
 //----------   contacts   ---------------------------------------
 myApp.onPageAfterAnimation('contacts', function (page) {
-    $$.get('http://city-food.by/pages.php', {page:true, nid:41469}, function (data) {
+    $$.get('https://express-pizza.by/pages.php', {page:true, nid:41469}, function (data) {
         var answer=JSON.parse(data);
         $$('.contacts-page .content-block-inner').html(answer.body);
     });
@@ -633,7 +633,7 @@ function sendOrder() {
 								});
 								window.localStorage.setItem('checkout', JSON.stringify(checkout));
 
-                $$.post('http://city-food.by/checkout.php',
+                $$.post('https://express-pizza.by/checkout.php',
 				{action : 'checkout', formData : $$.serializeObject(form)+str},
 				function (data, status, xhr) {
 					    myApp.hidePreloader();
@@ -1040,7 +1040,7 @@ function updateTovars(group, title, callback) {
 //myApp.showPreloader('обновление меню...');
 
 //----- загрузка товаров -----
-$$.getJSON("http://city-food.by/tovarjson?rnd="+Math.random(),
+$$.getJSON("https://express-pizza.by/tovarjson?rnd="+Math.random(),
     function(data, status, xhr){
 	tovars = data;
 	window.localStorage.setItem('tovars', JSON.stringify(data));
@@ -1064,7 +1064,7 @@ myApp.showPreloader('обновление разделов...');
 $$('.tovar-page .page-content').html('<div class="content-block inset"><div class="content-block-inner"><p class="center"><span style="width:36px; height:36px" class="preloader"></span></p></div></div>');
 
 //----- загрузка групп -----
-$$.getJSON("http://city-food.by/groupjson?rnd="+Math.random(),
+$$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
     function(data, status, xhr){
 	groups = data;
 	window.localStorage.setItem('groups', JSON.stringify(data));
@@ -1084,7 +1084,7 @@ function updateSlides(callback) {
     //$$('.tovar-page .page-content').html('<div class="content-block inset"><div class="content-block-inner"><p class="center"><span style="width:36px; height:36px" class="preloader"></span></p></div></div>');
 
 //----- загрузка слайдов -----
-    $$.getJSON("http://city-food.by/slidesjson?rnd="+Math.random(),
+    $$.getJSON("https://express-pizza.by/slidesjson?rnd="+Math.random(),
         function(data, status, xhr){
             slides = data;
             window.localStorage.setItem('slides', JSON.stringify(data));
