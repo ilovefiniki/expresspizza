@@ -244,11 +244,11 @@ a.cart-link {
     background: transparent;
 }
 .list-block.media-list li.tovari .item-media {
-     padding: 10px;
+     padding:  0px;
      float: left;
-     width: 120px;
+     width: 175px;
      position: relative;
-     z-index: 5;
+    z-index: 5;
 }
 .list-block.media-list li.tovari .item-inner {
     min-height: 120px;
@@ -266,10 +266,13 @@ a.cart-link {
 }
 .tovar-page .list-block .item-subtitle {
     margin-bottom: 19px;
+    font-size: 12px;
 }
 .list-block li.tovari .item-title {
     white-space: normal;
     margin-right: 33px;
+    line-height: 17px;
+    font-family: "Roboto Condensed";
 }
 .item-text.controls {
     width: 45px;
@@ -297,7 +300,7 @@ li.tovari .price {
     line-height: 18px;
     font-weight: bold;
     color: #5d5d61;
-    margin-left: 115px;
+    margin-left: 170px;
     position: absolute;
     bottom: 8px;
 }
@@ -341,6 +344,7 @@ text-align: right;
     display: block;
     background: transparent;
     border-radius: 3px;
+    width: 170px;
 }
 .swiper-slide {
     background: #fff;
@@ -356,8 +360,35 @@ text-align: right;
 .swiper-container {
 
 }
+
+.list-block li.group-li {
+    width: 50%;
+    float: left;
+    min-height: 115px;
+}
+
 .list-block .group-link {
-    height: 60px;
+    min-height: 120px;
+    margin: 0;
+    padding: 0;
+}
+.group-link .item-media {
+    position: absolute;
+    width: 100%;
+}
+.group-link .item-media img {
+    margin: 0 auto;
+}
+.group-link .item-title {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    margin: 0 auto;
+    font-family: "Roboto Condensed";
+    background: rgba(255, 255, 255, 0.7);
 }
 .list-block .group-link .item-title-row {
     margin: 8px;

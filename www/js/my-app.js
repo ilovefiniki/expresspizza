@@ -733,16 +733,16 @@ var tpl='<!-- Top Navbar-->' +
           $$.each(groups.Items, function(i,item){
               var image	='';
 		      if(item.term.termimage)
-			  image = '<div class="item-media"><img src="'+item.term.termimage+'" width="60"></div>';
-              list+='<li>'+
+			  image = '<div class="item-media"><img src="'+item.term.termimage+'" srcset="'+item.term.termimage_2x+' 2x" ></div>';
+              list+='<li class="group-li">'+
                     '<a href="#" group="'+item.term.code+'" class="item-link group-link item-content">'+
                      ''+image+''+
-                      '<div class="item-inner">'+
-                       '<div class="item-title-row">'+
+                      //'<div class="item-inner">'+
+                      // '<div class="item-title-row">'+
                         '<div class="item-title">'+item.term.name+'</div>'+
-                       '</div>'+
-                         '<div class="item-subtitle"></div>'+
-					   '</div>'+
+                       //'</div>'+
+                       //  '<div class="item-subtitle"></div>'+
+					   //'</div>'+
                     '</a>'+
                    '</li>';
           });
@@ -857,7 +857,11 @@ var tpl='<!-- Top Navbar-->' +
                 //-- картинка товара --------------
                 var image = '';
                 if(item.node.image)
-                    image = '<div class="item-media"><a href="#" class="popup-tovar popup-tovar'+i+'"><img src="'+item.node.image+'" width="100" src-large="'+item.node.imageLarge+'"></a></div>';
+                    image = '<div class="item-media"><a href="#" class="popup-tovar popup-tovar'+i+'"><img src="'+item.node.image+'" srcset="'+item.node.image2x+' 2x"  src-large="'+item.node.imageLarge+'"></a></div>';
+
+                var ves = '';
+                if(item.node.ves)
+                    ves = '<div class="badge">'+item.node.ves+'</div>';
 
                 list+='<li nid="'+item.node.nid+'" class="tovari tovari'+i+' '+pizza+' '+active+'">'+
                     //'<a href="#" class="item-link item-content">'+
@@ -870,7 +874,7 @@ var tpl='<!-- Top Navbar-->' +
 			'<div class="item-subtitle">'+item.node.text+'</div>'+
                   '<div class="item-after price">'+money(item.node.price)+' р</div>'+
                     //  price50+
-                   '<div class="badge">'+item.node.ves+'</div>'+
+                   ves+
                          '<div class="item-text controls">'+
 						    '<div>'+
 						     '<div>'+
