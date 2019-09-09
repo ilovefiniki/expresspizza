@@ -280,6 +280,8 @@ myApp.onPageBeforeAnimation('index', function (page) {
 		   updateGroups(loadGroups);
            updateSlides(loadGroups);
     }
+
+
 	//-- обновляем базу товаров, если устарела ----
 	if(window.sessionStorage.getItem('updateTime')) {
     var updateTime = window.sessionStorage.getItem('updateTime');
@@ -315,6 +317,7 @@ myApp.onPageBeforeAnimation('tovar', function (page) {
 });
 //----------   checkout   -------------------------
 myApp.onPageBeforeAnimation('checkout', function (page) {
+
 
    $$('.checkout-page .total').html(qty+' товаров <br/>на '+money(total)+' р');
 
@@ -435,6 +438,7 @@ myApp.onPageAfterAnimation('index', function (page) {
          }).addClass('init');
       }
   });
+
 });
 //----------   dostavka   ---------------------------------------
 myApp.onPageAfterAnimation('dostavka', function (page) {
@@ -715,7 +719,7 @@ var tpl='<!-- Top Navbar-->' +
         '  <!-- Page, data-page contains page name-->' +
         '  <div data-page="index" class="page index-page loaded">' +
         '    <div class="page-content">' +
-        '     <div class="swiper-container swiper-1">'+
+        '     <div class="swiper-container swiper-1 swiper-init swiper-1-auto demo-swiper-auto" data-speed="1000">'+
         '      <div class="swiper-pagination"></div>'+
         '      <div class="swiper-wrapper">';
     //-- slides ------
@@ -762,7 +766,6 @@ var tpl='<!-- Top Navbar-->' +
     else {
         mainView.router.loadContent(tpl);
     }
-
 
 
       $$('.group-link').each(function(){
