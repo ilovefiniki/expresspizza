@@ -149,10 +149,12 @@ $$(document).on('deviceready', function() {
 });
 
 // 1 Slide Per View, 50px Between
+/*
 var mySwiper1 = myApp.swiper('.swiper-1', {
     pagination:'.swiper-1 .swiper-pagination',
     spaceBetween: 50
 });
+*/
 
 //Now we add our callback for initial page
 myApp.onPageInit('index', function (page) {
@@ -766,7 +768,36 @@ var tpl='<!-- Top Navbar-->' +
     else {
         mainView.router.loadContent(tpl);
     }
+/*
+    var mySwiper1 = new Swiper ('.swiper-container', {
+        pagination:'.swiper-1 .swiper-pagination',
+        delay: 5000,
+        speed: 400,
+        loop: true,
+        autoplay:true,
 
+    }); */
+    var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        loop: true,
+        autoplay:true,
+        delay: 5000,
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
 
       $$('.group-link').each(function(){
 		  if($$(this).hasClass('init')==false) {

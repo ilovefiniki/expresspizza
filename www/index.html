@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <meta http-equiv="Content-Security-Policy" content="default-src https: ws: data: http: https://express-pizza.by https://express-pizza.by/checkout.php 'unsafe-eval' 'unsafe-inline' 'self'">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: data: http: https://express-pizza.by/*    'unsafe-eval' 'unsafe-inline' ">
 <meta charset="utf-8">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" type="image/png" href="favicon16.png" sizes="16x16">
@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
         <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 	<link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
     </head>
@@ -33,7 +34,7 @@
       <a href="#index" class="item-link close-panel item-content">
         <div class="item-media"><i class="icon ion-bag"></i></div>
         <div class="item-inner">
-          <div class="item-title">Меню </div>
+          <div class="item-title">Меню</div>
         </div>
       </a>
     </li>
@@ -387,6 +388,7 @@
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
 
     </body>

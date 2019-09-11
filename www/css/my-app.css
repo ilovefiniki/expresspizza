@@ -108,10 +108,9 @@ font-size: 16px;
 .center {
 text-align: center;
 }
-.view-main  .list-block {
-    margin: 10px auto 40px;
+.view-main .list-block {
+    margin: 0px auto 40px;
     max-width: 640px;
-
 }
 .list-block  .icon {
 font-size: 24px;
