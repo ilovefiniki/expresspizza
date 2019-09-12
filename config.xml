@@ -1,27 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<widget id="by.city-food.city-food" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-<name>City Food</name>
-<description>
-    Доставка еды и суши на дом и в офис в Минске. Суши, обеды, бургеры, пиццы, горячие блюда, супы, десерты, соки и напитки.
-</description>
-     <author email="express.pizza.minsk@gmail.com" href="http://city-food.by">
-         City Food
-=======
-<widget id="by.express_pizza.express_pizza" version="2.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-=======
 <widget id="by.express_pizza.express_pizza" version="2.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
->>>>>>> parent of fcd5f5e... new version form EP
     <name>Express Pizza</name>
     <description>Доставка пиццы на дом и в офис в Минске. Пиццы, пироги, салаты, соки и напитки.
     </description>
      <author email="express.pizza.minsk@gmail.com" href="https://express-pizza.by">
         Express Pizza
-<<<<<<< HEAD
->>>>>>> parent of 0efa599... version index
-=======
->>>>>>> parent of fcd5f5e... new version form EP
     </author>
     <content src="index.html" />
     <access origin="*" />
