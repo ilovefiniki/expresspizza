@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="" />
     <ignored path="expresspizza.iws" />
@@ -363,7 +362,7 @@
       <workItem from="1568033313328" duration="3618000" />
       <workItem from="1568230390096" duration="4017000" />
       <workItem from="1568235968106" duration="1097000" />
-      <workItem from="1568293231771" duration="187000" />
+      <workItem from="1568293231771" duration="196000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -414,11 +413,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568238683172</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test">
+      <created>1568293425237</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568293425237</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20587000" />
+    <option name="totallyTimeSpent" value="20596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
