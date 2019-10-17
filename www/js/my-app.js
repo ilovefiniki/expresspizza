@@ -181,7 +181,7 @@ myApp.onPageInit('index', function (page) {
 	if(window.sessionStorage.getItem('updateGroupTime')) {
     var updateGroupTime = window.sessionStorage.getItem('updateGroupTime');
 	var now = new Date();
-        if(Math.round(now/1000)-updateGroupTime>300) {
+        if(Math.round(now/1000)-updateGroupTime>3) { // 300 - 5 минут
             updateGroups(loadGroups);
             updateSlides(loadGroups);
         }
@@ -197,7 +197,7 @@ myApp.onPageInit('index', function (page) {
 	if(window.sessionStorage.getItem('updateTime')) {
     var updateTime = window.sessionStorage.getItem('updateTime');
 	var now = new Date();
-        if(Math.round(now/1000)-updateTime>300)
+        if(Math.round(now/1000)-updateTime>3) // 300 - 5 минут
 		updateTovars();
 	}
 else 	updateTovars();
@@ -1075,23 +1075,36 @@ var tpl='<!-- Top Navbar-->' +
 //---------------------Обновление базы товаров--------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 function updateTovars(group, title, callback) {
-//myApp.showPreloader('обновление меню...');
+myApp.showPreloader('обновление меню...');
+
 
 //----- загрузка товаров -----
-$$.getJSON("https://express-pizza.by/tovarjson?rnd="+Math.random(),
+$.getJSON("https://express-pizza.by/tovarjson?rnd="+Math.random(),
     function(data, status, xhr){
-	tovars = data;
-	window.localStorage.setItem('tovars', JSON.stringify(data));
-	  if(group && title) {
-	  callback(group, title);
-	  myApp.pullToRefreshDone();
-	  $$('.tovar-preloader').show();
-	  }
-	//myApp.hidePreloader();
-	$$('.tovar-preloader').hide();
-	var now = new Date();
-	window.sessionStorage.setItem('updateTime', Math.round(now/1000) );
+        console.log('Загрузка товаров. '+status);
+        if (status == "success"){
+            tovars = data;
+            window.localStorage.setItem('tovars', JSON.stringify(data));
+            if(group && title) {
+                callback(group, title);
+                myApp.pullToRefreshDone();
+                $$('.tovar-preloader').show();
+            }
+
+            $$('.tovar-preloader').hide();
+            var now = new Date();
+            window.sessionStorage.setItem('updateTime', Math.round(now/1000) );
+        }else if (status == "timeout"){
+            alert("Загрузка товаров. Проблемы с соединением. "+status);
+        }else if (status == "error" || status == "parsererror" ){
+            alert("Загрузка товаров. Ошибка. "+status);
+        }else{
+            alert('Загрузка товаров. '+status);
+        }
+        myApp.hidePreloader();
 	});
+
+
 
 }
 //----------------------------------------------------------------------------------------------------------------------------
@@ -1102,15 +1115,24 @@ myApp.showPreloader('обновление разделов...');
 $$('.tovar-page .page-content').html('<div class="content-block inset"><div class="content-block-inner"><p class="center"><span style="width:36px; height:36px" class="preloader"></span></p></div></div>');
 
 //----- загрузка групп -----
-$$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
+$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
     function(data, status, xhr){
-	groups = data;
-	window.localStorage.setItem('groups', JSON.stringify(data));
-	  if(callback)
-	  callback();
-	myApp.hidePreloader();
-	var now = new Date();
-	window.sessionStorage.setItem('updateGroupTime', Math.round(now/1000) );
+        console.log('Загрузка групп товаров. '+status);
+        if (status == "success"){
+            groups = data;
+            window.localStorage.setItem('groups', JSON.stringify(data));
+            if(callback)
+                callback();
+            var now = new Date();
+            window.sessionStorage.setItem('updateGroupTime', Math.round(now/1000) );
+        }else if (status == "timeout"){
+            alert("Загрузка групп. Проблемы с соединением. "+status);
+        }else if (status == "error" || status == "parsererror" ){
+            alert("Загрузка групп. Ошибка. "+status);
+        }else{
+            alert('Загрузка групп товаров. '+status);
+        }
+        myApp.hidePreloader();
 	});
 
 }
@@ -1118,16 +1140,26 @@ $$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
 //--------------------- Обновление базы слайдов  -------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 function updateSlides(callback) {
-    //myApp.showPreloader('обновление разделов...');
+    myApp.showPreloader('Обновление слайдов...');
     //$$('.tovar-page .page-content').html('<div class="content-block inset"><div class="content-block-inner"><p class="center"><span style="width:36px; height:36px" class="preloader"></span></p></div></div>');
 
 //----- загрузка слайдов -----
-    $$.getJSON("https://express-pizza.by/slidesjson?rnd="+Math.random(),
+    $.getJSON("https://express-pizza.by/slidesjson?rnd="+Math.random(),
         function(data, status, xhr){
-            slides = data;
-            window.localStorage.setItem('slides', JSON.stringify(data));
-            if(callback)
-                callback();
+            console.log('Загрузка слайдов. '+status);
+            if (status == "success"){
+                slides = data;
+                window.localStorage.setItem('slides', JSON.stringify(data));
+                if(callback)
+                    callback();
+            }else if (status == "timeout"){
+                alert("Загрузка слайдов. Проблемы с соединением. "+status);
+            }else if (status == "error" || status == "parsererror" ){
+                alert("Загрузка слайдов. Ошибка. "+status);
+            }else{
+                alert('Загрузка слайдов. '+status);
+            }
+            myApp.hidePreloader();
         });
 
 }

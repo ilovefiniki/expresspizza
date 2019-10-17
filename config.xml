@@ -9,6 +9,7 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="https://express-pizza.by/*" />
+    <allow-intent href="http://express-pizza.by/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
