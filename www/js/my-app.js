@@ -117,6 +117,26 @@ var firstStart=1;
      //  }
     }
 
+
+    function checkConnection() {
+        $.ajax({
+            url: "https://express-pizza.by/groupjson?rnd="+Math.random(),
+            timeout: 10000,
+            error: function(jqXHR) {
+                if(jqXHR.status==0) {
+                    alert("Нет соединения с сервером. Проверьте подключение к интернету");
+                }
+            },
+            success: function() {
+                // alert(" your connection is alright!");
+            }
+        });
+        if(myApp){
+            myApp.hidePreloader();
+        }
+    }
+
+
 document.addEventListener("deviceready", appReady, false);
 function appReady(){
   document.addEventListener("backbutton", function(e){
@@ -177,8 +197,11 @@ myApp.onPageInit('index', function (page) {
         updateSlides(loadGroups);
     });
 
+
+
+
 //-- обновляем базу групп, если устарела --------------------------------------------------------------
-	if(window.sessionStorage.getItem('updateGroupTime')) {
+    if(window.sessionStorage.getItem('updateGroupTime')) {
     var updateGroupTime = window.sessionStorage.getItem('updateGroupTime');
 	var now = new Date();
         if(Math.round(now/1000)-updateGroupTime>3) { // 300 - 5 минут
@@ -1111,29 +1134,35 @@ $.getJSON("https://express-pizza.by/tovarjson?rnd="+Math.random(),
 //--------------------- Обновление базы групп  -------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 function updateGroups(callback) {
+    checkConnection();
+
 myApp.showPreloader('обновление разделов...');
 $$('.tovar-page .page-content').html('<div class="content-block inset"><div class="content-block-inner"><p class="center"><span style="width:36px; height:36px" class="preloader"></span></p></div></div>');
 
 //----- загрузка групп -----
-$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
+$$.getJSON("https://express-pizza.by/groupjson?rnd="+Math.random(),
     function(data, status, xhr){
         console.log('Загрузка групп товаров. '+status);
-        if (status == "success"){
+     //   if (status == "success"){
             groups = data;
             window.localStorage.setItem('groups', JSON.stringify(data));
             if(callback)
                 callback();
             var now = new Date();
             window.sessionStorage.setItem('updateGroupTime', Math.round(now/1000) );
-        }else if (status == "timeout"){
+   /*     }else if (status == "timeout"){
             alert("Загрузка групп. Проблемы с соединением. "+status);
         }else if (status == "error" || status == "parsererror" ){
             alert("Загрузка групп. Ошибка. "+status);
         }else{
             alert('Загрузка групп товаров. '+status);
-        }
+        } */
         myApp.hidePreloader();
-	});
+	},function(xhr, status){
+        console.log('Загрузка групп товаров. '+status);
+            alert("Загрузка групп. Ошибка. "+status);
+        myApp.hidePreloader();
+    });
 
 }
 //----------------------------------------------------------------------------------------------------------------------------

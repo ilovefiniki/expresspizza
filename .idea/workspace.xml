@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/my-app.js" afterPath="$PROJECT_DIR$/www/js/my-app.js" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="" />
@@ -48,12 +47,12 @@
       <file leaf-file-name="my-app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/my-app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="1101" column="17" lean-forward="false" selection-start-line="1101" selection-start-column="17" selection-end-line="1101" selection-end-column="17" />
+            <state relative-caret-position="267">
+              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding>
-                <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-                <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-                <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+                <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+                <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+                <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
               </folding>
             </state>
           </provider>
@@ -373,7 +372,7 @@
       <workItem from="1568371987382" duration="741000" />
       <workItem from="1570898767908" duration="1070000" />
       <workItem from="1571052680081" duration="941000" />
-      <workItem from="1571238396846" duration="3479000" />
+      <workItem from="1571238396846" duration="5779000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -452,14 +451,22 @@
       <option name="project" value="LOCAL" />
       <updated>1568372353387</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="debug version with alerts and jquery ajax insteed framework 7">
+      <created>1571299525510</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1571299525511</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27360000" />
+    <option name="totallyTimeSpent" value="29660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22246066" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20958512" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -468,7 +475,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22929937" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16433121" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16433121" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19027181" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -496,7 +503,8 @@
     <MESSAGE value="config errors" />
     <MESSAGE value="sdk version" />
     <MESSAGE value="app cersion" />
-    <option name="LAST_COMMIT_MESSAGE" value="app cersion" />
+    <MESSAGE value="debug version with alerts and jquery ajax insteed framework 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug version with alerts and jquery ajax insteed framework 7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -548,9 +556,9 @@
         <state relative-caret-position="16605">
           <caret line="1107" column="64" lean-forward="true" selection-start-line="1107" selection-start-column="64" selection-end-line="1107" selection-end-column="64" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -576,9 +584,9 @@
         <state relative-caret-position="12435">
           <caret line="829" column="18" lean-forward="false" selection-start-line="829" selection-start-column="18" selection-end-line="829" selection-end-column="18" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -628,9 +636,9 @@
         <state relative-caret-position="12435">
           <caret line="829" column="18" lean-forward="false" selection-start-line="829" selection-start-column="18" selection-end-line="829" selection-end-column="18" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -704,9 +712,9 @@
         <state relative-caret-position="12435">
           <caret line="829" column="18" lean-forward="false" selection-start-line="829" selection-start-column="18" selection-end-line="829" selection-end-column="18" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -732,9 +740,9 @@
         <state relative-caret-position="12435">
           <caret line="829" column="18" lean-forward="true" selection-start-line="829" selection-start-column="18" selection-end-line="829" selection-end-column="18" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -776,9 +784,9 @@
         <state relative-caret-position="11610">
           <caret line="774" column="0" lean-forward="false" selection-start-line="774" selection-start-column="0" selection-end-line="774" selection-end-column="0" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -812,9 +820,9 @@
         <state relative-caret-position="11085">
           <caret line="739" column="51" lean-forward="true" selection-start-line="739" selection-start-column="51" selection-end-line="739" selection-end-column="51" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -930,12 +938,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/my-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1101" column="17" lean-forward="false" selection-start-line="1101" selection-start-column="17" selection-end-line="1101" selection-end-column="17" />
+        <state relative-caret-position="267">
+          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <marker date="1571299456958" expanded="true" signature="31450:31473" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31721:31734" ph="..." />
-            <marker date="1571299456958" expanded="true" signature="31780:31803" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="31998:32021" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32269:32282" ph="..." />
+            <marker date="1571303109193" expanded="true" signature="32328:32351" ph="..." />
           </folding>
         </state>
       </provider>
