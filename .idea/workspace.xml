@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="" />
     <ignored path="expresspizza.iws" />
@@ -373,7 +372,7 @@
       <workItem from="1570898767908" duration="1070000" />
       <workItem from="1571052680081" duration="941000" />
       <workItem from="1571238396846" duration="6345000" />
-      <workItem from="1571427322580" duration="1019000" />
+      <workItem from="1571427322580" duration="1109000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -480,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571428029799</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ios 9 connection">
+      <created>1571428602228</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1571428602228</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31245000" />
+    <option name="totallyTimeSpent" value="31335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -527,7 +533,8 @@
     <MESSAGE value="app cersion" />
     <MESSAGE value="debug version with alerts and jquery ajax insteed framework 7" />
     <MESSAGE value="checking internet connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="checking internet connection" />
+    <MESSAGE value="ios 9 connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="ios 9 connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
