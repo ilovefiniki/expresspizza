@@ -372,7 +372,7 @@
       <workItem from="1570898767908" duration="1070000" />
       <workItem from="1571052680081" duration="941000" />
       <workItem from="1571238396846" duration="6345000" />
-      <workItem from="1571427322580" duration="1109000" />
+      <workItem from="1571427322580" duration="1113000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -486,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571428602228</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ios 9 connection">
+      <created>1571428606534</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1571428606534</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31335000" />
+    <option name="totallyTimeSpent" value="31339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
