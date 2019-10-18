@@ -8,6 +8,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="https://express-pizza.by" />
+    <access origin="https://express-pizza.by/groupjson" />
+    <access origin="http://express-pizza.by" />
     <allow-intent href="https://express-pizza.by/*" />
     <allow-intent href="http://express-pizza.by/*" />
     <allow-intent href="http://*/*" />
@@ -16,6 +19,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
     <platform name="android">
         <preference name="android-targetSdkVersion" value="28" />
         <allow-intent href="market:*" />
