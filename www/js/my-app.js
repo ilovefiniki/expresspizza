@@ -204,7 +204,7 @@ myApp.onPageInit('index', function (page) {
     if(window.sessionStorage.getItem('updateGroupTime')) {
     var updateGroupTime = window.sessionStorage.getItem('updateGroupTime');
 	var now = new Date();
-        if(Math.round(now/1000)-updateGroupTime>3) { // 300 - 5 минут
+        if(Math.round(now/1000)-updateGroupTime>300) { // 300 - 5 минут
             updateGroups(loadGroups);
             updateSlides(loadGroups);
         }
@@ -220,7 +220,7 @@ myApp.onPageInit('index', function (page) {
 	if(window.sessionStorage.getItem('updateTime')) {
     var updateTime = window.sessionStorage.getItem('updateTime');
 	var now = new Date();
-        if(Math.round(now/1000)-updateTime>3) // 300 - 5 минут
+        if(Math.round(now/1000)-updateTime>300) // 300 - 5 минут
 		updateTovars();
 	}
 else 	updateTovars();
