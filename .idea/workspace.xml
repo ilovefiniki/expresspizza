@@ -71,8 +71,8 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="85" column="79" lean-forward="true" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
+            <state relative-caret-position="311">
+              <caret line="80" column="96" lean-forward="false" selection-start-line="80" selection-start-column="96" selection-end-line="80" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -420,7 +420,7 @@
       <workItem from="1580399833431" duration="492000" />
       <workItem from="1580400679293" duration="556000" />
       <workItem from="1580402424007" duration="134000" />
-      <workItem from="1580403285291" duration="2857000" />
+      <workItem from="1580403285291" duration="2945000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -604,11 +604,18 @@
       <option name="project" value="LOCAL" />
       <updated>1580410060735</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="cli 7.1.0">
+      <created>1580410245769</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1580410245769</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68895000" />
+    <option name="totallyTimeSpent" value="68983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -1096,8 +1103,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="85" column="79" lean-forward="true" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
+        <state relative-caret-position="311">
+          <caret line="80" column="96" lean-forward="false" selection-start-line="80" selection-start-column="96" selection-end-line="80" selection-end-column="96" />
           <folding />
         </state>
       </provider>
