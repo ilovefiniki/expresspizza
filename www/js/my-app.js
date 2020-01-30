@@ -191,6 +191,9 @@ myApp.onPageInit('index', function (page) {
 	$$('.panel-left a[href="#cart"]').on('click', function () {
         loadCart();
     });
+    $$('.panel-left a[href="#order"]').on('click', function () {
+        mainView.router.loadContent($$('#order-tpl').html());
+    });
 
 	$$('.refresh-link').on('click', function () {
         updateGroups(loadGroups);
@@ -324,6 +327,17 @@ myApp.onPageBeforeAnimation('index', function (page) {
           $$(this).addClass('init');
       }
   });
+    //--- кнопка на статус заказа --------
+    $$('.index-page a[href="#order"]').each(function(){
+        //if(!$$(this).hasClass('init')) {
+        $$(this).on('click', function(){
+            //mainView.router.loadContent($$('#order-tpl').html());
+            $$('.panel a[href="#order"]').click();
+        });
+        $$(this).addClass('init');
+        // }
+    });
+
   ga('set', 'page', '/index.html');
   ga('send', 'pageview');
 });
@@ -370,7 +384,7 @@ jQuery("#tel").mask("+375(99)999-99-99");
 ga('set', 'page', '/checkout.html');
 ga('send', 'pageview');
 });
-//----------   tovar   ---------------------------------------
+//----------   complete   ---------------------------------------
 myApp.onPageBeforeAnimation('complete', function (page) {
 
   //--- кнопка на главную --------
@@ -382,11 +396,21 @@ myApp.onPageBeforeAnimation('complete', function (page) {
             $$(this).addClass('init');
         }
     });
+    //--- кнопка на статус заказа --------
+    $$('a[href="#order"]').each(function(){
+        if(!$$(this).hasClass('init')) {
+            $$(this).on('click', function(){
+                mainView.router.loadContent($$('#order-tpl').html());
+            });
+            $$(this).addClass('init');
+        }
+    });
     ga('set', 'page', '/complete.html');
     ga('send', 'pageview');
 });
 //----------   tovar cart checkout   -------------------------
 myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', function (page) {
+
 
     $$('.tovari a[type="add-to-cart"]').each(function(){
         if(!$$(this).hasClass('init')) {
@@ -449,8 +473,38 @@ myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', funct
 });
 //----------   complete   -------------------------
 myApp.onPageBeforeAnimation('complete', function (page) {
-   $$('.content-block-inner').html('<div class="center">'+order.msg+'<p><a href="#index" class="button color-green">В начало</a></p></div>');  //--- загружаем страницу с сообщением об отправленном заказе
+
+        $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512}, function (data) {
+            var answer=JSON.parse(data);
+            $$('.content-block-inner').html('<div class="center">'+order.msg+
+                answer.body+
+                '<p><a href="#index" class="button color-green">В начало</a></p>'+
+                '</div>');  //--- загружаем страницу с сообщением об отправленном заказе
+            $$('.order-page .content-block-inner').html(answer.body);
+            setTimeout(function run() {
+                var now = new Date();
+                 if(window.sessionStorage.getItem('updateStatusTime')) {
+                    var updateStatusTime = window.sessionStorage.getItem('updateStatusTime');
+                    if(Math.round(now/1000)-updateStatusTime>30) { // 30 сек
+                        var title = $$('.navbar .navbar-on-center').text();
+                        if(title==='Заказ отправлен') {
+                            $$('.panel a[href="#order"]').click();
+                        }
+                        window.sessionStorage.setItem('updateStatusTime', Math.round(now/1000) );
+                    }
+                } else {
+                     var title = $$('.navbar .navbar-on-center').text();
+                     if(title==='Заказ отправлен') {
+                         $$('.panel a[href="#order"]').click();
+                     }
+                     window.sessionStorage.setItem('updateStatusTime', Math.round(now/1000) );
+                }
+            setTimeout(run, 30000);
+            }, 30000);
+        });
 });
+
+
 //------------------------------------------------------------
 //----------------  AfterAnimation  --------------------------
 //------------------------------------------------------------
@@ -463,6 +517,7 @@ myApp.onPageAfterAnimation('index', function (page) {
          }).addClass('init');
       }
   });
+
 
 });
 //----------   dostavka   ---------------------------------------
@@ -484,6 +539,35 @@ myApp.onPageAfterAnimation('contacts', function (page) {
     $$.get('https://express-pizza.by/pages.php', {page:true, nid:41469}, function (data) {
         var answer=JSON.parse(data);
         $$('.contacts-page .content-block-inner').html(answer.body);
+    });
+});
+//----------   order   ---------------------------------------
+myApp.onPageAfterAnimation('order', function (page) {
+    $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512}, function (data) {
+        var answer=JSON.parse(data);
+        $$('.order-page .content-block-inner').html(answer.body);
+        setTimeout(function run() {
+            var now = new Date();
+        if(window.sessionStorage.getItem('updateStatusTime')) {
+            var updateStatusTime = window.sessionStorage.getItem('updateStatusTime');
+            if(Math.round(now/1000)-updateStatusTime>30) { // 30 сек
+                    var title = $$('.navbar .navbar-on-center').text();
+                    if(title==='Мой заказ') {
+                        $$('.panel a[href="#order"]').click();
+                        //mainView.router.loadContent($$('#order-tpl').html());
+                    }
+                    window.sessionStorage.setItem('updateStatusTime', Math.round(now/1000) );
+            }
+        } else {
+                var title = $$('.navbar .navbar-on-center').text();
+                if(title==='Мой заказ') {
+                    $$('.panel a[href="#order"]').click();
+                    //mainView.router.loadContent($$('#order-tpl').html());
+                }
+                window.sessionStorage.setItem('updateStatusTime', Math.round(now/1000) );
+        }
+        setTimeout(run, 30000);
+        }, 30000);
     });
 });
 //****************************  FUNCTIONS  **********************************************************************************
@@ -776,6 +860,14 @@ var tpl='<!-- Top Navbar-->' +
                    '</li>';
           });
 
+          if(list){
+              list+='<li class="group-li">'+
+                       '<a href="#order" class="item-link group-link item-content order-list-link">'+
+                  '<div class="item-media"><img src="https://express-pizza.by/sites/default/files/my_order.jpg"  ></div>'+
+                  '<div class="item-title">Мой заказ</div></a>'+
+                    '</li>';
+          }
+
    if(!state)
    tpl+=list;
    tpl+='        </ul>' +
@@ -829,7 +921,16 @@ var tpl='<!-- Top Navbar-->' +
              }).addClass('init');
           }
 	    });
-
+    //--- кнопка на статус заказа --------
+    $$('a[href="#order"]').each(function(){
+      //  if(!$$(this).hasClass('init')) {
+            $$(this).on('click', function(){
+                mainView.router.loadContent($$('#order-tpl').html());
+                $$('.panel a[href="#order"]').click();
+            });
+            $$(this).addClass('init');
+      //  }
+    });
 
 }
 
@@ -1204,6 +1305,7 @@ cart = [];
 window.localStorage.setItem('cart', JSON.stringify(cart));
 updateCart();
 }
+
 //----------------------------------------------------------------------------------------------------------------------------
 //-----------------------Денежный формат--------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------

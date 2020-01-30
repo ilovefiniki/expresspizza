@@ -483,3 +483,39 @@ text-align: right;
     font-weight: bold;
     color: #525252;
 }
+.status-5 {
+    background: url(https://express-pizza.by/sites/default/files/waiting.gif) no-repeat;
+    width: 350px;
+    height: 250px;
+    background-size: cover;
+    margin: 0 auto;
+}
+.status-1, .status-2, .status-3 {
+    background: url(https://express-pizza.by/sites/default/files/cooking.gif) no-repeat;
+    width: 350px;
+    height: 200px;
+    background-size: cover;
+    margin: 0 auto;
+}
+.status-4 {
+    background: url(https://express-pizza.by/sites/default/files/delivering.gif) no-repeat;
+    width: 350px;
+    height: 250px;
+    background-size: cover;
+    margin: 0 auto;
+}
+.status-6 {
+    background: url(https://express-pizza.by/sites/default/files/closed.gif) no-repeat;
+    width: 350px;
+    height: 270px;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+
+.rtecenter {
+    text-align: center;
+}
+.status-update {
+    color: #DDDDDD;
+}
