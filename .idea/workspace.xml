@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <ignored path="expresspizza.iws" />
@@ -70,8 +71,8 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="386">
+              <caret line="85" column="79" lean-forward="true" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -419,7 +420,7 @@
       <workItem from="1580399833431" duration="492000" />
       <workItem from="1580400679293" duration="556000" />
       <workItem from="1580402424007" duration="134000" />
-      <workItem from="1580403285291" duration="2675000" />
+      <workItem from="1580403285291" duration="2857000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -596,11 +597,18 @@
       <option name="project" value="LOCAL" />
       <updated>1580410054786</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="cli 7.1.0">
+      <created>1580410060735</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1580410060735</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68713000" />
+    <option name="totallyTimeSpent" value="68895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -1088,8 +1096,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="386">
+          <caret line="85" column="79" lean-forward="true" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
           <folding />
         </state>
       </provider>
