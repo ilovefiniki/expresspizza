@@ -473,14 +473,17 @@ myApp.onPageBeforeAnimation('tovar cart checkout contacts o-nas dostavka', funct
 });
 //----------   complete   -------------------------
 myApp.onPageBeforeAnimation('complete', function (page) {
-
-        $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512}, function (data) {
+ 
+        $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512 }, function (data) {
             var answer=JSON.parse(data);
             $$('.content-block-inner').html('<div class="center">'+order.msg+
                 answer.body+
                 '<p><a href="#index" class="button color-green">В начало</a></p>'+
                 '</div>');  //--- загружаем страницу с сообщением об отправленном заказе
             $$('.order-page .content-block-inner').html(answer.body);
+
+            window.localStorage.setItem('lastOrderId', order.order_id);
+
             setTimeout(function run() {
                 var now = new Date();
                  if(window.sessionStorage.getItem('updateStatusTime')) {
@@ -543,7 +546,11 @@ myApp.onPageAfterAnimation('contacts', function (page) {
 });
 //----------   order   ---------------------------------------
 myApp.onPageAfterAnimation('order', function (page) {
-    $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512}, function (data) {
+    var lastOrderId = '';
+    if(window.localStorage.getItem('lastOrderId')){
+         lastOrderId = window.localStorage.getItem('lastOrderId');
+    }
+    $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512, last_order_id:lastOrderId }, function (data) {
         var answer=JSON.parse(data);
         $$('.order-page .content-block-inner').html(answer.body);
         setTimeout(function run() {
