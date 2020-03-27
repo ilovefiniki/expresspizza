@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="tel links added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/css/my-app.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/my-app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/my-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/my-app.js" afterDir="false" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +142,7 @@
       <workItem from="1580402424007" duration="134000" />
       <workItem from="1580403285291" duration="3859000" />
       <workItem from="1584636803979" duration="150000" />
-      <workItem from="1585303692187" duration="2665000" />
+      <workItem from="1585303692187" duration="3277000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -350,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580410564404</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="tel links added">
+      <created>1585310446733</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1585310446737</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +378,14 @@
     <MESSAGE value="cli 7.1.0" />
     <MESSAGE value="spalsh screens" />
     <MESSAGE value="cordova plugin console removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="cordova plugin console removed" />
+    <MESSAGE value="tel links added" />
+    <option name="LAST_COMMIT_MESSAGE" value="tel links added" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1585310443715">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585310443715" />
   </component>
   <component name="masterDetails">
     <states>
