@@ -847,6 +847,10 @@ var tpl='<!-- Top Navbar-->' +
         tpl+=slideslist;
     tpl+='      </div>'+
         '     </div>'+
+        '<div class="call-phones">'+
+        '<a href="tel:+375333891111" target="_system" class="external phone-link">+375(33)389-11-11</a>'+
+        '<a href="tel:+375445891111" target="_system" class="external phone-link">+375(44)589-11-11</a>'+
+        '</div>'+
         '      <div class="list-block media-list inset">' +
         '        <ul>';
          //-- groups ----
@@ -968,6 +972,10 @@ var tpl='<!-- Top Navbar-->' +
         '     <div style="width:28px; height:28px" class="preloader preloader-white"></div>'+
         '     <div class="pull-to-refresh-arrow"></div>'+
         '    </div>' +
+    '<div class="call-phones">'+
+    '<a href="tel:+375333891111" target="_system" class="external phone-link">+375(33)389-11-11</a>'+
+    '<a href="tel:+375445891111" target="_system" class="external phone-link">+375(44)589-11-11</a>'+
+    '</div>'+
         '      <div class="list-block media-list inset">' +
         '        <ul>'+
 		'<li class="tovar-preloader" style="display:none;"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></li>';

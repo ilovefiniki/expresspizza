@@ -519,3 +519,15 @@ text-align: right;
 .status-update {
     color: #DDDDDD;
 }
+.call-phones {
+    text-align: center;
+    background: #ed462f;
+    padding: 10px;
+}
+a.phone-link {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-family: "Roboto Condensed";
+}
