@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="tel links added 4 version">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="version num">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/my-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/my-app.js" afterDir="false" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,26 +22,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="expresspizza" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>100</find>
-      <find>&lt;img</find>
-      <find>slides</find>
-      <find>updateTovars</find>
-      <find>loadCart</find>
-      <find>complete</find>
-      <find>order.msg</find>
-      <find>order</find>
-      <find>send</find>
-      <find>group</find>
-      <find>#order</find>
-      <find>Нет соединения с сервером</find>
-      <find>css(</find>
-      <find>30000</find>
-      <find>setItem</find>
-      <find>express-pizza.by/pages.php</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -145,7 +126,11 @@
       <workItem from="1584636803979" duration="150000" />
       <workItem from="1585303692187" duration="4338000" />
       <workItem from="1585314635985" duration="2829000" />
-      <workItem from="1585925244567" duration="52000" />
+      <workItem from="1585925244567" duration="590000" />
+      <workItem from="1586106347332" duration="2358000" />
+      <workItem from="1586111044724" duration="108000" />
+      <workItem from="1586350231789" duration="13000" />
+      <workItem from="1586421429723" duration="241000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -399,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585317641709</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="version num">
+      <created>1585925334088</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1585925334088</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,17 +419,18 @@
     <MESSAGE value="tel links added 2 version" />
     <MESSAGE value="tel links added 3 version" />
     <MESSAGE value="tel links added 4 version" />
-    <option name="LAST_COMMIT_MESSAGE" value="tel links added 4 version" />
+    <MESSAGE value="version num" />
+    <option name="LAST_COMMIT_MESSAGE" value="version num" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1585317641470">
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1585925333215">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585317641470" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1585317643219">
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585925333215" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1585925338176">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585317643219" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585925338176" />
   </component>
   <component name="masterDetails">
     <states>

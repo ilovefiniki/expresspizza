@@ -84,7 +84,11 @@ var firstStart=1;
 		if (parseFloat(window.device.version) === 7.0) {
           document.body.style.marginTop = "20px";
         }
+
+
     }
+
+
 
 
     // Handle the pause event
@@ -547,7 +551,7 @@ myApp.onPageAfterAnimation('contacts', function (page) {
 //----------   order   ---------------------------------------
 myApp.onPageAfterAnimation('order', function (page) {
     var lastOrderId = '';
-    if(window.localStorage.getItem('lastOrderId')){
+    if(window.localStorage.getItem('lastOrderId')) {
          lastOrderId = window.localStorage.getItem('lastOrderId');
     }
     $$.get('https://express-pizza.by/pages.php', {page:true, nid:66512, last_order_id:lastOrderId }, function (data) {
@@ -848,8 +852,8 @@ var tpl='<!-- Top Navbar-->' +
     tpl+='      </div>'+
         '     </div>'+
         '<div class="call-phones">'+
-        '<a href="#" onclick="window.location=\'tel:+375333891111\'; return false;" class="external phone-link">+375(33)389-11-11</a>'+
-        '<a href="#" onclick="window.location=\'tel:+375445891111\'; return false;" class="external phone-link">+375(44)589-11-11</a>'+
+        '<a href="#" onclick="window.location=\'tel:+375333891111\'; return false;" class="external phone-link">(033)389-11-11</a>'+
+        '<a href="#" onclick="window.location=\'tel:+375445891111\'; return false;" class="external phone-link">(044)589-11-11</a>'+
         '</div>'+
         '      <div class="list-block media-list inset">' +
         '        <ul>';
@@ -973,8 +977,8 @@ var tpl='<!-- Top Navbar-->' +
         '     <div class="pull-to-refresh-arrow"></div>'+
         '    </div>' +
     '<div class="call-phones">'+
-    '<a href="#" onclick="window.location=\'tel:+375333891111\'; return false;" class="external phone-link">+375(33)389-11-11</a>'+
-    '<a href="#" onclick="window.location=\'tel:+375445891111\'; return false;" class="external phone-link">+375(44)589-11-11</a>'+
+    '<a href="#" onclick="window.location=\'tel:+375333891111\'; return false;" class="external phone-link">(033)389-11-11</a>'+
+    '<a href="#" onclick="window.location=\'tel:+375445891111\'; return false;" class="external phone-link">(044)589-11-11</a>'+
     '</div>'+
         '      <div class="list-block media-list inset">' +
         '        <ul>'+
