@@ -521,13 +521,15 @@ text-align: right;
 }
 .call-phones {
     text-align: center;
-    background: #ed462f;
     padding: 10px;
 }
 a.phone-link {
     font-size: 18px;
     color: #ffffff;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    background: #ed462f;
     font-family: "Roboto Condensed";
 }

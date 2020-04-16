@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="version num">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="version num 2.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/my-app.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/my-app.css" afterDir="false" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +130,8 @@
       <workItem from="1586106347332" duration="2358000" />
       <workItem from="1586111044724" duration="108000" />
       <workItem from="1586350231789" duration="13000" />
-      <workItem from="1586421429723" duration="973000" />
+      <workItem from="1586421429723" duration="1485000" />
+      <workItem from="1587067170356" duration="57000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -403,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586422608587</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="version num 2.4">
+      <created>1586422835580</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1586422835580</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,17 +442,18 @@
     <MESSAGE value="tel links added 3 version" />
     <MESSAGE value="tel links added 4 version" />
     <MESSAGE value="version num" />
-    <option name="LAST_COMMIT_MESSAGE" value="version num" />
+    <MESSAGE value="version num 2.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="version num 2.4" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1586422621617">
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1586422835231">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1586422621617" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1586421917764">
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1586422835231" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1586422839147">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1586421917764" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1586422839147" />
   </component>
   <component name="masterDetails">
     <states>
