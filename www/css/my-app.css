@@ -517,10 +517,12 @@ text-align: right;
 .status-update {
     color: #DDDDDD;
 }
+
 .call-phones {
     text-align: center;
     padding: 10px;
 }
+
 a.phone-link {
     font-size: 18px;
     color: #ffffff;
