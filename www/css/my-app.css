@@ -520,9 +520,10 @@ text-align: right;
 .call-phones {
     text-align: center;
     padding: 10px;
+
 }
 a.phone-link {
-    font-size: 18px;
+    font-size: 15px;
     color: #ffffff;
     font-weight: bold;
     padding: 8px 15px;
