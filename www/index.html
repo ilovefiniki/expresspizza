@@ -640,6 +640,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
 <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-37632211-1', 'auto');
+    ga('send', 'pageview');
 
     new Vue({
         el: '#app',
@@ -750,6 +757,7 @@
                     this.title = 'Корзина';
                 } else {
                     this.page = 'front';
+                    this.title = 'Express Pizza';
                 }
             },
             addTovar: function (node) {
@@ -796,6 +804,7 @@
                     data.cart = this.cart;
                         axios.post('https://express-pizza.by/checkout2.php', data )
                             .then((response) => {
+                                ga('send', 'checkout');
                                 console.log(response);
                                 this.loader = false;
                                 if(response.data.status){
@@ -814,6 +823,7 @@
                             .catch((error) => {
                                 console.log(error);
                                 this.loader = false;
+                                alert("Ошибка отправки");
                             });
                 }
             },
