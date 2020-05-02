@@ -134,7 +134,7 @@
       <workItem from="1587067555818" duration="1223000" />
       <workItem from="1587305894172" duration="10000" />
       <workItem from="1587566440812" duration="480000" />
-      <workItem from="1588419366400" duration="764000" />
+      <workItem from="1588419366400" duration="829000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -472,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588419606639</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="version 3.0 vue.js">
+      <created>1588420246092</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1588420246092</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,10 +520,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="128" key="#Deployment/0.23.1440.877@0.23.1440.877" timestamp="1588419409847" />
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588419606229">
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588420283628">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588419606229" />
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588420283628" />
     <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1588419611254">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
