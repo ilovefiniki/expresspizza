@@ -1,10 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="version num 2.7">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="version num 2.8&#10;font 15px for phone links">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/css/my-app.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/my-app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.themes.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/framework7.themes.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/my-app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/ajax-loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/action-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/action-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/alert-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/alert-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-l-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-l-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-r-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-r-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-d-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-l-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-l-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-r-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-r-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-l-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-l-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-r-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-r-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/arrow-u-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/audio-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/audio-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/back-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/back-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/bars-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/bars-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/bullets-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/bullets-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/calendar-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/calendar-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/camera-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/camera-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-d-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-d-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-l-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-l-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-r-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-r-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-u-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/carat-u-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/check-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/check-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/clock-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/clock-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/cloud-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/cloud-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/comment-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/comment-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/delete-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/delete-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/edit-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/edit-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/eye-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/eye-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/forbidden-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/forbidden-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/forward-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/forward-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/gear-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/gear-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/grid-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/grid-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/heart-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/heart-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/home-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/home-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/info-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/info-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/location-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/location-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/lock-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/lock-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/mail-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/mail-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/minus-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/minus-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/navigation-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/navigation-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/phone-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/phone-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/plus-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/plus-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/power-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/power-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/recycle-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/recycle-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/refresh-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/refresh-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/search-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/search-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/shop-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/shop-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/star-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/star-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/tag-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/tag-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/user-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/user-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/video-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/images/icons-png/video-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/jquery.mobile.icons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/pizza.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/themes/pizza.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/dinner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/framework7.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/framework7.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/jquery.mask.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/jquery.maskedinput.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/my-app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.colors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.colors.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.ios.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.colors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.colors.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/css/framework7.material.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-f7-ios.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-f7-material.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-calendar-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-calendar-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-comment-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-comment-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-email-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-email-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-gender-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-gender-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-name-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-name-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-password-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-password-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-settings-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-settings-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-tel-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-tel-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-toggle-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-toggle-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-url-ios.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/img/i-form-url-material.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/js/framework7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/js/framework7.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/js/framework7.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/lib/framework7/js/framework7.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/helper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/lib/jasmine-1.2.0/MIT.LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/lib/jasmine-1.2.0/jasmine-html.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/lib/jasmine-1.2.0/jasmine.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/spec/lib/jasmine-1.2.0/jasmine.js" beforeDir="false" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +312,8 @@
       <workItem from="1587067170356" duration="282000" />
       <workItem from="1587067555818" duration="1223000" />
       <workItem from="1587305894172" duration="10000" />
-      <workItem from="1587566440812" duration="100000" />
+      <workItem from="1587566440812" duration="480000" />
+      <workItem from="1588419366400" duration="116000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1567267292085</created>
@@ -451,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587067659053</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="version num 2.8&#10;font 15px for phone links">
+      <created>1587566659000</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1587566659000</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,21 +670,26 @@
     <MESSAGE value="version num 2.5" />
     <MESSAGE value="version num 2.6" />
     <MESSAGE value="version num 2.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="version num 2.7" />
+    <MESSAGE value="version num 2.8&#10;font 15px for phone links" />
+    <option name="LAST_COMMIT_MESSAGE" value="version num 2.8&#10;font 15px for phone links" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="128" key="#Deployment" timestamp="1587068859308">
+    <state x="320" y="128" key="#Deployment" timestamp="1588419409847">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="128" key="#Deployment/0.23.1440.877@0.23.1440.877" timestamp="1587068859308" />
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1587067658763">
+    <state x="320" y="128" key="#Deployment/0.23.1440.877@0.23.1440.877" timestamp="1588419409847" />
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1587566658317">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1587067658763" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1587067662058">
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1587566658317" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1587566661424">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1587067662058" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1587566661424" />
+    <state x="611" y="201" key="ftp.server.browser" timestamp="1588419406791">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="611" y="201" key="ftp.server.browser/0.23.1440.877@0.23.1440.877" timestamp="1588419406791" />
   </component>
   <component name="masterDetails">
     <states>

@@ -1,441 +1,869 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: data: gap: http: https: https://express-pizza.by/*    'unsafe-eval' 'unsafe-inline' "> -->
-        <meta http-equiv="Content-Security-Policy" content="default-src *;  style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *">
-        <meta charset="utf-8">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" href="favicon16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="favicon32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon96.png" sizes="96x96">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <style>
+        .group-item-title {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            padding: 0;
+            font-weight: bold;
+            margin: 0 auto;
+            font-family: "Roboto Condensed";
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .tovar-img {
+            padding: 0px;
+            float: left;
+            width: 175px;
+            position: relative;
+        }
+        .tovar-item {
+            padding-left: 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .tovar-item.active {
+            background: rgba(241, 255, 208, 0.8);
+        }
+        .tovar-item-content {
+            align-self: baseline !important;
+            padding: 12px 4px;
+        }
+        .tovar-title {
+            white-space: normal;
+            line-height: 17px;
+            font-weight: bold;
+            font-size: 17px;
+            font-family: "Roboto Condensed";
+        }
+        .tovar-descr {
+            margin-bottom: 19px !important;
+            font-size: 12px;
+            white-space: normal;
+        }
+        .tovar-weight {
+            position: absolute;
+            right: 60px;
+            bottom: 10px;
+            font-size: 13px;
+            display: inline-block;
+            color: #fff;
+            background: #8e8e93;
+            border-radius: 20px;
+            padding: 0 6px;
+            height: 20px;
+            line-height: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .tovar-price {
+            font-size: 22px;
+            line-height: 18px;
+            font-weight: bold;
+            color: #5d5d61;
+            position: absolute;
+            bottom: 8px;
+        }
+        .tovar-qty {
+            font-size: 18px;
+            text-align: center;
+            display: inline-block;
+            margin: 0px 1px;
+            color: #000;
+            width: 37px;
+        }
+        .page-title {
+            font-size: 21px;
+            font-weight: bold;
+        }
+        .plus-btn {
+            font-size: 24px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 40px;
+            background-color: #4cd964;
+            color: #fff;
+        }
+        .minus-btn {
+            font-size: 24px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 40px;
+            background-color: #ff3b30;
+            color: #fff;
+        }
+        .next-btn {
+            font-size: 16px !important;
+        }
+        .call-phones {
+            text-align: center;
+            padding: 10px;
+        }
+        a.phone-link {
+            font-size: 15px;
+            color: #ffffff !important;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 10px;
+            background: #ed462f;
+            font-family: "Roboto Condensed";
+        }
+        .status-5 {
+            background: url(https://express-pizza.by/sites/default/files/waiting.gif) no-repeat;
+            width: 350px;
+            height: 250px;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .status-1, .status-2, .status-3 {
+            background: url(https://express-pizza.by/sites/default/files/cooking.gif) no-repeat;
+            width: 350px;
+            height: 200px;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .status-4 {
+            background: url(https://express-pizza.by/sites/default/files/delivering.gif) no-repeat;
+            width: 350px;
+            height: 250px;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .status-6 {
+            background: url(https://express-pizza.by/sites/default/files/closed.gif) no-repeat;
+            width: 350px;
+            height: 270px;
+            background-size: cover;
+            margin: 0 auto;
+        }
+        .rtecenter {
+            text-align: center;
+        }
+        .status-update {
+            color: #DDDDDD;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+<div id="app">
+    <v-app v-if="init">
+        <!-- NAVIGATION BAR -->
+        <v-navigation-drawer
+                v-model="drawer"
+                absolute
+                temporary
+                dark
+                color="red accent-4"
+        >
+            <v-list
+                    nav
+                    dense
+            >
+                <v-list-item-group
+                        v-model="group"
+                        active-class="deep-purple--text text--accent-4"
+                >
+                    <v-list-item @click="page = 'front'; drawer=false;">
+                        <v-list-item-icon>
+                            <v-icon>mdi-home</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">Меню</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="loadExternalPage(5492)">
+                        <v-list-item-icon>
+                            <v-icon>mdi-car</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">Доставка</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="page = 'cart'; title = 'Корзина'; drawer=false; ">
+                        <v-list-item-icon>
+                            <v-icon>mdi-cart-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">Корзина</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="loadExternalPage(41394)">
+                        <v-list-item-icon>
+                            <v-icon>mdi-information-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">О нас</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="loadExternalPage(41469)">
+                        <v-list-item-icon>
+                            <v-icon>mdi-phone-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">Контакты</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="loadExternalPage(66512)">
+                        <v-list-item-icon>
+                            <v-icon>mdi-format-list-bulleted</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title class="title">Мой заказ</v-list-item-title>
+                    </v-list-item>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Express Pizza</title>
-    <!-- Path to Framework7 Library CSS-->
-        <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-        <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-    </head>
-    <body>
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-<div class="list-block main-list">
-<div class="list-group">
-  <ul>
-    <li>
-      <a href="#index" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-bag"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Меню</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#dostavka" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-android-car"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Доставка</div>
-        </div>
-      </a>
-    </li>
-	<li>
-      <a href="#cart" class="item-link cart-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-ios-cart-outline"></i></div>
-        <div class="item-inner">
-          <div class="item-title">Корзина</div>
-        </div>
-      </a>
-    </li>
-	<li>
-      <a href="#o-nas" class="item-link close-panel item-content">
-        <div class="item-media"><i class="icon ion-ios-information-outline"></i></div>
-        <div class="item-inner">
-          <div class="item-title">О нас</div>
-        </div>
-      </a>
-    </li>
-      <li>
-          <a href="#contacts" class="item-link close-panel item-content">
-              <div class="item-media"><i class="icon ion-ios-telephone-outline"></i></div>
-              <div class="item-inner">
-                  <div class="item-title">Контакты</div>
-              </div>
-          </a>
-      </li>
-      <li>
-          <a href="#order" class="item-link close-panel item-content">
-              <div class="item-media"><i class="icon ion-ios-list"></i></div>
-              <div class="item-inner">
-                  <div class="item-title">Мой заказ</div>
-              </div>
-          </a>
-      </li>
-  </ul>
+                </v-list-item-group>
+            </v-list>
+        </v-navigation-drawer>
+
+
+
+        <!-- HEADER FRONT PAGE -->
+            <v-app-bar
+                    v-if="page === 'front'"
+                    dense
+                    color="#ed462f"
+                    dark
+                    fixed
+            >
+                <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+                <v-toolbar-title><v-img
+                        src="logo.png"
+                        max-height="49"
+                ></v-img></v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn
+                        icon
+                        @click="updateTovars(); updateGroups(); updateSlides();"
+                >
+                    <v-icon>mdi-rotate-3d-variant</v-icon>
+                </v-btn>
+            </v-app-bar>
+
+        <!-- HEADER ELSE PAGES -->
+        <v-app-bar
+                v-if="page !== 'front'"
+                dense
+                color="#ed462f"
+                dark
+                fixed
+        >
+            <v-btn icon @click="previous()">
+                <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-toolbar-title class="page-title"> {{ title }} </v-toolbar-title>
+            <v-spacer></v-spacer>
+        </v-app-bar>
+
+
+            <v-content>
+
+
+                <!-- LOADER -->
+                <v-dialog
+                        v-model="loader"
+                        hide-overlay
+                        persistent
+                        width="250"
+                >
+                    <v-card
+                            color="white"
+                            loading="red"
+                            loader-height="8"
+                    >
+                        <v-card-title>
+                            {{ loaderText }}
+                        </v-card-title>
+                    </v-card>
+                </v-dialog>
+                <!-- POPUP IMAGE -->
+                <v-dialog
+                        v-model="popup"
+                        width="500"
+                >
+                    <v-card>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                    color="red"
+                                    text
+                                    @click="popup = false"
+                            >
+                                Закрыть <v-icon>mdi-close</v-icon>
+                            </v-btn>
+                        </v-card-actions>
+
+                        <v-img
+                                class="white--text"
+                                :src="popupImgUrl"
+                        >
+                        </v-img>
+                    </v-card>
+                </v-dialog>
+
+                <!-- CAROUSEL -->
+                <v-carousel
+                        v-if="page === 'front'"
+                        class="mt-12"
+                        cycle
+                        :show-arrows="false"
+                        hide-delimiter-background
+                        show-arrows-on-hover
+                        height="auto"
+                        style="max-height:150px"
+                        width="100%"
+                >
+                    <v-carousel-item
+                            v-for="slide in slides"
+                            :src="slide.slide.image"
+                            reverse-transition="fade-transition"
+                            transition="fade-transition"
+                    >
+                    </v-carousel-item>
+                </v-carousel>
+
+                <div
+                        class="call-phones"
+                        v-bind:class="{ 'mt-12': page!='front' }"
+                >
+                    <a href="#" onclick="window.location='tel:+375333891111'; return false;" class="external phone-link">(033)389-11-11</a>
+                    <a href="#" onclick="window.location='tel:+375445891111'; return false;" class="external phone-link">(044)589-11-11</a>
+                </div>
+
+                <!-- TERMS FRONT PAGE -->
+                <v-container
+                        fluid
+                        v-if="page === 'front'"
+                >
+                    <v-row dense>
+                        <v-col
+                                v-for="term in groups"
+                                :key="term.term.tid"
+                                cols="6"
+                        >
+                            <v-card
+                                    v-on:click="groupCode(term.term)"
+                                    flat
+                            >
+                                <v-img
+                                        :src="term.term.termimage_2x"
+                                        class="align-end"
+                                >
+                                </v-img>
+                                <v-card-title class="group-item-title" v-text="term.term.name"></v-card-title>
+                            </v-card>
+                        </v-col>
+
+                        <v-col cols="6">
+                            <v-card @click="loadExternalPage(66512)" flat>
+                                <v-img
+                                        src="https://express-pizza.by/sites/default/files/my_order.jpg"
+                                        class="align-end"
+                                >
+                                </v-img>
+                                <v-card-title class="group-item-title">Мой заказ</v-card-title>
+                            </v-card>
+                        </v-col>
+
+                    </v-row>
+                </v-container>
+
+                <!-- TOVARS PAGE -->
+                        <v-list
+                                v-if="page === 'tovars'"
+                                three-line
+                                width="100%"
+                        >
+                            <template v-for="node in tovars">
+                                <v-list-item
+                                        v-if="node.node.term == termCode"
+                                        :key="node.node.nid"
+                                        v-bind:class="{ active: cart[node.node.nid] }"
+                                        @click=""
+                                        class="tovar-item"
+                                >
+                                    <span  class="tovar-img">
+                                        <v-img
+                                                @click="popupImg(node.node.image2x)"
+                                                :src="node.node.image2x"
+                                        ></v-img>
+                                    </span>
+
+                                    <v-list-item-content class="tovar-item-content">
+                                        <div class="tovar-title" v-html="node.node.title"></div>
+                                        <div class="tovar-descr" v-html="node.node.text"></div>
+                                        <span class="tovar-price" v-html="node.node.price"></span>
+                                        <span class="tovar-weight" v-if="node.node.ves" v-html="node.node.ves"></span>
+                                    </v-list-item-content>
+
+                                    <v-list-item-action class="ml-1 mt-2 mb-2">
+                                        <span class="plus-btn flat dark" @click="addTovar(node.node)" >
+                                            +
+                                        </span>
+                                        <span class="tovar-qty" v-if="cart[node.node.nid]">
+                                            {{ cart[node.node.nid].qty }}
+                                        </span>
+                                        <span class="tovar-qty" v-else>0</span>
+                                        <span class="minus-btn flat dark" @click="removeTovar(node.node)" >
+                                            -
+                                        </span>
+                                    </v-list-item-action>
+
+                                </v-list-item>
+                            </template>
+                        </v-list>
+
+                <!-- CART PAGE -->
+                <v-list
+                        v-if="page === 'cart'"
+                        three-line
+                        width="100%"
+                >
+                    <template v-for="node in cart">
+                        <v-list-item
+                                :key="node.nid"
+                                @click=""
+                        >
+
+                            <v-list-item-content class="tovar-item-content">
+                                <div class="tovar-title" v-html="node.title"></div>
+                                <div class="tovar-descr" v-html="node.text"></div>
+                                <span class="tovar-price" v-html="node.price"></span>
+                                <span class="tovar-weight" v-if="node.ves" v-html="node.ves"></span>
+                            </v-list-item-content>
+
+                            <v-list-item-action class="ml-1 mt-2 mb-2">
+                                        <span class="plus-btn flat dark" @click="addTovar(node)" >
+                                            +
+                                        </span>
+                                <span class="tovar-qty" v-if="cart[node.nid]">
+                                            {{ cart[node.nid].qty }}
+                                        </span>
+                                <span class="tovar-qty" v-else>0</span>
+                                <span class="minus-btn flat dark" @click="removeTovar(node)" >
+                                            -
+                                        </span>
+                            </v-list-item-action>
+
+                        </v-list-item>
+                    </template>
+                    <v-list-item
+                            v-if="total==0"
+                    >
+                        <v-list-item-content>
+                            <v-list-item-title>Ваша корзина пуста</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+
+                </v-list>
+
+                <!-- CHECKOUT PAGE -->
+                    <template v-if="page === 'checkout'" >
+                            <v-form
+                                    class="mx-auto"
+                                    ref="form"
+                            >
+                                <v-container>
+                                    <v-row>
+
+                                        <v-col cols="12" sm="6" md="3">
+                                            <div >
+                                                {{ qty }} товаров на {{ total | currency }}р
+                                            </div>
+                                        </v-col>
+
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Имя"
+                                                    dense
+                                                    v-model="form.name"
+                                                    :rules="[rules.required]"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Телефон"
+                                                    dense
+                                                    v-model="form.tel"
+                                                    :rules="[rules.phone]"
+                                                    v-mask="'+375(##)###-##-##'"
+                                                    placeholder="+375(__)___-__-__"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Улица"
+                                                    dense
+                                                    v-model="form.adres"
+                                                    :rules="[rules.required]"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Дом"
+                                                    dense
+                                                    v-model="form.house_num"
+                                                    :rules="[rules.required]"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Корпус"
+                                                    dense
+                                                    v-model="form.korpus"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Квартира/офис"
+                                                    dense
+                                                    v-model="form.kvartira"
+                                            ></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="3">
+                                            <v-text-field
+                                                    label="Примечание"
+                                                    dense
+                                                    v-model="form.primechanie"
+                                            ></v-text-field>
+                                        </v-col>
+                                    </v-row>
+                                </v-container>
+                            </v-form>
+                    </template>
+
+                <!-- COMPLETE PAGE -->
+                <template v-if="page === 'complete'" >
+                    <v-form class="mx-auto" >
+                        <v-container>
+                            <v-row>
+
+                                <v-col cols="12" sm="6" md="3">
+                                    <div class="text-center title" v-html="msg">
+
+                                    </div>
+                                </v-col>
+
+                            </v-row>
+                        </v-container>
+                    </v-form>
+                </template>
+
+                <!-- EXTERNAL PAGE -->
+                <template v-if="page === 'externalpage'" >
+                    <v-form class="mx-auto" >
+                        <v-container>
+                            <v-row>
+
+                                <v-col cols="12" sm="6" md="3">
+                                    <div v-html="body">
+
+                                    </div>
+                                </v-col>
+
+                            </v-row>
+                        </v-container>
+                    </v-form>
+                </template>
+                <!-- PAGE -->
+
+                </v-content>
+
+        <!-- FOOTER  -->
+            <v-footer
+                    v-if="page !== 'checkout' && page !== 'complete'"
+                    dark
+                    padless
+                    color="#ed462f"
+                    fixed
+
+            >
+                <v-btn icon>
+                    <v-icon>mdi-cart</v-icon>
+                </v-btn>
+                <div class="title" v-if="total == 0">
+                    Ваша корзина пуста
+                </div>
+                <div class="title" v-else>
+                    {{ total | currency }}р
+                </div>
+                <v-spacer></v-spacer>
+                <v-btn
+                        v-if="total>0"
+                        @click="next()"
+                        text
+                        class="next-btn"
+                >
+                    Далее <v-icon>mdi-chevron-right</v-icon>
+                </v-btn>
+            </v-footer>
+
+        <!-- FOOTER CHECKOUT  -->
+        <v-footer
+                v-if="page == 'checkout'"
+                dark
+                padless
+                color="#ed462f"
+                fixed
+
+        >
+            <v-btn
+                    block
+                    @click="sendOrder()"
+                    color="#4cd964"
+            >
+                Отправить
+            </v-btn>
+        </v-footer>
+
+    </v-app>
 </div>
- </div>
-    </div>
-    <!-- Views-->
-    <div class="views">
-      <!-- Your main view, should have "view-main" class-->
-      <div class="view view-main">
-        <!-- Top Navbar-->
-        <div class="navbar">
-          <div class="navbar-inner theme-white">
-		  <div class="left">
-              <a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a>
-            </div>
+<!--   ----------------------------------------------------------------------------------------------   -->
 
-            <div class="center sliding"><img class="title-logo" src="img/logo.png"/></div>
-            <div class="right">
-			  <a href="#" class="link refresh-link icon-only"> <i class="icon ion-refresh"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-through toolbar-through">
-<!--------------------------------------------------------------------------------------->
-          <div data-page="index" class="page index-page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-                <!-- Slider -->
-                <div class="swiper-container swiper-1">
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><span></span></div>
-                    </div>
-                </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
-                <div class="call-phones">
-                    <a href="#" onclick="window.location='tel:+375333891111'; return false;" class="external phone-link">(033)389-11-11</a>
-                    <a href="#" onclick="window.location='tel:+375445891111'; return false;" class="external phone-link">(044)589-11-11</a>
-                </div>
-                <!-- Groups -->
-             <div class="list-block media-list">
-              <ul><li class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></li></ul>
-             </div>
-                <!-- ------ -->
-            </div>
-          </div>
-<!--------------------------------------------------------------------------------------->
+<script>
 
-        </div>
-
-<!--------------------------------------------------------------------------------------->
-        <!-- Bottom Toolbar-->
-   <div class="toolbar">
-      <div class="toolbar-inner">
-            <a href="#cart" class="link">Ваша корзина пуста</a>
-      </div>
-   </div>
-<!--------------------------------------------------------------------------------------->
-
-      </div>
-    </div>
-<!--************************************************************************************************************************************************************************-->
-<script type="text/template" id="checkout-tpl">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
-            <div class="center sliding">Оформление заказа</div>
-          </div>
-        </div>
-        <div class="pages">
-        <!-- Page, data-page contains page name-->
-          <div data-page="checkout" class="page checkout-page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-                <div class="call-phones">
-                    <a href="#" onclick="window.location='tel:+375333891111'; return false;" class="external phone-link">(033)389-11-11</a>
-                    <a href="#" onclick="window.location='tel:+375445891111'; return false;" class="external phone-link">(044)589-11-11</a>
-                </div>
-              <form id="form-checkout" data-ajax="false" class="list-block store-data">
-                 <ul>
-				 <fieldset>
-				 <!--------------------------------------------Checkout template---------------------------->
-				 <li>
-				  <div class="item-content">
-                   <div class="item-inner">
-                     <p><a href="#" class="button link cart-back-link"><i class="icon ion-chevron-left"></i> Назад в корзину</a></p>
-                     <p class="total"></p>
-                   </div>
-                  </div>
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Имя</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Имя" name="name" id="name" required>
-                    </div>
-                   </div>
-                  </div>
-				</li>
-                     <!--		<li>
-                               <div class="item-content">
-                                <div class="item-inner">
-                                <div class="item-title label">Организация</div>
-                                 <div class="item-input">
-                                  <input type="text" placeholder="Название организации" name="company" id="company">
-                                 </div>
-                                </div>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="item-content">
-                                <div class="item-inner">
-                                <div class="item-title label">Время доставки</div>
-                                 <div class="item-input">
-                                  <input type="text" placeholder="Желаемое время доставки" name="time" id="time">
-                                 </div>
-                                </div>
-                               </div>
-                             </li>
-                -->
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Телефон</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="+375(__)___-__-__" name="tel" id="tel" required data-mask="+000(00)000-00-00">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-
-<!--
-    <li>
-      <label class="label-checkbox item-content">
-        <input type="checkbox" name="upakovka" id="upakovka" value="Упаковка" checked="checked">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Упаковка - <span class="upakovka-info"></span></div>
-        </div>
-      </label>
-    </li>
-    <li>
-      <label class="label-checkbox item-content">
-        <input type="checkbox" name="dostavka" id="dostavka" value="Доставка" checked="checked">
-        <div class="item-media">
-          <i class="icon icon-form-checkbox"></i>
-        </div>
-        <div class="item-inner">
-          <div class="item-title">Доставка - <span class="dostavka-info"></span></div>
-        </div>
-      </label>
-    </li>
--->
-<div id="adres-fields">
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Улица</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Улица" name="adres" id="adres">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				    <div class="item-title label">Дом</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Дом" name="house_num" id="house_num">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Корпус</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Корпус" name="korpus" id="korpus">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				    <div class="item-title label">Квартира/офис</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Квартира/офис" name="kvartira" id="kvartira">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">Примечание</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="Примечание" name="primechanie" id="primechanie">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				<!--
-				<li>
-				  <div class="item-content">
-                   <div class="item-inner">
-				   <div class="item-title label">День рождения</div>
-                    <div class="item-input">
-                     <input type="text" placeholder="День и месяц" name="birthday" id="birthday">
-                    </div>
-                   </div>
-                  </div>
-				</li>
-				-->
-</div>
-                   <!-- <input type="button" name="submit" id="submit" value="Отправить" class="button button-big active color-green">  -->
-<!--------------------------------------------Checkout template---------------------------->
-				 		</fieldset>
-                 </ul>
-               </form>
-            </div>
-          </div>
-        </div>
-
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="complete-tpl">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#" class="link icon-only open-panel"> <i class="icon ion-navicon"></i></a></div>
-            <div class="center sliding">Заказ отправлен</div>
-          </div>
-        </div>
-        <div class="pages">
-        <!-- Page, data-page contains page name-->
-          <div data-page="complete" class="page complete-page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-                <div class="call-phones">
-                    <a href="#" onclick="window.location='tel:+375333891111'; return false;" class="external phone-link">(033)389-11-11</a>
-                    <a href="#" onclick="window.location='tel:+375445891111'; return false;" class="external phone-link">(044)589-11-11</a>
-                </div>
-               <div class="content-block">
-                 <div class="content-block-inner">
-                 <p> загрузка... </p>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="o-nas-tpl">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-            <div class="center sliding">О нас</div>
-
-          </div>
-        </div>
-        <div class="pages">
-          <!-- Page, data-page contains page name-->
-          <div data-page="o-nas" class="page o-nas-page no-toolbar cached">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-               <div class="content-block tablet-inset">
-                <div class="content-block-inner">
-				<p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                </div>
-               </div>
-            </div>
-          </div>
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-	<script type="text/template" id="dostavka-tpl">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-            <div class="center sliding">Доставка</div>
-
-          </div>
-        </div>
-        <div class="pages">
-          <!-- Page, data-page contains page name-->
-          <div data-page="dostavka" class="page dostavka-page no-toolbar cached">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-               <div class="content-block tablet-inset">
-                <div class="content-block-inner">
-                <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                </div>
-               </div>
-            </div>
-          </div>
-        </div>
-	</script>
-<!--************************************************************************************************************************************************************************-->
-    <script type="text/template" id="contacts-tpl">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-                <div class="center sliding">Контакты</div>
-            </div>
-        </div>
-        <div class="pages">
-            <!-- Page, data-page contains page name-->
-            <div data-page="contacts" class="page contacts-page no-toolbar cached">
-                <!-- Scrollable page content-->
-                <div class="page-content">
-                    <div class="content-block tablet-inset">
-                        <div class="content-block-inner">
-                            <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
-<!--************************************************************************************************************************************************************************-->
-    <script type="text/template" id="order-tpl">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="left"><a href="#index" class="link icon-only item-link"><i class="icon ion-chevron-left"></i></a></div>
-                <div class="center sliding">Мой заказ</div>
-            </div>
-        </div>
-        <div class="pages">
-            <!-- Page, data-page contains page name-->
-            <div data-page="order" class="page order-page no-toolbar">
-                <!-- Scrollable page content-->
-                <div class="page-content">
-                    <div class="content-block tablet-inset">
-                        <div class="content-block-inner">
-                            <p> загрузка... </p>
-                            <p class="tovar-preloader"><div class="item-inner center"><span style="width:36px; height:36px" class="preloader"></span></div></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
-<!--************************************************************************************************************************************************************************-->
-
-
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.mask.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
-
-    </body>
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: () => ({
+            init: false,
+            loader: true,
+            loaderText: "Загрузка меню...",
+            sender: false,
+            drawer: false,
+            group: null,
+            tovars: null,
+            groups: null,
+            slides: null,
+            termCode: null,
+            page: 'front',
+            title: null,
+            cart: {},
+            total: 0,
+            qty: 0,
+            form: {},
+            msg: null,
+            body: null,
+            popupImgUrl: null,
+            popup: false,
+            rules: {
+                required: value => !!value || 'Заполните поле',
+                counter: value => value.length <= 20 || 'Максимум 20 символов',
+                phone: value => value.length == 17 || 'Заполните телефон',
+                email: value => {
+                    const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    return pattern.test(value) || 'Invalid e-mail.'
+                },
+            },
+        }),
+        mounted() {
+            this.init = true;
+            this.updateTovars();
+            this.updateGroups();
+            this.updateSlides();
+        },
+        filters: {
+            currency (value) {
+                return value.toFixed(2)
+            }
+        },
+        methods: {
+            updateTovars: function () {
+                var obj = this;
+                this.loader = true;
+                this.loaderText="Загрузка меню...";
+                axios
+                    .get('https://express-pizza.by/tovarjson')
+                    .then(response => {
+                        console.log('Tovars updated');
+                        this.tovars = response.data.Items;
+                        this.loader = false;
+                        setTimeout(obj.updateTovars, 1800000);
+                    });
+            },
+            updateGroups: function () {
+                var obj = this;
+                this.loader = true;
+                this.loaderText="Загрузка меню...";
+                axios
+                    .get('https://express-pizza.by/groupjson')
+                    .then(response => {
+                        console.log('Groups updated');
+                        this.groups = response.data.Items;
+                        this.loader = false;
+                        setTimeout(obj.updateGroups, 1800000);
+                    });
+            },
+            updateSlides: function () {
+                var obj = this;
+                this.loader = true;
+                this.loaderText="Загрузка слайдов...";
+                axios
+                    .get('https://express-pizza.by/slidesjson')
+                    .then((response) => {
+                        console.log('Slides updated');
+                        this.slides = response.data.Items;
+                        this.loader = false;
+                        setTimeout(obj.updateSlides, 1800000);
+                    });
+            },
+            popupImg: function(img) {
+                this.popupImgUrl = img;
+                this.popup = true;
+            },
+            groupCode: function (term) {
+                this.termCode = term.code;
+                this.page = 'tovars';
+                this.title = term.name;
+            },
+            next: function () {
+                if(this.page == 'cart') {
+                    this.page = 'checkout';
+                    this.title = 'Оформление заказа';
+                } else if(this.page == 'tovars' || this.page == 'front') {
+                    this.page = 'cart';
+                    this.title = 'Корзина';
+                }
+            },
+            previous: function () {
+                if(this.page == 'checkout') {
+                    this.page = 'cart';
+                    this.title = 'Корзина';
+                } else {
+                    this.page = 'front';
+                }
+            },
+            addTovar: function (node) {
+                if(this.cart[node.nid]){
+                    this.cart[node.nid].qty += 1;
+                } else {
+                    this.cart[node.nid] = {};
+                    this.cart[node.nid] = node;
+                    this.cart[node.nid].qty = 1;
+                }
+                this.cartSum();
+            },
+            removeTovar: function (node) {
+                if(this.cart[node.nid]) {
+                    if(this.cart[node.nid].qty>1){
+                        this.cart[node.nid].qty -= 1;
+                    } else {
+                        delete this.cart[node.nid];
+                    }
+                    this.cartSum();
+                }
+            },
+            cartSum: function () {
+                this.total = 0;
+                this.qty = 0;
+                for (var nid in this.cart) {
+                    if ( this.cart.hasOwnProperty(nid) ) {
+                        this.total += this.cart[nid].price*this.cart[nid].qty;
+                        this.qty += this.cart[nid].qty;
+                    }
+                }
+            },
+            sendOrder: function () {
+                if(this.$refs.form.validate()){
+                    var obj = this;
+                    this.loader = true;
+                    this.loaderText="Отправка заказа...";
+                    this.form.hour = 0;
+                    this.form.minute = 0;
+                    this.form.dostavka = 1;
+                    const data = {};
+                    data.action = 1;
+                    data.form = this.form;
+                    data.cart = this.cart;
+                        axios.post('https://express-pizza.by/checkout2.php', data )
+                            .then((response) => {
+                                console.log(response);
+                                this.loader = false;
+                                if(response.data.status){
+                                    this.page = 'complete';
+                                    this.title = 'Заказ отправлен';
+                                    this.msg = response.data.msg;
+                                    this.cart = {};
+                                    this.total = 0;
+                                    this.qty = 0;
+                                    window.localStorage.setItem('lastOrderId', response.data.order_id);
+                                    this.loader = true;
+                                    this.loaderText="Статус заказа...";
+                                    setTimeout(obj.loadStatusPage, 3000);
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                this.loader = false;
+                            });
+                }
+            },
+            loadExternalPage: function(nid) {
+                this.loader = true;
+                this.loaderText="Загрузка...";
+                axios
+                    .get('https://express-pizza.by/pages.php',  {
+                        params: {
+                            page: true,
+                            nid: nid,
+                        }
+                    })
+                    .then((response) => {
+                        this.loader = false;
+                        console.log(response);
+                        if(response.data.status){
+                            this.page = 'externalpage';
+                            this.title = response.data.title;
+                            this.body = response.data.body;
+                            this.drawer = false;
+                        }
+                    })
+                    .catch((error) => {
+                        this.loader = false;
+                        console.log(error);
+                    });
+            },
+            loadStatusPage: function() {
+                var obj = this;
+                var order_id = window.localStorage.getItem('lastOrderId');
+                axios
+                    .get('https://express-pizza.by/pages.php',  {
+                        params: {
+                            page: true,
+                            nid: 66512,
+                            last_order_id: order_id
+                        }
+                    })
+                    .then((response) => {
+                        this.loader = false;
+                        console.log(response);
+                        if(response.data.status){
+                            // только если страница complete или страницы статуса заказа
+                            if(this.page == 'complete' || this.title == response.data.title) {
+                                this.page = 'externalpage';
+                                this.title = response.data.title;
+                                this.body = response.data.body;
+                                this.drawer = false;
+                                setTimeout(obj.loadStatusPage, 30000);
+                            }
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            },
+        }
+    });
+    Vue.directive('mask', VueMask.VueMaskDirective);
+</script>
+</body>
 </html>
