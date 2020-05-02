@@ -32,7 +32,7 @@
         <preference name="BackupWebStorage" value="none" />
     </platform>
 
-<preference name="StatusBarBackgroundColor" value="#ff151f" />
+
 <preference name="StatusBarOverlaysWebView" value="true" />
 <preference name="StatusBarStyle" value="default" />
 
@@ -44,8 +44,11 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
  <!--   <plugin name="cordova-plugin-console" spec="~1.0.1" /> -->
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
+
     <plugin name="cordova-plugin-splashscreen" spec="~3.1.0" />
-    
+
+    <preference name="StatusBarBackgroundColor" value="#ff151f" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 
 <icon src="icon.png"  />
  <splash src="splash.png" />
