@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="statusbar and logo">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="statusbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <list id="50562b79-aa79-43d4-86e2-cb0b9867b1de" name="App" comment="App" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,21 +134,7 @@
       <workItem from="1587067555818" duration="1223000" />
       <workItem from="1587305894172" duration="10000" />
       <workItem from="1587566440812" duration="480000" />
-      <workItem from="1588419366400" duration="1027000" />
-    </task>
-    <task id="LOCAL-00002" summary="test">
-      <created>1567267918923</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1567267918925</updated>
-    </task>
-    <task id="LOCAL-00003" summary="test">
-      <created>1567283042276</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1567283042278</updated>
+      <workItem from="1588419366400" duration="3547000" />
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1567283364611</created>
@@ -479,7 +465,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588420317504</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="statusbar">
+      <created>1588420518335</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1588420518335</updated>
+    </task>
+    <task id="LOCAL-00052" summary="statusbar">
+      <created>1588420528862</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1588420528862</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +488,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="sdk version" />
     <MESSAGE value="app cersion" />
     <MESSAGE value="debug version with alerts and jquery ajax insteed framework 7" />
     <MESSAGE value="checking internet connection" />
@@ -513,21 +512,26 @@
     <MESSAGE value="version num 2.8&#10;font 15px for phone links" />
     <MESSAGE value="version 3.0 vue.js" />
     <MESSAGE value="statusbar and logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="statusbar and logo" />
+    <MESSAGE value="statusbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="statusbar" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="128" key="#Deployment" timestamp="1588419409847">
+    <state x="320" y="128" key="#Deployment" timestamp="1588422452357">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="128" key="#Deployment/0.23.1440.877@0.23.1440.877" timestamp="1588419409847" />
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588420518043">
+    <state x="320" y="128" key="#Deployment/0.23.1440.877@0.23.1440.877" timestamp="1588422452357" />
+    <state x="320" y="128" key="#Options" timestamp="1588422417791">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588420518043" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1588420319387">
+    <state x="320" y="128" key="#Options/0.23.1440.877@0.23.1440.877" timestamp="1588422417791" />
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588420528485">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1588420319387" />
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588420528485" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1588420531166">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1588420531166" />
     <state x="611" y="201" key="ftp.server.browser" timestamp="1588419406791">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
