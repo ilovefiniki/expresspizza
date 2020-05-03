@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="small bugs">
+    <list default="true" id="7c88a350-b827-4ffe-8ebc-86454aa30c02" name="Default" comment="google analytics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
@@ -137,14 +137,8 @@
       <workItem from="1588419366400" duration="3658000" />
       <workItem from="1588425905768" duration="6000" />
       <workItem from="1588432662749" duration="101000" />
-      <workItem from="1588443884696" duration="461000" />
-    </task>
-    <task id="LOCAL-00005" summary="test">
-      <created>1568034351171</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1568034351173</updated>
+      <workItem from="1588443884696" duration="1018000" />
+      <workItem from="1588540296234" duration="81000" />
     </task>
     <task id="LOCAL-00006" summary="test">
       <created>1568234113074</created>
@@ -482,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588423895189</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="google analytics">
+      <created>1588444757689</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1588444757690</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +492,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="debug version with alerts and jquery ajax insteed framework 7" />
     <MESSAGE value="checking internet connection" />
     <MESSAGE value="ios 9 connection" />
     <MESSAGE value="version number and timeout of update" />
@@ -516,7 +516,8 @@
     <MESSAGE value="statusbar and logo" />
     <MESSAGE value="statusbar" />
     <MESSAGE value="small bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="small bugs" />
+    <MESSAGE value="google analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="google analytics" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="128" key="#Deployment" timestamp="1588422452357">
@@ -527,14 +528,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="128" key="#Options/0.23.1440.877@0.23.1440.877" timestamp="1588422417791" />
-    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588423894823">
+    <state x="313" y="66" key="CommitChangelistDialog2" timestamp="1588444757058">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588423894823" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1588423897600">
+    <state x="313" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1588444757058" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1588444760605">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1588423897600" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1588444760605" />
     <state x="611" y="201" key="ftp.server.browser" timestamp="1588419406791">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
