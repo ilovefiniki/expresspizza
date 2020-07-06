@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="by.express_pizza.express_pizza" version="3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <preference name="phonegap-version" value="cli-7.1.0" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
 
     <name>Express Pizza</name>
     <description>Доставка пиццы на дом и в офис в Минске. Пиццы, салаты, соки и напитки.
